@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Name,Department,CurrentSemester,Sem1_Total,Sem2_Total,Sem3_Total,Sem4_Total,Sem5_Total,Sem6_Total,Sem1_Attendance,Sem2_Attendance,Sem3_Attendance,Sem4_Attendance,Sem5_Attendance,Sem6_Attendance,22AI037,22AI501,22AI502,22AI503,22AI504,Attendance
 Vivaan Yadav,Biotechnology,6,360,349,352,350,357,365,71,72,73,70,64,67,87.0,96.0,94.0,97.0,91.0,72.0
 Ishita Anand,Computer Science & Business Systems,6,344,366,358,369,366,377,74,79,77,74,71,77,97.0,88.0,84.0,97.0,89.0,77.0
@@ -199,3 +200,206 @@ Vivaan Swaminathan,Artificial Intelligence and Data Science,6,304,300,320,302,31
 Sanjay Mishra,Information Technology,6,315,323,304,303,334,344,87,81,87,87,88,90,70.0,77.0,77.0,76.0,78.0,91.0
 Vivaan Singh,Computer Science & Engineering,6,396,407,426,424,453,474,89,88,82,81,85,84,81.0,80.0,94.0,100.0,88.0,88.0
 Arjun Sharma,Fashion Technology,6,357,377,372,368,398,423,69,66,72,71,69,75,78.0,78.0,82.0,80.0,90.0,75.0
+=======
+Name,Department,CurrentSemester,Sem1_Total,Sem2_Total,Sem3_Total,Sem4_Total,Sem5_Total,Sem6_Total,Sem1_Attendance,Sem2_Attendance,Sem3_Attendance,Sem4_Attendance,Sem5_Attendance,Sem6_Attendance,22AI037,22AI501,22AI502,22AI503,22AI504,Attendance
+Vivaan Yadav,Biotechnology,6,360,349,352,350,357,365,71,72,73,70,64,67,87.0,96.0,94.0,97.0,91.0,72.0
+Ishita Anand,Computer Science & Business Systems,6,344,366,358,369,366,377,74,79,77,74,71,77,97.0,88.0,84.0,97.0,89.0,77.0
+Aadhya Pillai,Civil Engineering,6,334,352,331,355,383,381,89,92,97,92,88,94,97.0,96.0,96.0,100.0,100.0,87.0
+Surya Singh,Agricultural Engineering,6,424,442,443,428,459,470,74,78,81,83,80,74,100.0,99.0,100.0,90.0,100.0,78.0
+Aravind Verma,Electronics & Communication Engineering,6,388,420,414,420,397,405,92,88,89,86,86,88,87.0,82.0,85.0,88.0,79.0,93.0
+Vikram Das,Computer Science & Business Systems,6,442,420,417,438,460,463,82,84,82,80,74,77,73.0,78.0,80.0,82.0,77.0,85.0
+Aadhya Bhaskar,Electronics & Communication Engineering,6,357,344,365,341,337,340,82,77,76,70,75,74,92.0,87.0,90.0,75.0,88.0,76.0
+Vignesh Senthil,Civil Engineering,6,427,434,460,478,454,466,81,78,75,81,85,87,64.0,62.0,60.0,57.0,66.0,84.0
+Ishaan Iyer,Mechanical Engineering,6,405,429,418,431,403,385,78,78,74,79,77,71,92.0,95.0,91.0,86.0,96.0,84.0
+Ritvik Muralidharan,Mechanical Engineering,6,330,356,360,337,369,382,98,98,98,98,98,94,83.0,82.0,86.0,77.0,91.0,96.0
+Ayaan Agarwal,Fashion Technology,6,404,429,405,408,413,417,80,79,86,80,79,77,68.0,67.0,73.0,78.0,75.0,84.0
+Dev Menon,Computer Science & Engineering,6,390,377,394,393,413,427,82,83,77,81,83,87,76.0,81.0,68.0,68.0,77.0,76.0
+Ishaan Venkatesh,Computer Science & Engineering,6,415,395,415,418,417,393,82,85,79,73,74,68,72.0,69.0,76.0,69.0,78.0,80.0
+Aditya Malhotra,Mechanical Engineering,6,418,426,462,467,492,471,61,61,60,60,62,60,67.0,74.0,74.0,67.0,76.0,60.0
+Nithya Balaji,Artificial Intelligence and Machine Learning,6,353,384,418,410,428,411,78,72,75,71,66,62,74.0,77.0,76.0,79.0,90.0,84.0
+Vivaan Nair,Agricultural Engineering,6,438,463,464,453,439,435,92,94,95,97,96,97,93.0,98.0,83.0,79.0,86.0,85.0
+Vignesh Menon,Agricultural Engineering,6,369,402,435,407,411,438,65,65,61,68,70,76,82.0,72.0,73.0,69.0,89.0,67.0
+Lakshmi Joshi,Artificial Intelligence and Data Science,6,333,339,338,366,363,381,70,65,68,74,77,83,70.0,56.0,66.0,63.0,63.0,73.0
+Abhinav Agarwal,Biomedical Engineering,6,356,374,408,400,431,442,82,87,83,89,86,93,69.0,80.0,83.0,67.0,69.0,76.0
+Tanvi Dubey,Electronics & Instrumentation Engineering,6,377,349,364,361,382,378,75,76,81,87,83,82,79.0,87.0,69.0,82.0,72.0,76.0
+Diya Dubey,Artificial Intelligence and Machine Learning,6,365,388,363,372,408,433,72,75,75,78,74,70,73.0,79.0,84.0,79.0,80.0,73.0
+Tanvi Agarwal,Biomedical Engineering,6,356,337,351,329,308,300,91,95,98,98,97,98,71.0,72.0,63.0,53.0,64.0,89.0
+Pooja Mahesh,Electronics & Instrumentation Engineering,6,412,396,422,417,400,420,76,81,80,85,85,88,76.0,84.0,82.0,80.0,91.0,79.0
+Diya Krishnan,Computer Technology,6,382,401,422,431,419,443,77,82,88,86,92,93,92.0,98.0,95.0,86.0,87.0,73.0
+Manoj Nair,Textile Technology,6,328,351,348,322,300,300,77,72,72,67,72,70,70.0,77.0,74.0,66.0,77.0,80.0
+Aadhya Agarwal,Computer Science & Design,6,408,385,420,422,455,467,84,84,79,83,88,86,90.0,74.0,88.0,90.0,89.0,81.0
+Tanvi Muralidharan,Electrical & Electronics Engineering,6,427,460,460,472,455,430,90,92,94,92,98,98,89.0,83.0,82.0,77.0,81.0,93.0
+Vignesh Mishra,Computer Technology,6,419,436,448,452,450,482,82,77,84,86,91,87,79.0,82.0,80.0,90.0,92.0,87.0
+Rakesh Gupta,Information Science & Engineering,6,430,436,408,385,362,389,70,64,60,66,61,64,82.0,79.0,81.0,78.0,71.0,63.0
+Varun Rajan,Textile Technology,6,394,388,389,386,403,382,68,65,67,71,72,76,76.0,66.0,61.0,68.0,69.0,73.0
+Rakesh Agarwal,Artificial Intelligence and Machine Learning,6,334,366,355,360,363,346,61,65,63,60,60,63,88.0,75.0,81.0,81.0,94.0,60.0
+Surya Rajan,Information Science & Engineering,6,371,379,355,377,356,346,98,98,98,96,93,94,94.0,80.0,94.0,92.0,77.0,95.0
+Vikram Dubey,Information Science & Engineering,6,412,421,431,433,442,445,73,74,70,68,62,60,71.0,91.0,78.0,85.0,82.0,74.0
+Deepak Verma,Electronics & Instrumentation Engineering,6,395,393,406,418,412,404,85,87,89,91,87,86,91.0,85.0,85.0,78.0,86.0,86.0
+Varun Mishra,Electrical & Electronics Engineering,6,387,402,426,424,413,448,77,77,80,86,92,93,87.0,94.0,90.0,92.0,100.0,83.0
+Kavya Jain,Electrical & Electronics Engineering,6,392,375,400,410,411,447,77,75,73,80,75,77,81.0,80.0,80.0,85.0,80.0,81.0
+Sneha Krishnan,Food Technology,6,445,425,450,429,418,435,64,71,75,74,81,82,61.0,63.0,58.0,61.0,67.0,66.0
+Gokul Bhat,Information Science & Engineering,6,412,418,419,406,430,415,78,78,78,83,80,76,92.0,80.0,90.0,81.0,79.0,84.0
+Aarav Yadav,Computer Technology,6,341,356,340,330,337,318,86,85,81,86,90,97,64.0,68.0,61.0,73.0,68.0,92.0
+Nikhil Srinivasan,Biomedical Engineering,6,401,402,388,377,406,384,71,70,65,62,60,67,68.0,69.0,71.0,80.0,81.0,70.0
+Vivaan Mahesh,Computer Science & Business Systems,6,425,404,400,415,433,466,81,82,82,88,87,92,99.0,87.0,100.0,97.0,100.0,78.0
+Meera Gupta,Information Science & Engineering,6,350,331,324,350,378,375,93,89,88,89,87,85,68.0,85.0,82.0,71.0,80.0,87.0
+Vignesh Srinivasan,Electronics & Communication Engineering,6,392,371,356,360,384,418,81,78,76,81,81,83,81.0,74.0,76.0,62.0,78.0,83.0
+Vignesh Swaminathan,Textile Technology,6,366,378,401,385,402,429,90,94,98,98,98,98,100.0,100.0,95.0,100.0,90.0,91.0
+Rahul Jain,Mechanical Engineering,6,405,400,417,406,431,418,74,68,74,72,74,73,86.0,77.0,73.0,84.0,79.0,80.0
+Vivaan Bhaskar,Mechanical Engineering,6,364,372,358,335,315,313,98,92,87,94,98,98,62.0,61.0,59.0,73.0,55.0,91.0
+Aadhya Chawla,Biomedical Engineering,6,345,352,345,341,344,354,72,79,76,82,87,91,79.0,67.0,73.0,81.0,77.0,75.0
+Vivaan Kumar,Mechatronics Engineering,6,400,391,395,381,359,385,65,65,60,67,73,79,92.0,91.0,88.0,91.0,76.0,62.0
+Gokul Iyer,Artificial Intelligence and Data Science,6,382,378,414,444,432,412,91,89,88,84,85,83,64.0,75.0,71.0,74.0,65.0,95.0
+Vikram Kumar,Information Technology,6,376,409,428,402,428,404,74,79,77,73,79,79,66.0,67.0,83.0,78.0,72.0,78.0
+Ishita Dubey,Artificial Intelligence and Data Science,6,407,441,434,465,442,447,67,66,63,60,67,65,78.0,68.0,67.0,70.0,68.0,65.0
+Divya Swaminathan,Artificial Intelligence and Data Science,6,326,339,314,300,300,300,84,91,92,88,88,82,98.0,100.0,92.0,100.0,100.0,83.0
+Abhinav Menon,Computer Technology,6,346,320,304,300,300,324,65,69,65,62,60,66,83.0,92.0,90.0,85.0,83.0,62.0
+Siddharth Rajan,Computer Science & Business Systems,6,319,316,309,334,370,393,83,89,85,83,80,86,65.0,61.0,54.0,59.0,55.0,80.0
+Aadhya Kulkarni,Agricultural Engineering,6,339,368,355,339,352,356,78,75,72,73,76,77,71.0,69.0,69.0,73.0,86.0,76.0
+Pooja Chandran,Civil Engineering,6,419,421,424,439,431,414,75,72,78,74,79,77,77.0,77.0,78.0,88.0,84.0,80.0
+Krish Agarwal,Electronics & Communication Engineering,6,356,365,375,349,332,319,89,96,98,98,98,98,77.0,75.0,85.0,73.0,86.0,92.0
+Anika Sharma,Computer Science & Business Systems,6,332,332,353,330,332,333,60,60,60,60,60,61,81.0,74.0,92.0,77.0,74.0,60.0
+Aarav Krishnan,Fashion Technology,6,348,345,343,374,376,368,64,66,71,73,77,80,73.0,72.0,73.0,78.0,81.0,69.0
+Vivaan Patel,Computer Technology,6,420,451,450,471,500,500,93,87,90,88,91,95,79.0,73.0,86.0,80.0,88.0,87.0
+Shreya Prakash,Computer Technology,6,419,395,422,405,430,461,98,98,98,98,98,98,95.0,98.0,92.0,100.0,100.0,95.0
+Arjun Kumar,Information Technology,6,395,393,388,393,390,396,98,98,97,98,98,98,87.0,92.0,94.0,90.0,85.0,98.0
+Aarav Mishra,Mechatronics Engineering,6,383,382,409,385,397,391,96,98,98,98,94,91,77.0,84.0,85.0,83.0,85.0,98.0
+Manoj Jain,Fashion Technology,6,399,412,385,405,386,386,80,81,85,90,89,87,94.0,97.0,86.0,98.0,96.0,77.0
+Ayaan Yadav,Biotechnology,6,400,388,424,416,402,402,77,76,77,78,82,79,75.0,82.0,83.0,78.0,77.0,70.0
+Gokul Kumar,Food Technology,6,385,378,350,381,388,411,86,88,83,84,83,86,67.0,71.0,79.0,65.0,77.0,81.0
+Aadhya Kumar,Textile Technology,6,374,346,369,350,342,355,76,71,73,77,76,77,82.0,84.0,72.0,75.0,74.0,82.0
+Rohan Agarwal,Electronics & Instrumentation Engineering,6,417,403,384,369,392,370,83,78,79,78,78,73,81.0,78.0,78.0,82.0,90.0,82.0
+Ritvik Dubey,Information Technology,6,403,396,383,412,384,395,79,84,88,85,85,85,81.0,78.0,83.0,84.0,96.0,81.0
+Sanjay Chawla,Information Science & Engineering,6,353,326,303,300,300,300,66,69,68,71,77,77,94.0,79.0,91.0,80.0,82.0,60.0
+Harsh Pillai,Computer Science & Design,6,348,334,356,354,340,342,90,97,98,93,87,82,58.0,70.0,70.0,64.0,69.0,91.0
+Ishaan Mishra,Biotechnology,6,369,348,335,349,354,380,60,63,64,60,60,62,94.0,84.0,88.0,89.0,87.0,60.0
+Diya Singh,Biomedical Engineering,6,385,397,418,439,425,409,91,87,83,83,89,90,62.0,74.0,77.0,72.0,72.0,91.0
+Rohan Saxena,Textile Technology,6,354,358,358,340,348,372,77,74,77,77,71,77,70.0,78.0,77.0,83.0,84.0,76.0
+Rohan Jain,Electrical & Electronics Engineering,6,411,424,439,425,445,455,87,91,89,86,88,89,68.0,76.0,83.0,75.0,83.0,90.0
+Varun Bhat,Fashion Technology,6,313,336,332,328,318,346,83,89,94,98,94,98,68.0,62.0,72.0,68.0,68.0,87.0
+Diya Muralidharan,Computer Science & Design,6,339,341,364,339,372,401,73,79,76,71,75,82,72.0,71.0,71.0,70.0,80.0,70.0
+Ritvik Srinivasan,Mechatronics Engineering,6,338,356,386,370,388,404,97,98,95,98,92,90,70.0,77.0,75.0,78.0,75.0,95.0
+Tanvi Srinivasan,Electronics & Communication Engineering,6,378,404,377,356,331,328,98,95,96,95,98,92,65.0,67.0,71.0,74.0,58.0,98.0
+Arjun Pillai,Computer Science & Design,6,324,317,305,333,369,380,77,75,81,86,81,81,100.0,100.0,97.0,94.0,93.0,78.0
+Naveen Nair,Electronics & Instrumentation Engineering,6,424,415,438,431,466,459,95,98,98,98,97,98,76.0,67.0,71.0,58.0,68.0,89.0
+Krish Saxena,Computer Technology,6,434,462,474,451,468,474,80,82,76,77,84,78,100.0,98.0,94.0,100.0,91.0,84.0
+Dev Swaminathan,Mechatronics Engineering,6,443,468,497,496,476,474,87,87,84,89,85,88,78.0,82.0,69.0,79.0,71.0,88.0
+Lakshmi Chandran,Electrical & Electronics Engineering,6,393,375,353,355,366,371,71,76,77,73,78,81,94.0,91.0,84.0,86.0,78.0,71.0
+Ritvik Kulkarni,Civil Engineering,6,391,412,427,460,460,463,85,83,85,82,82,83,69.0,60.0,56.0,58.0,57.0,88.0
+Naveen Subramani,Computer Science & Engineering,6,367,344,359,356,372,377,77,80,85,79,81,75,71.0,79.0,83.0,79.0,75.0,76.0
+Karthik Krishnan,Computer Science & Business Systems,6,371,368,356,347,372,382,84,83,84,78,83,79,89.0,94.0,99.0,94.0,89.0,80.0
+Sneha Singh,Biotechnology,6,341,369,384,379,389,391,93,88,82,79,80,75,100.0,100.0,100.0,100.0,98.0,98.0
+Krish Bhaskar,Artificial Intelligence and Machine Learning,6,387,375,361,372,368,389,72,78,76,83,89,92,75.0,84.0,79.0,79.0,72.0,69.0
+Diya Mishra,Computer Technology,6,377,405,423,455,485,500,88,87,87,94,93,92,81.0,84.0,83.0,81.0,95.0,84.0
+Karthik Rajan,Textile Technology,6,349,323,313,300,300,318,70,70,64,67,65,66,86.0,98.0,99.0,90.0,86.0,72.0
+Nithya Das,Mechanical Engineering,6,359,348,323,329,310,329,73,78,79,82,82,85,87.0,86.0,75.0,79.0,87.0,75.0
+Ananya Krishnan,Biotechnology,6,341,321,319,320,341,367,95,98,94,98,98,98,100.0,89.0,94.0,96.0,100.0,89.0
+Rohan Iyer,Computer Science & Engineering,6,328,335,308,307,329,320,98,98,95,96,96,97,100.0,95.0,84.0,82.0,84.0,98.0
+Tanvi Chandran,Computer Science & Design,6,357,350,339,346,364,351,77,71,72,73,78,83,89.0,87.0,74.0,74.0,79.0,74.0
+Rahul Rao,Electronics & Instrumentation Engineering,6,435,471,476,456,483,500,98,92,87,94,98,97,91.0,81.0,85.0,93.0,75.0,93.0
+Aarav Singh,Computer Science & Engineering,6,319,300,325,355,382,367,80,78,82,85,90,87,65.0,53.0,65.0,62.0,56.0,78.0
+Naveen Jain,Mechatronics Engineering,6,349,369,401,424,436,445,80,74,75,73,76,80,64.0,61.0,56.0,51.0,51.0,76.0
+Manoj Singh,Agricultural Engineering,6,384,362,388,415,390,415,76,75,69,73,72,70,82.0,97.0,83.0,84.0,90.0,78.0
+Varun Bhaskar,Computer Science & Design,6,387,382,413,392,383,377,74,71,71,70,75,75,86.0,83.0,82.0,87.0,79.0,78.0
+Ananya Chauhan,Computer Science & Business Systems,6,426,404,394,422,411,400,71,75,72,67,65,71,73.0,86.0,81.0,75.0,92.0,73.0
+Anika Das,Mechatronics Engineering,6,375,360,362,395,414,397,95,93,87,90,88,85,83.0,85.0,79.0,79.0,80.0,98.0
+Ishaan Dubey,Biotechnology,6,434,432,464,468,463,477,87,93,88,93,93,95,100.0,100.0,100.0,100.0,100.0,92.0
+Dev Jain,Agricultural Engineering,6,424,424,416,433,451,453,98,98,93,90,89,92,100.0,100.0,100.0,93.0,100.0,98.0
+Tanvi Prakash,Mechanical Engineering,6,400,406,421,424,401,433,81,87,85,84,90,89,90.0,81.0,81.0,95.0,81.0,81.0
+Manoj Kumar,Mechanical Engineering,6,393,373,346,368,343,369,60,60,63,60,60,60,76.0,67.0,87.0,76.0,85.0,60.0
+Gokul Kulkarni,Electrical & Electronics Engineering,6,314,312,330,335,348,375,93,98,98,97,98,93,68.0,87.0,86.0,72.0,87.0,95.0
+Abhinav Mahesh,Artificial Intelligence and Data Science,6,325,329,340,352,358,349,91,90,85,84,80,78,77.0,60.0,67.0,70.0,63.0,96.0
+Aadhya Balaji,Computer Science & Business Systems,6,353,381,365,337,337,351,63,60,63,64,62,61,80.0,85.0,79.0,79.0,79.0,60.0
+Divya Jain,Biomedical Engineering,6,395,387,387,398,377,383,63,63,67,70,72,72,50.0,50.0,59.0,55.0,62.0,61.0
+Siddharth Jain,Food Technology,6,409,411,431,461,457,454,98,98,92,90,97,91,61.0,69.0,61.0,71.0,57.0,98.0
+Pranav Menon,Information Technology,6,349,378,403,415,389,362,71,77,74,77,79,76,81.0,91.0,76.0,82.0,77.0,66.0
+Varun Srinivasan,Agricultural Engineering,6,368,381,388,391,388,398,69,68,64,63,61,60,81.0,82.0,92.0,95.0,94.0,71.0
+Kavya Muralidharan,Electronics & Instrumentation Engineering,6,391,419,449,448,437,459,89,83,85,81,81,81,74.0,75.0,81.0,74.0,75.0,83.0
+Reyansh Das,Computer Technology,6,354,390,381,392,393,374,84,88,91,92,89,89,79.0,74.0,62.0,70.0,63.0,81.0
+Saanvi Muralidharan,Food Technology,6,341,369,368,359,364,351,69,69,68,64,66,61,72.0,79.0,79.0,77.0,85.0,71.0
+Dev Dubey,Electrical & Electronics Engineering,6,386,385,358,333,361,379,60,61,61,65,66,66,83.0,76.0,91.0,84.0,90.0,61.0
+Pooja Mishra,Electrical & Electronics Engineering,6,410,385,375,399,405,426,89,96,98,97,92,91,94.0,77.0,86.0,85.0,79.0,91.0
+Gokul Pillai,Food Technology,6,368,375,380,362,363,356,75,74,79,79,81,88,90.0,79.0,98.0,85.0,87.0,79.0
+Shreya Kulkarni,Artificial Intelligence and Machine Learning,6,402,391,418,429,439,426,94,96,98,95,98,98,100.0,100.0,100.0,100.0,93.0,98.0
+Rohan Chauhan,Computer Science & Design,6,430,406,397,385,371,353,60,60,66,65,64,69,95.0,85.0,82.0,91.0,90.0,60.0
+Pooja Krishnan,Textile Technology,6,338,325,312,312,300,325,77,83,86,93,92,98,76.0,70.0,65.0,80.0,72.0,72.0
+Priya Venkatesh,Artificial Intelligence and Data Science,6,358,364,372,397,431,420,70,65,68,74,81,87,95.0,86.0,96.0,96.0,98.0,66.0
+Ira Menon,Agricultural Engineering,6,386,389,384,388,385,398,64,62,68,62,68,66,91.0,88.0,88.0,96.0,94.0,60.0
+Krish Balaji,Artificial Intelligence and Machine Learning,6,386,420,451,475,496,500,88,82,82,83,82,85,94.0,89.0,91.0,93.0,91.0,89.0
+Siddharth Patel,Fashion Technology,6,408,409,425,409,430,433,76,82,82,82,80,82,62.0,73.0,69.0,77.0,62.0,75.0
+Manoj Bhaskar,Electronics & Communication Engineering,6,351,378,405,401,377,367,81,86,93,90,86,89,74.0,70.0,75.0,86.0,78.0,84.0
+Sneha Joshi,Artificial Intelligence and Data Science,6,404,405,430,407,398,408,79,81,83,86,87,85,77.0,75.0,88.0,86.0,77.0,83.0
+Reyansh Srinivasan,Mechatronics Engineering,6,388,405,399,421,439,443,70,77,77,77,78,82,92.0,85.0,86.0,77.0,81.0,74.0
+Karthik Bhaskar,Civil Engineering,6,320,337,326,350,361,348,76,81,80,76,78,73,69.0,67.0,67.0,79.0,72.0,73.0
+Arjun Narayanan,Electrical & Electronics Engineering,6,364,362,359,352,350,368,93,88,93,94,93,98,97.0,87.0,90.0,84.0,80.0,92.0
+Varun Venkatesh,Textile Technology,6,322,319,321,356,351,336,81,78,84,89,85,85,76.0,90.0,82.0,82.0,90.0,79.0
+Naveen Kulkarni,Mechatronics Engineering,6,363,393,412,409,429,420,70,77,77,73,69,75,56.0,51.0,63.0,61.0,58.0,68.0
+Ishita Yadav,Artificial Intelligence and Machine Learning,6,383,413,400,430,447,468,62,62,65,65,64,71,87.0,76.0,79.0,73.0,88.0,66.0
+Aravind Pillai,Computer Science & Engineering,6,353,332,324,346,378,369,93,91,93,88,86,84,65.0,65.0,72.0,74.0,82.0,91.0
+Rahul Sharma,Electronics & Communication Engineering,6,374,389,400,403,399,412,73,73,75,74,75,77,75.0,80.0,76.0,74.0,66.0,72.0
+Tanvi Mishra,Computer Technology,6,425,420,447,454,479,487,81,79,75,74,71,65,68.0,80.0,66.0,79.0,65.0,80.0
+Priya Prakash,Fashion Technology,6,372,357,345,327,326,307,79,79,83,84,78,80,64.0,70.0,74.0,57.0,73.0,79.0
+Diya Kumar,Food Technology,6,300,307,304,320,307,300,88,92,86,92,97,98,71.0,71.0,85.0,71.0,77.0,86.0
+Arjun Agarwal,Electronics & Communication Engineering,6,325,330,308,339,342,321,67,72,75,76,77,75,62.0,77.0,59.0,64.0,68.0,60.0
+Vikram Singh,Textile Technology,6,311,331,361,393,372,359,63,60,60,60,60,60,87.0,76.0,87.0,80.0,73.0,65.0
+Rakesh Verma,Electronics & Instrumentation Engineering,6,429,421,421,411,419,411,60,60,65,63,68,70,82.0,93.0,77.0,85.0,84.0,66.0
+Ritvik Senthil,Fashion Technology,6,429,410,414,394,402,416,66,70,77,82,89,93,58.0,64.0,58.0,59.0,62.0,70.0
+Aadhya Jain,Artificial Intelligence and Machine Learning,6,435,440,426,405,439,456,80,86,89,91,93,98,68.0,65.0,75.0,62.0,69.0,74.0
+Nikhil Dubey,Civil Engineering,6,405,403,424,452,470,446,75,82,83,88,84,87,95.0,93.0,89.0,93.0,96.0,72.0
+Sneha Malhotra,Information Science & Engineering,6,370,371,343,361,353,348,98,94,94,92,95,91,71.0,68.0,75.0,62.0,76.0,96.0
+Ishaan Chawla,Information Technology,6,381,396,392,412,390,423,67,65,60,60,64,66,93.0,100.0,100.0,97.0,100.0,72.0
+Ishaan Chauhan,Computer Science & Design,6,366,386,369,365,376,394,84,87,90,84,84,87,86.0,71.0,85.0,86.0,81.0,77.0
+Deepak Iyer,Artificial Intelligence and Machine Learning,6,303,311,300,300,300,300,89,85,84,87,91,87,71.0,81.0,73.0,83.0,90.0,86.0
+Deepak Yadav,Computer Science & Business Systems,6,355,384,392,373,363,376,76,73,69,68,67,64,71.0,80.0,76.0,72.0,79.0,74.0
+Karthik Das,Mechatronics Engineering,6,432,458,474,460,484,484,82,78,76,71,66,69,81.0,61.0,75.0,78.0,77.0,80.0
+Manya Das,Fashion Technology,6,366,370,378,366,377,406,98,97,91,96,98,98,76.0,87.0,83.0,88.0,80.0,95.0
+Aarav Joshi,Computer Science & Design,6,308,303,313,334,319,340,76,75,76,81,86,85,86.0,74.0,79.0,68.0,78.0,70.0
+Pranav Narayanan,Computer Science & Business Systems,6,330,356,387,360,361,369,63,70,75,70,69,68,100.0,96.0,100.0,98.0,94.0,60.0
+Karthik Jain,Electronics & Communication Engineering,6,370,380,395,380,416,407,74,71,66,67,65,62,68.0,81.0,80.0,74.0,82.0,79.0
+Anika Reddy,Information Technology,6,305,319,324,306,300,300,98,94,90,95,98,94,100.0,99.0,100.0,95.0,100.0,95.0
+Vikram Mahesh,Food Technology,6,366,338,342,322,338,312,93,95,97,98,96,93,70.0,68.0,64.0,78.0,64.0,90.0
+Divya Gupta,Information Technology,6,352,379,390,398,412,435,98,96,98,98,97,98,100.0,90.0,83.0,91.0,92.0,98.0
+Ishita Iyer,Information Science & Engineering,6,416,399,402,421,454,445,71,75,82,89,96,98,66.0,78.0,68.0,75.0,65.0,70.0
+Shreya Bhaskar,Artificial Intelligence and Machine Learning,6,429,460,470,464,436,436,72,75,69,63,70,74,87.0,80.0,82.0,81.0,94.0,67.0
+Anika Jain,Electronics & Communication Engineering,6,374,403,379,351,380,352,70,66,66,72,73,67,90.0,85.0,88.0,91.0,94.0,63.0
+Diya Yadav,Biomedical Engineering,6,421,450,443,477,500,485,92,95,96,98,96,96,72.0,77.0,81.0,67.0,80.0,98.0
+Vignesh Chandran,Electronics & Instrumentation Engineering,6,391,424,432,464,473,500,76,80,79,79,75,74,97.0,97.0,89.0,98.0,96.0,76.0
+Aadhya Verma,Food Technology,6,420,403,412,434,409,396,93,93,98,98,97,96,91.0,76.0,77.0,76.0,79.0,98.0
+Ritvik Malhotra,Biotechnology,6,413,404,414,432,422,448,90,87,91,96,98,92,90.0,87.0,82.0,94.0,78.0,91.0
+Pooja Kulkarni,Agricultural Engineering,6,348,383,361,353,389,409,60,67,64,60,60,63,74.0,74.0,63.0,62.0,59.0,62.0
+Krish Jain,Biomedical Engineering,6,334,336,330,303,328,345,89,85,82,76,75,79,79.0,84.0,79.0,95.0,79.0,93.0
+Varun Kulkarni,Electronics & Instrumentation Engineering,6,410,394,416,429,452,461,71,77,78,80,81,88,73.0,71.0,72.0,71.0,75.0,65.0
+Rakesh Jain,Computer Science & Engineering,6,365,342,364,377,389,425,69,73,80,77,74,80,68.0,72.0,88.0,87.0,79.0,72.0
+Ishaan Patel,Mechanical Engineering,6,376,372,369,395,376,382,67,61,60,64,63,62,82.0,74.0,85.0,82.0,65.0,71.0
+Divya Bhaskar,Computer Science & Engineering,6,373,368,379,400,383,360,64,60,65,66,67,61,86.0,88.0,76.0,83.0,75.0,60.0
+Naveen Prakash,Artificial Intelligence and Data Science,6,392,419,434,448,471,500,64,60,61,60,60,60,85.0,81.0,78.0,72.0,86.0,69.0
+Deepak Bhat,Biotechnology,6,423,403,394,377,383,366,82,78,82,79,81,75,71.0,70.0,82.0,86.0,68.0,79.0
+Aditya Verma,Civil Engineering,6,380,354,339,375,371,384,87,93,88,93,92,95,86.0,68.0,84.0,72.0,74.0,85.0
+Manoj Iyer,Information Technology,6,380,384,385,365,374,373,92,96,95,94,97,98,87.0,87.0,91.0,86.0,86.0,94.0
+Manya Subramani,Information Technology,6,394,368,389,423,447,436,63,69,64,60,60,60,81.0,75.0,87.0,79.0,83.0,64.0
+Manya Venkatesh,Biomedical Engineering,6,356,338,343,346,322,353,76,80,80,82,85,87,82.0,93.0,81.0,94.0,91.0,69.0
+Aadhya Anand,Information Science & Engineering,6,391,394,372,361,347,381,81,88,84,82,87,87,84.0,87.0,89.0,74.0,85.0,79.0
+Ayaan Sharma,Civil Engineering,6,302,300,317,311,300,300,82,79,79,74,76,71,70.0,68.0,71.0,81.0,76.0,83.0
+Lakshmi Anand,Textile Technology,6,416,447,480,489,500,500,81,78,79,76,79,78,98.0,100.0,100.0,90.0,100.0,78.0
+Rohan Balaji,Mechatronics Engineering,6,369,357,346,320,308,300,67,70,64,60,61,60,57.0,73.0,55.0,63.0,69.0,73.0
+Nikhil Iyer,Electrical & Electronics Engineering,6,341,366,381,369,347,324,90,92,93,90,89,84,81.0,94.0,91.0,92.0,94.0,83.0
+Neha Singh,Biotechnology,6,391,382,401,423,457,453,72,69,75,74,80,77,100.0,90.0,95.0,91.0,100.0,78.0
+Pooja Agarwal,Agricultural Engineering,6,417,435,447,468,488,492,82,87,82,81,75,69,68.0,82.0,79.0,65.0,65.0,75.0
+Lakshmi Balaji,Fashion Technology,6,349,377,359,336,328,330,77,82,89,84,89,92,57.0,65.0,72.0,72.0,74.0,77.0
+Sanjay Rajan,Information Science & Engineering,6,363,383,405,398,382,388,64,60,65,67,74,80,60.0,60.0,62.0,57.0,67.0,69.0
+Riya Agarwal,Biotechnology,6,391,420,407,394,394,422,85,81,79,77,81,82,71.0,71.0,68.0,77.0,69.0,89.0
+Naveen Menon,Mechanical Engineering,6,322,313,325,318,326,303,87,93,93,89,96,90,74.0,83.0,73.0,76.0,73.0,93.0
+Divya Prakash,Computer Science & Engineering,6,373,389,424,429,459,447,90,92,88,93,93,88,100.0,91.0,85.0,82.0,97.0,94.0
+Meera Saxena,Artificial Intelligence and Data Science,6,382,360,369,400,426,420,60,60,61,64,60,60,78.0,82.0,74.0,70.0,66.0,62.0
+Neha Balaji,Food Technology,6,348,375,393,412,396,423,90,94,98,92,95,92,97.0,92.0,82.0,83.0,86.0,84.0
+Pooja Reddy,Computer Science & Design,6,352,330,348,379,352,328,80,86,85,83,86,87,77.0,92.0,89.0,81.0,82.0,83.0
+Pooja Srinivasan,Food Technology,6,369,386,395,400,376,372,83,81,78,82,80,86,63.0,57.0,65.0,70.0,77.0,85.0
+Karthik Narayanan,Civil Engineering,6,423,399,423,406,428,400,88,93,89,86,92,94,72.0,86.0,81.0,82.0,70.0,83.0
+Krish Nair,Biomedical Engineering,6,408,385,375,402,436,435,84,91,98,93,88,84,61.0,60.0,66.0,65.0,57.0,79.0
+Vignesh Verma,Civil Engineering,6,399,390,368,376,348,371,60,60,60,63,69,65,66.0,61.0,72.0,64.0,63.0,60.0
+Vivaan Swaminathan,Artificial Intelligence and Data Science,6,304,300,320,302,314,300,85,85,79,83,84,91,72.0,69.0,72.0,83.0,73.0,81.0
+Sanjay Mishra,Information Technology,6,315,323,304,303,334,344,87,81,87,87,88,90,70.0,77.0,77.0,76.0,78.0,91.0
+Vivaan Singh,Computer Science & Engineering,6,396,407,426,424,453,474,89,88,82,81,85,84,81.0,80.0,94.0,100.0,88.0,88.0
+Arjun Sharma,Fashion Technology,6,357,377,372,368,398,423,69,66,72,71,69,75,78.0,78.0,82.0,80.0,90.0,75.0
+>>>>>>> 5d2bf76286a1dc814412feffe862aa50a594a22e

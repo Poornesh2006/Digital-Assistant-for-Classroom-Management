@@ -1,5 +1,10 @@
 Flask
 pandas
 matplotlib
+<<<<<<< HEAD
 scikit-learn
 reportlab
+=======
+scikit-learn
+reportlab
+>>>>>>> 5d2bf76286a1dc814412feffe862aa50a594a22e

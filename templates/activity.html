@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,3 +68,74 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity Log | Digital Classroom Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body id="body" class="page-enter">
+    <header class="top-nav navbar">
+        <div class="brand-wrap navbar-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="College Logo" class="nav-logo logo" />
+            <div class="brand-text">
+                <h2>Bannari Amman Institute of Technology</h2>
+                <p>Digital Classroom Assistant</p>
+            </div>
+        </div>
+        <nav class="nav-links navbar-right">
+            <a class="nav-link rippleable" href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a class="nav-link rippleable" href="/students">Student Profiles</a>
+            <a class="nav-link rippleable" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+            <a class="nav-link active rippleable" href="{{ url_for('activity') }}">Activity</a>
+            <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
+            <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
+            <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <section class="card glass card-header-gradient">
+            <h1>Admin Activity Log</h1>
+            <p class="muted">Audited actions for student management workflows.</p>
+        </section>
+
+        <section class="card glass">
+            <div class="table-shell rippleable">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in logs %}
+                                <tr class="rippleable" style="--row-index: {{ loop.index0 }};">
+                                    <td>{{ row.timestamp }}</td>
+                                    <td>{{ row.username }}</td>
+                                    <td>{{ row.action }}</td>
+                                    <td>{{ row.details }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="4">No activity entries yet.</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+>>>>>>> 5d2bf76286a1dc814412feffe862aa50a594a22e
