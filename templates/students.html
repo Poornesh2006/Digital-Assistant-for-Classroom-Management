@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Profiles | Digital Classroom Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body id="body" class="page-enter">
+    <header class="top-nav navbar">
+        <div class="brand-wrap navbar-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="College Logo" class="nav-logo logo" />
+            <div class="brand-text">
+                <h2>Bannari Amman Institute of Technology</h2>
+                <p>Digital Classroom Assistant</p>
+            </div>
+        </div>
+        <nav class="nav-links navbar-right">
+            <a class="nav-link rippleable" href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a class="nav-link active rippleable" href="/students">Student Profiles</a>
+            <a class="nav-link rippleable" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+            <a class="nav-link rippleable" href="{{ url_for('activity') }}">Activity</a>
+            <a class="nav-link rippleable" href="{{ url_for('add_student') }}">Add Student</a>
+            <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
+            <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
+            <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <section class="card glass card-header-gradient">
+            <h1>Elite Student Directory</h1>
+            <p class="muted">Academic ERP style view for ranking, trend analysis, and semester-level profile insights.</p>
+        </section>
+
+        <section class="directory-summary-grid">
+            <article class="stat-card rippleable">
+                <div class="stat-label">Total Students</div>
+                <div class="stat-value" data-counter="{{ total_students }}">0</div>
+            </article>
+            <article class="stat-card rippleable">
+                <div class="stat-label">Weak Students (Sem6 &lt; 250)</div>
+                <div class="stat-value" data-counter="{{ weak_students_count }}">0</div>
+            </article>
+            <article class="stat-card rippleable">
+                <div class="stat-label">Risk Alerts</div>
+                <div class="stat-value" data-counter="{{ risky_students_count }}">0</div>
+            </article>
+            <article class="stat-card rippleable">
+                <div class="stat-label">Topper</div>
+                <div class="stat-value stat-name">{{ topper_name }}</div>
+            </article>
+            <article class="stat-card rippleable">
+                <div class="stat-label">Average Attendance</div>
+                <div class="stat-value" data-counter="{{ average_attendance }}" data-suffix="%">0</div>
+            </article>
+        </section>
+
+        <section class="card glass">
+            <form method="GET" action="/students" class="directory-toolbar">
+                <div class="directory-input-group">
+                    <label for="search">Search Students</label>
+                    <input id="search" name="search" type="text" placeholder="Search by student name or department" value="{{ search }}" />
+                </div>
+                <div class="directory-input-group">
+                    <label for="sort">Sort By</label>
+                    <select id="sort" name="sort">
+                        <option value="topper" {% if sort == 'topper' %}selected{% endif %}>Topper (Highest Sem6 Total)</option>
+                        <option value="weakest" {% if sort == 'weakest' %}selected{% endif %}>Weakest Student</option>
+                        <option value="attendance_high" {% if sort == 'attendance_high' %}selected{% endif %}>Attendance High to Low</option>
+                        <option value="attendance_low" {% if sort == 'attendance_low' %}selected{% endif %}>Attendance Low to High</option>
+                        <option value="name_az" {% if sort == 'name_az' %}selected{% endif %}>Name A-Z</option>
+                        <option value="name_za" {% if sort == 'name_za' %}selected{% endif %}>Name Z-A</option>
+                        <option value="department" {% if sort == 'department' %}selected{% endif %}>Department Wise</option>
+                    </select>
+                </div>
+                <div class="directory-actions">
+                    <button type="submit" class="btn btn-primary rippleable">Apply</button>
+                    <a href="/students" class="btn btn-secondary rippleable" style="text-decoration:none;">Reset</a>
+                </div>
+            </form>
+        </section>
+
+        <section class="student-directory-grid">
+            {% for student in students %}
+                <article
+                    class="student-card glass rippleable {{ 'student-card-weak' if student['AtRisk'] else '' }} {{ 'student-card-topper' if student['IsTopper'] else '' }}"
+                    data-profile-url="/student/{{ student['Name']|urlencode }}"
+                    role="link"
+                    tabindex="0"
+                >
+                    <span class="rank-badge">Rank #{{ student['Rank'] }}</span>
+                    <a href="/student/{{ student['Name']|urlencode }}" class="student-name-link">{{ student['Name'] }}</a>
+                    <p class="student-department">{{ student['Department'] }}</p>
+
+                    <div class="student-meta">
+                        <div>
+                            <span>Current Semester</span>
+                            <strong>{{ student['CurrentSemester'] }}</strong>
+                        </div>
+                        <div>
+                            <span>Sem6 Total</span>
+                            <strong>{{ student['Sem6_Total'] }}</strong>
+                        </div>
+                        <div>
+                            <span>Attendance</span>
+                            <strong>{{ student['Sem6_Attendance'] }}%</strong>
+                        </div>
+                    </div>
+
+                    <div class="student-badge-row">
+                        <span class="status-badge status-{{ student['TrendStatus']|lower }}">{{ student['TrendStatus'] }}</span>
+                        <span class="performance-badge {{ student['PerformanceClass'] }}">{{ student['PerformanceBadge'] }}</span>
+                        {% if student['AtRisk'] %}
+                            <span class="risk-badge">At Risk</span>
+                        {% endif %}
+                    </div>
+                    <p class="student-api">Performance Index: {{ '%.1f'|format(student['PerformanceIndex']) }} / 10</p>
+                    <p class="student-improvement">{{ student['ImprovementText'] }}</p>
+
+                    <a href="/student/{{ student['Name']|urlencode }}" class="btn btn-primary rippleable profile-button">View Profile</a>
+                </article>
+            {% else %}
+                <div class="card glass" style="grid-column: 1 / -1;">
+                    <p class="muted">No students found for current search/sort selection.</p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <section class="card glass directory-pagination-card">
+            <div class="directory-pagination">
+                {% if has_prev %}
+                    <a class="btn btn-secondary rippleable" href="/students?search={{ search|urlencode }}&sort={{ sort|urlencode }}&page={{ current_page-1 }}" style="text-decoration:none;">Previous</a>
+                {% else %}
+                    <span class="btn btn-secondary disabled-btn">Previous</span>
+                {% endif %}
+
+                <span class="pagination-label">Page {{ current_page }} of {{ total_pages }}</span>
+
+                {% if has_next %}
+                    <a class="btn btn-secondary rippleable" href="/students?search={{ search|urlencode }}&sort={{ sort|urlencode }}&page={{ current_page+1 }}" style="text-decoration:none;">Next</a>
+                {% else %}
+                    <span class="btn btn-secondary disabled-btn">Next</span>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll(".student-card[data-profile-url]").forEach((card) => {
+            card.addEventListener("click", (event) => {
+                if (event.target.closest("a, button")) {
+                    return;
+                }
+                window.location.href = card.dataset.profileUrl;
+            });
+
+            card.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    window.location.href = card.dataset.profileUrl;
+                }
+            });
+        });
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

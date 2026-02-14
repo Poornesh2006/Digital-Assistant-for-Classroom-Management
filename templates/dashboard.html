@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Digital Classroom Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body id="body" class="page-enter">
+    <header class="top-nav navbar">
+        <div class="brand-wrap navbar-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="College Logo" class="nav-logo logo" />
+            <div class="brand-text">
+                <h2>Bannari Amman Institute of Technology</h2>
+                <p>Digital Classroom Assistant</p>
+            </div>
+        </div>
+        <nav class="nav-links navbar-right">
+            <a class="nav-link active rippleable" href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a class="nav-link rippleable" href="/students">Student Profiles</a>
+            <a class="nav-link rippleable" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+            <a class="nav-link rippleable" href="{{ url_for('activity') }}">Activity</a>
+            <a class="nav-link rippleable" href="{{ url_for('add_student') }}">Add Student</a>
+            <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
+            <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
+            <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
+        </nav>
+    </header>
+
+    {% set ns = namespace(attendance_sum=0) %}
+    {% for row in students %}
+        {% set ns.attendance_sum = ns.attendance_sum + (row['Attendance'] | float) %}
+    {% endfor %}
+    {% set avg_attendance = (ns.attendance_sum / (students|length)) if (students|length) > 0 else 0 %}
+
+    <main class="page-container">
+        <section class="card glass card-header-gradient rippleable">
+            <h1>Welcome, {{ username }}</h1>
+            <p class="muted">Premium classroom performance workspace with AI-assisted insights.</p>
+            <div style="margin-top: 12px;">
+                <a class="nav-link rippleable" href="/students" style="display:inline-block; text-decoration:none;">
+                    Open Student Profiles Directory
+                </a>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ 'alert-danger' if category == 'error' else 'alert-success' }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </section>
+
+        <section class="card glass">
+            <h3 class="section-title">Departments</h3>
+            <div class="metrics-grid">
+                {% for dept in department_cards %}
+                    <a
+                        class="metric-item rippleable"
+                        href="{{ url_for('department_view', department_name=dept['name']) }}"
+                        style="text-decoration: none; color: inherit; display: block;"
+                    >
+                        <span>{{ dept['name'] }}</span>
+                        <strong>{{ dept['total'] }}</strong>
+                        <p class="muted" style="margin-top: 6px;">Weak Students: {{ dept['weak'] }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card rippleable">
+                <div class="stat-label">Total Students</div>
+                <div class="stat-value" data-counter="{{ students|length }}">0</div>
+            </article>
+            <article class="stat-card rippleable">
+                <div class="stat-label">Weak Students</div>
+                <div class="stat-value" data-counter="{{ weak_students|length }}">0</div>
+            </article>
+            <article class="stat-card rippleable">
+                <div class="stat-label">Average Attendance</div>
+                <div class="stat-value" data-counter="{{ '%.2f'|format(avg_attendance) }}" data-suffix="%">0</div>
+            </article>
+            <article class="stat-card rippleable">
+                <div class="stat-label">Risk Alerts</div>
+                <div class="stat-value" data-counter="{{ risky_students_count }}">0</div>
+            </article>
+        </section>
+
+        <section class="card glass">
+            <h3 class="section-title">Student Records</h3>
+            <div class="table-shell rippleable">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Profile</th>
+                                {% for code, name in course_info %}
+                                    <th class="course-header">
+                                        <span>{{ code }}</span>
+                                        <small>({{ name }})</small>
+                                    </th>
+                                {% endfor %}
+                                <th>Attendance</th>
+                                <th>Total</th>
+                                <th>Average</th>
+                                <th>Grade</th>
+                                <th>Prediction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in students %}
+                                <tr class="rippleable {{ 'weak-row' if row['Weak Student'] else '' }}" style="--row-index: {{ loop.index0 }};">
+                                    <td>{{ row['Name'] }}</td>
+                                    <td>
+                                        <a href="/student/{{ row['Name']|urlencode }}" class="nav-link rippleable" style="display:inline-block; text-decoration:none; padding:0.22rem 0.52rem;">
+                                            View Profile
+                                        </a>
+                                    </td>
+                                    {% for code, _ in course_info %}
+                                        <td>{{ row[code] }}</td>
+                                    {% endfor %}
+                                    <td>{{ row['Attendance'] }}</td>
+                                    <td>{{ row['Total'] }}</td>
+                                    <td>{{ row['Average'] }}</td>
+                                    <td>
+                                        <span class="grade-badge {% if row['Grade'] == 'A' %}grade-a{% elif row['Grade'] == 'B' %}grade-b{% else %}grade-c{% endif %}">
+                                            {{ row['Grade'] }}
+                                        </span>
+                                    </td>
+                                    <td>{{ row['Prediction'] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="card glass">
+            <h3 class="section-title">Weak Students (Average &lt; 50)</h3>
+            {% if weak_students %}
+                <ul class="simple-list">
+                    {% for s in weak_students %}
+                        <li>{{ s['Name'] }} - Average: {{ s['Average'] }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="muted">No weak students identified.</p>
+            {% endif %}
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
