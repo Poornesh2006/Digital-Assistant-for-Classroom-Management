@@ -1,109 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Student | Digital Classroom Assistant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-</head>
-<body id="body" class="page-enter">
-    <header class="top-nav navbar">
-        <div class="brand-wrap navbar-left">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="College Logo" class="nav-logo logo" />
-            <div class="brand-text">
-                <h2>Bannari Amman Institute of Technology</h2>
-                <p>Digital Classroom Assistant</p>
+{% extends "layout.html" %}
+
+{% block title %}Add Student | Digital Classroom Assistant{% endblock %}
+
+{% block content %}
+<section class="card glass card-header-gradient">
+    <h1>Add Student</h1>
+    <p class="muted">Add a new student record with marks and attendance.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ 'alert-danger' if category == 'error' else 'alert-success' }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</section>
+
+<section class="card glass form-card">
+    <form method="POST" class="student-form">
+        <label for="name">Student Name</label>
+        <input id="name" name="name" type="text" required />
+
+        <label for="department">Department</label>
+        <div class="department-select" data-department-picker>
+            <select id="department" name="department" required class="native-department-select">
+                {% for dept in departments %}
+                    <option value="{{ dept }}">{{ dept }}</option>
+                {% endfor %}
+            </select>
+
+            <div class="custom-department-select" aria-hidden="true">
+                <button type="button" class="department-trigger" data-department-trigger aria-haspopup="listbox" aria-expanded="false">
+                    <span data-department-label>Select a department</span>
+                </button>
+
+                <div class="department-panel" data-department-panel>
+                    <input type="text" class="department-search" placeholder="Search department..." data-department-search autocomplete="off" />
+                    <div class="department-options" role="listbox" data-department-options>
+                        {% for dept in departments %}
+                            <button type="button" class="department-option" data-department-option data-value="{{ dept }}">{{ dept }}</button>
+                        {% endfor %}
+                    </div>
+                    <p class="department-empty" data-department-empty hidden>No matching departments.</p>
+                </div>
             </div>
         </div>
-        <nav class="nav-links navbar-right">
-            <a class="nav-link rippleable" href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a class="nav-link rippleable" href="{{ url_for('activity') }}">Activity</a>
-            <a class="nav-link active rippleable" href="{{ url_for('add_student') }}">Add Student</a>
-            <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
-            <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
-            <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
-        </nav>
-    </header>
 
-    <main class="page-container">
-        <section class="card glass card-header-gradient">
-            <h1>Add Student</h1>
-            <p class="muted">Add a new student record with marks and attendance.</p>
+        {% for code, name in course_info %}
+            <label for="{{ code }}">{{ code }} - {{ name }}</label>
+            <input id="{{ code }}" name="{{ code }}" type="number" min="0" max="100" step="0.01" required />
+        {% endfor %}
 
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert {{ 'alert-danger' if category == 'error' else 'alert-success' }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </section>
+        <label for="attendance">Attendance (%)</label>
+        <input id="attendance" name="attendance" type="number" min="0" max="100" step="0.01" required />
 
-        <section class="card glass form-card rippleable">
-            <form method="POST" class="student-form">
-                <label for="name">Student Name</label>
-                <input id="name" name="name" type="text" required />
-
-                <label for="department">Department</label>
-                <div class="department-select" data-department-picker>
-                    <!-- Keep native select for backend compatibility and no-JS fallback. -->
-                    <select id="department" name="department" required class="native-department-select">
-                        {% for dept in departments %}
-                            <option value="{{ dept }}">{{ dept }}</option>
-                        {% endfor %}
-                    </select>
-
-                    <div class="custom-department-select" aria-hidden="true">
-                        <button
-                            type="button"
-                            class="department-trigger"
-                            data-department-trigger
-                            aria-haspopup="listbox"
-                            aria-expanded="false"
-                        >
-                            <span data-department-label>Select a department</span>
-                        </button>
-
-                        <div class="department-panel" data-department-panel>
-                            <input
-                                type="text"
-                                class="department-search"
-                                placeholder="Search department..."
-                                data-department-search
-                                autocomplete="off"
-                            />
-                            <div class="department-options" role="listbox" data-department-options>
-                                {% for dept in departments %}
-                                    <button
-                                        type="button"
-                                        class="department-option"
-                                        data-department-option
-                                        data-value="{{ dept }}"
-                                    >
-                                        {{ dept }}
-                                    </button>
-                                {% endfor %}
-                            </div>
-                            <p class="department-empty" data-department-empty hidden>No matching departments.</p>
-                        </div>
-                    </div>
-                </div>
-
-                {% for code, name in course_info %}
-                    <label for="{{ code }}">{{ code }} - {{ name }}</label>
-                    <input id="{{ code }}" name="{{ code }}" type="number" min="0" max="100" step="0.01" required />
-                {% endfor %}
-
-                <label for="attendance">Attendance (%)</label>
-                <input id="attendance" name="attendance" type="number" min="0" max="100" step="0.01" required />
-
-                <button type="submit" class="btn btn-primary rippleable">Save Student</button>
-            </form>
-        </section>
-    </main>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+        <button type="submit" class="btn btn-primary">Save Student</button>
+    </form>
+</section>
+{% endblock %}

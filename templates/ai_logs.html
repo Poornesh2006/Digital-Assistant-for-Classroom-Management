@@ -1,89 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Logs | Digital Classroom Assistant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-</head>
-<body id="body" class="page-enter">
-    <header class="top-nav navbar">
-        <div class="brand-wrap navbar-left">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="College Logo" class="nav-logo logo" />
-            <div class="brand-text">
-                <h2>Bannari Amman Institute of Technology</h2>
-                <p>Digital Classroom Assistant</p>
+{% extends "layout.html" %}
+
+{% block title %}AI Logs | Digital Classroom Assistant{% endblock %}
+
+{% block content %}
+<section class="card glass card-header-gradient">
+    <h1>AI Analysis Logs</h1>
+    <p class="muted">Stored responses from the student risk analyzer. Demo data is seeded automatically when no logs exist.</p>
+</section>
+
+<section class="card glass">
+    <form method="GET" action="{{ url_for('ai_logs_page') }}" class="student-form">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="student">Student Name</label>
+                <input id="student" name="student" type="text" value="{{ student_name }}" placeholder="Filter by name" />
+            </div>
+            <div class="form-group">
+                <label for="limit">Rows</label>
+                <input id="limit" name="limit" type="number" min="1" max="500" value="{{ limit }}" />
             </div>
         </div>
-        <nav class="nav-links navbar-right">
-            <a class="nav-link rippleable" href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a class="nav-link rippleable" href="{{ url_for('students_directory') }}">Student Profiles</a>
-            <a class="nav-link rippleable" href="{{ url_for('leaderboard') }}">Leaderboard</a>
-            <a class="nav-link rippleable" href="{{ url_for('activity') }}">Activity</a>
-            <a class="nav-link active rippleable" href="{{ url_for('ai_logs_page') }}">AI Logs</a>
-            <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
-            <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
-            <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
-        </nav>
-    </header>
+        <div class="page-actions">
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+            <a class="btn btn-secondary" href="{{ url_for('api.ai_logs', limit=limit, student=student_name) }}">Open JSON API</a>
+        </div>
+    </form>
+</section>
 
-    <main class="page-container">
-        <section class="card glass card-header-gradient">
-            <h1>AI Analysis Logs</h1>
-            <p class="muted">Stored responses from the student risk analyzer.</p>
-        </section>
-
-        <section class="card glass">
-            <form method="GET" action="{{ url_for('ai_logs_page') }}" class="student-form" style="margin-bottom: 18px;">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="student">Student Name</label>
-                        <input id="student" name="student" type="text" value="{{ student_name }}" placeholder="Filter by name" />
-                    </div>
-                    <div class="form-group">
-                        <label for="limit">Rows</label>
-                        <input id="limit" name="limit" type="number" min="1" max="500" value="{{ limit }}" />
-                    </div>
-                </div>
-                <div style="margin-top: 12px;">
-                    <button type="submit" class="btn btn-primary rippleable">Apply Filters</button>
-                    <a class="nav-link rippleable" href="{{ url_for('api.ai_logs', limit=limit, student=student_name) }}" style="display:inline-block; text-decoration:none;">Open JSON API</a>
-                </div>
-            </form>
-
-            <div class="table-shell rippleable">
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Student</th>
-                                <th>Risk Level</th>
-                                <th>Performance Score</th>
-                                <th>Timestamp</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for row in logs %}
-                                <tr class="rippleable" style="--row-index: {{ loop.index0 }};">
-                                    <td>{{ row.id }}</td>
-                                    <td>{{ row.student_name or 'Unknown' }}</td>
-                                    <td>{{ row.risk_level }}</td>
-                                    <td>{{ row.performance_score }}</td>
-                                    <td>{{ row.timestamp }}</td>
-                                </tr>
-                            {% else %}
-                                <tr>
-                                    <td colspan="5">No AI analysis logs found.</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+<section class="card glass">
+    <div class="table-shell">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Risk Level</th>
+                        <th>Performance Score</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in logs %}
+                        <tr>
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.student_name or 'Unknown' }}</td>
+                            <td>{{ row.risk_level }}</td>
+                            <td>{{ row.performance_score }}</td>
+                            <td>{{ row.timestamp }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">No AI analysis logs found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

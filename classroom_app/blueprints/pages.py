@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, abort, render_template, request, send_file, session
 
 from classroom_app.blueprints.auth import login_required
 from classroom_app.legacy import (
@@ -20,6 +20,8 @@ from classroom_app.legacy import (
     students_directory,
 )
 from classroom_app.services.ai_logs import fetch_ai_logs
+from classroom_app.services.data import SEMESTER_ATT_COLS, SEMESTER_TOTAL_COLS, load_students
+from utils.graph_generator import chart_file_map, generate_student_charts
 
 bp = Blueprint("pages", __name__)
 
@@ -64,6 +66,32 @@ def ai_logs_page():
     )
 
 
+@bp.route("/charts/<chart_type>/<path:student_name>.png")
+@login_required
+def student_chart(chart_type: str, student_name: str):
+    chart_type = chart_type.strip().lower()
+    if chart_type not in {"performance", "attendance", "contribution"}:
+        abort(404)
+
+    students_df = load_students()
+    selected = students_df[students_df["Name"].astype(str) == student_name]
+    if selected.empty:
+        selected = students_df[students_df["Name"].astype(str).str.lower() == student_name.lower()]
+    if selected.empty:
+        abort(404)
+
+    student = selected.iloc[0]
+    semester_totals = [int(student[col]) for col in SEMESTER_TOTAL_COLS]
+    semester_attendance = [int(student[col]) for col in SEMESTER_ATT_COLS]
+    generate_student_charts(str(student["Name"]), semester_totals, semester_attendance)
+
+    chart_path = chart_file_map(str(student["Name"]))[chart_type]
+    if not chart_path.exists():
+        abort(404)
+
+    return send_file(chart_path, mimetype="image/png")
+
+
 ALIAS_ROUTES = [
     {"rule": "/", "endpoint": "login", "target": "auth.login", "methods": ["GET", "POST"]},
     {"rule": "/login", "endpoint": "login_form", "target": "auth.login", "methods": ["GET", "POST"]},
@@ -84,4 +112,5 @@ ALIAS_ROUTES = [
     {"rule": "/edit_course/<code>", "endpoint": "edit_course", "target": "pages.edit_course", "methods": ["GET", "POST"]},
     {"rule": "/delete_course/<code>", "endpoint": "delete_course", "target": "pages.delete_course", "methods": ["GET"]},
     {"rule": "/ai-logs", "endpoint": "ai_logs_page", "target": "pages.ai_logs_page", "methods": ["GET"]},
+    {"rule": "/charts/<chart_type>/<path:student_name>.png", "endpoint": "student_chart", "target": "pages.student_chart", "methods": ["GET"]},
 ]

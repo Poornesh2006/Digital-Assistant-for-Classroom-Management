@@ -1,6 +1,8 @@
 window.onload = function() {
-    if (!document.body.classList.contains("login-page") && localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
+    const savedTheme = localStorage.getItem("theme") || localStorage.getItem("theme_mode") || "light";
+    if (!document.body.classList.contains("login-page")) {
+        document.body.setAttribute("data-theme", savedTheme);
+        document.body.classList.toggle("dark-mode", savedTheme === "dark");
     }
 };
 
@@ -17,29 +19,27 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!themeToggle) {
             return;
         }
-        themeToggle.textContent = body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+        themeToggle.textContent = body.getAttribute("data-theme") === "dark" ? "Light Mode" : "Dark Mode";
     }
 
     function applyTheme(theme) {
-        if (theme === "dark") {
-            body.classList.add("dark-mode");
-        } else {
-            body.classList.remove("dark-mode");
-        }
+        body.setAttribute("data-theme", theme);
+        body.classList.toggle("dark-mode", theme === "dark");
         syncToggleLabel();
     }
 
     function toggleDarkMode() {
-        body.classList.toggle("dark-mode");
-        const isDark = body.classList.contains("dark-mode");
-        window.localStorage.setItem("theme", isDark ? "dark" : "light");
+        const isDark = body.getAttribute("data-theme") === "dark";
+        const nextTheme = isDark ? "light" : "dark";
+        applyTheme(nextTheme);
+        window.localStorage.setItem("theme", nextTheme);
         // Keep backward compatibility with old key.
-        window.localStorage.setItem("theme_mode", isDark ? "dark" : "light");
-        syncToggleLabel();
+        window.localStorage.setItem("theme_mode", nextTheme);
     }
 
     if (isLoginPage) {
         body.classList.remove("dark-mode");
+        body.setAttribute("data-theme", "light");
     } else {
         applyTheme(savedTheme === "dark" ? "dark" : "light");
     }

@@ -1,144 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ student_name }} | Student Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-</head>
-<body id="body" class="page-enter">
-    <header class="top-nav navbar">
-        <div class="brand-wrap navbar-left">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="College Logo" class="nav-logo logo" />
-            <div class="brand-text">
-                <h2>Bannari Amman Institute of Technology</h2>
-                <p>Digital Classroom Assistant</p>
-            </div>
-        </div>
-        <nav class="nav-links navbar-right">
-            <a class="nav-link rippleable" href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a class="nav-link rippleable" href="/students">Student Profiles</a>
-            <a class="nav-link rippleable" href="{{ url_for('leaderboard') }}">Leaderboard</a>
-            <a class="nav-link rippleable" href="{{ url_for('activity') }}">Activity</a>
-            <a class="nav-link rippleable" href="{{ url_for('ai_logs_page') }}">AI Logs</a>
-            <a class="nav-link rippleable" href="{{ url_for('add_student') }}">Add Student</a>
-            <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
-            <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
-            <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
-        </nav>
-    </header>
+{% extends "layout.html" %}
 
-    <main class="page-container">
-        <section class="card glass card-header-gradient">
-            <h1>Student Profile Dashboard</h1>
-            <p class="muted">Semester-wise academic and attendance performance tracking.</p>
-            <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
-                <a href="/export/{{ student.Name }}" class="btn btn-primary rippleable">Export as PDF</a>
-                {% if is_at_risk %}
-                    <span class="risk-badge">At Risk</span>
-                {% endif %}
-            </div>
-        </section>
+{% block title %}{{ student_name }} | Student Profile{% endblock %}
 
-        <section class="card glass">
-            <h3 class="section-title">Student Info Card</h3>
-            <div class="profile-card">
-                <div class="profile-photo">
-                    <img src="{{ image_url }}" alt="Profile Photo" />
-                </div>
-                <div class="profile-details">
-                    <h2>{{ student["Name"] }}</h2>
-                    <p><strong>Department:</strong> {{ department }}</p>
-                    <p><strong>Current Semester:</strong> {{ semester }}</p>
-                    <p><strong>Performance Index:</strong> {{ '%.1f'|format(performance_index) }} / 10</p>
-                    <p><strong>Department Rank:</strong> {{ department_rank }} / {{ department_count }}</p>
-                    <p><strong>Improvement:</strong> {{ improvement_text }}</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="card glass insight-card">
-            <h3 class="section-title">AI Insights</h3>
-            <p>{{ insight_text }}</p>
-        </section>
-
+{% block content %}
+<section class="card glass card-header-gradient">
+    <h1>Student Profile Dashboard</h1>
+    <p class="muted">Semester-wise academic, attendance, and AI insight view.</p>
+    <div class="page-actions">
+        <a href="{{ url_for('export_student', student_name=student.Name) }}" class="btn btn-primary">Export PDF</a>
         {% if is_at_risk %}
-            <section class="card glass risk-alert-card">
-                <h3 class="section-title">Risk Alert</h3>
-                <p>This student is flagged as At Risk due to low attendance or low Sem6 total.</p>
-            </section>
+            <span class="risk-badge">At Risk</span>
         {% endif %}
+    </div>
+</section>
 
-        <section class="card glass">
-            <h3 class="section-title">Semester Performance Table</h3>
-            <div class="table-shell rippleable">
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Semester</th>
-                                <th>Total Marks (out of 500)</th>
-                                <th>Attendance (%)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for row in sem_table %}
-                                <tr class="rippleable" style="--row-index: {{ loop.index0 }};">
-                                    <td>{{ row.semester }}</td>
-                                    <td>{{ row.total }}</td>
-                                    <td class="{{ row.attendance_class }}">{{ row.attendance }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+<section class="card glass">
+    <h3 class="section-title">Student Info</h3>
+    <div class="profile-card">
+        <div class="profile-photo">
+            <img src="{{ image_url }}" alt="{{ student['Name'] }} profile photo" />
+        </div>
+        <div class="profile-details">
+            <h2>{{ student["Name"] }}</h2>
+            <p><strong>Department:</strong> {{ department }}</p>
+            <p><strong>Current Semester:</strong> {{ semester }}</p>
+            <p><strong>Performance Index:</strong> {{ '%.1f'|format(performance_index) }} / 10</p>
+            <p><strong>Department Rank:</strong> {{ department_rank }} / {{ department_count }}</p>
+            <p><strong>Improvement:</strong> {{ improvement_text }}</p>
+        </div>
+    </div>
+</section>
 
-        <section class="card glass">
-            <h3 class="section-title">Improvement Summary</h3>
-            <div class="metrics-grid">
-                <div class="metric-item">
-                    <span>Improvement (Sem1 to Sem6)</span>
-                    <strong>{{ improvement_pct }}%</strong>
-                </div>
-                <div class="metric-item">
-                    <span>Best Semester</span>
-                    <strong>{{ best_semester }}</strong>
-                </div>
-                <div class="metric-item">
-                    <span>Weakest Semester</span>
-                    <strong>{{ weakest_semester }}</strong>
-                </div>
-                <div class="metric-item">
-                    <span>Status Badge</span>
-                    <strong>{{ status }}</strong>
-                </div>
-            </div>
-        </section>
+<section class="card glass insight-card">
+    <h3 class="section-title">AI Insights</h3>
+    <p>{{ insight_text }}</p>
+</section>
 
-        <section class="card glass">
-            <h3 class="section-title">Graph Section - Performance Trend</h3>
-            <div class="chart-shell rippleable">
-                <img class="chart-image" src="{{ url_for('static', filename=performance_chart) }}" alt="Performance Trend" />
-            </div>
-        </section>
+{% if is_at_risk %}
+<section class="card glass risk-alert-card">
+    <h3 class="section-title">Risk Alert</h3>
+    <p>This student is flagged because attendance or semester performance is below the expected threshold.</p>
+</section>
+{% endif %}
 
-        <section class="card glass">
-            <h3 class="section-title">Attendance Analysis</h3>
-            <div class="chart-shell rippleable">
-                <img class="chart-image" src="{{ url_for('static', filename=attendance_chart) }}" alt="Attendance Trend" />
-            </div>
-        </section>
+<section class="card glass">
+    <h3 class="section-title">Semester Performance Table</h3>
+    <div class="table-shell">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Semester</th>
+                        <th>Total Marks (out of 500)</th>
+                        <th>Attendance (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in sem_table %}
+                        <tr>
+                            <td>{{ row.semester }}</td>
+                            <td>{{ row.total }}</td>
+                            <td class="{{ row.attendance_class }}">{{ row.attendance }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
-        <section class="card glass">
-            <h3 class="section-title">Semester Contribution Pie</h3>
-            <div class="chart-shell rippleable">
-                <img class="chart-image" src="{{ url_for('static', filename=contribution_chart) }}" alt="Semester Contribution" />
-            </div>
-        </section>
-    </main>
+<section class="metrics-grid metrics-grid-wide">
+    <div class="metric-item">
+        <span>Improvement (Sem1 to Sem6)</span>
+        <strong>{{ improvement_pct }}%</strong>
+    </div>
+    <div class="metric-item">
+        <span>Best Semester</span>
+        <strong>{{ best_semester }}</strong>
+    </div>
+    <div class="metric-item">
+        <span>Weakest Semester</span>
+        <strong>{{ weakest_semester }}</strong>
+    </div>
+    <div class="metric-item">
+        <span>Status</span>
+        <strong>{{ status }}</strong>
+    </div>
+</section>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+<section class="chart-grid">
+    <section class="card glass chart-card">
+        <h3 class="section-title">Performance Trend</h3>
+        <div class="chart-shell">
+            <img class="chart-image" src="{{ url_for('static', filename=performance_chart) }}" alt="Performance trend chart" />
+        </div>
+    </section>
+
+    <section class="card glass chart-card">
+        <h3 class="section-title">Attendance Analysis</h3>
+        <div class="chart-shell">
+            <img class="chart-image" src="{{ url_for('static', filename=attendance_chart) }}" alt="Attendance analysis chart" />
+        </div>
+    </section>
+
+    <section class="card glass chart-card chart-card-wide">
+        <h3 class="section-title">Semester Contribution</h3>
+        <div class="chart-shell">
+            <img class="chart-image" src="{{ url_for('static', filename=contribution_chart) }}" alt="Semester contribution pie chart" />
+        </div>
+    </section>
+</section>
+{% endblock %}
