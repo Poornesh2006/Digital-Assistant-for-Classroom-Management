@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Digital Classroom Assistant{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body id="body" class="page-enter app-shell">
+    <header class="top-nav">
+        <div class="nav-brand">
+            <a href="{{ url_for('dashboard') }}" class="brand-wrap">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Institute Logo" class="nav-logo" />
+                <div class="brand-text">
+                    <h2>Bannari Amman Institute of Technology</h2>
+                    <p>Digital Classroom Assistant</p>
+                </div>
+            </a>
+        </div>
+        <nav class="nav-center" aria-label="Primary navigation">
+            <a class="nav-link {% if request.endpoint in ['dashboard', 'pages.dashboard'] %}active{% endif %}" href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a class="nav-link {% if request.endpoint in ['students_directory', 'pages.students_directory'] %}active{% endif %}" href="{{ url_for('students_directory') }}">Student Profiles</a>
+            <a class="nav-link {% if request.endpoint in ['leaderboard', 'pages.leaderboard'] %}active{% endif %}" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+            <a class="nav-link {% if request.endpoint in ['activity', 'pages.activity'] %}active{% endif %}" href="{{ url_for('activity') }}">Activity</a>
+            <a class="nav-link {% if request.endpoint in ['ai_logs_page', 'pages.ai_logs_page'] %}active{% endif %}" href="{{ url_for('ai_logs_page') }}">AI Logs</a>
+            <a class="nav-link {% if request.endpoint in ['courses', 'pages.courses', 'edit_course', 'pages.edit_course'] %}active{% endif %}" href="{{ url_for('courses') }}">Courses</a>
+        </nav>
+        <div class="nav-actions">
+            <button type="button" class="nav-link theme-toggle" data-theme-toggle id="darkToggle">Dark Mode</button>
+            <a class="nav-link logout-link" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
+        </div>
+    </header>
+
+    <main class="page-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block page_scripts %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

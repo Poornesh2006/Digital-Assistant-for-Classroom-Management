@@ -1,4 +1,4 @@
-﻿# Digital Assistant for Classroom Management
+# Digital Assistant for Classroom Management
 
 A beginner-friendly Streamlit mini project for managing student classroom data, identifying weak students, visualizing attendance/subject analytics, and predicting Pass/Fail using Logistic Regression.
 
@@ -76,10 +76,5 @@ streamlit run app.py
 - Save added student records permanently to CSV/database
 - Add download button for updated data
 - Add more ML features (e.g., risk score, clustering)
-<<<<<<< HEAD
 - Add authentication for teacher/admin usage
 
-=======
-- Add authentication for teacher/admin usage
-
->>>>>>> 5d2bf76286a1dc814412feffe862aa50a594a22e

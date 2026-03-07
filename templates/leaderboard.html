@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +20,7 @@
             <a class="nav-link rippleable" href="/students">Student Profiles</a>
             <a class="nav-link active rippleable" href="{{ url_for('leaderboard') }}">Leaderboard</a>
             <a class="nav-link rippleable" href="{{ url_for('activity') }}">Activity</a>
+            <a class="nav-link rippleable" href="{{ url_for('ai_logs_page') }}">AI Logs</a>
             <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
             <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
             <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
@@ -51,7 +51,7 @@
 
         {% if topper %}
             <section class="card glass topper-card">
-                <h3>🏆 Overall Topper</h3>
+                <h3>ðŸ† Overall Topper</h3>
                 <p>{{ topper.Name }}</p>
                 <p>{{ topper.Department }}</p>
                 <p>{{ topper.Sem6_Total }} marks</p>
@@ -103,109 +103,3 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leaderboard | Digital Classroom Assistant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-</head>
-<body id="body" class="page-enter">
-    <header class="top-nav navbar">
-        <div class="brand-wrap navbar-left">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="College Logo" class="nav-logo logo" />
-            <div class="brand-text">
-                <h2>Bannari Amman Institute of Technology</h2>
-                <p>Digital Classroom Assistant</p>
-            </div>
-        </div>
-        <nav class="nav-links navbar-right">
-            <a class="nav-link rippleable" href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a class="nav-link rippleable" href="/students">Student Profiles</a>
-            <a class="nav-link active rippleable" href="{{ url_for('leaderboard') }}">Leaderboard</a>
-            <a class="nav-link rippleable" href="{{ url_for('activity') }}">Activity</a>
-            <a class="nav-link rippleable" href="{{ url_for('courses') }}">Courses</a>
-            <button type="button" class="nav-link theme-toggle rippleable" data-theme-toggle id="darkToggle">Dark</button>
-            <a class="nav-link rippleable" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
-        </nav>
-    </header>
-
-    <main class="page-container">
-        <section class="card glass card-header-gradient">
-            <h1>Department Leaderboard</h1>
-            <p class="muted">Top 5 students by department based on Sem6 total.</p>
-        </section>
-
-        <section class="card glass">
-            <div class="sort-container">
-                <form method="GET" action="/leaderboard">
-                    <label for="department">Sort by Department:</label>
-                    <select id="department" name="department" onchange="this.form.submit()" class="sort-dropdown">
-                        <option value="All" {% if selected_department == 'All' %}selected{% endif %}>All Departments</option>
-                        {% for dept in departments %}
-                            <option value="{{ dept }}" {% if dept == selected_department %}selected{% endif %}>{{ dept }}</option>
-                        {% endfor %}
-                    </select>
-                    <button type="submit" name="sort_by" value="top_marks" class="btn btn-secondary rippleable sort-btn {% if selected_sort == 'top_marks' %}sort-btn-active{% endif %}">Top 5 Marks</button>
-                    <button type="submit" name="sort_by" value="lowest_marks" class="btn btn-secondary rippleable sort-btn {% if selected_sort == 'lowest_marks' %}sort-btn-active{% endif %}">Lower 5 Marks</button>
-                </form>
-            </div>
-        </section>
-
-        {% if topper %}
-            <section class="card glass topper-card">
-                <h3>🏆 Overall Topper</h3>
-                <p>{{ topper.Name }}</p>
-                <p>{{ topper.Department }}</p>
-                <p>{{ topper.Sem6_Total }} marks</p>
-            </section>
-        {% endif %}
-
-        <section class="card glass">
-            <div class="table-shell rippleable table-container">
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th>Sem6 Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for student in leaderboard %}
-                                <tr class="rippleable leaderboard-row {% if student.Rank == 1 %}topper-row{% endif %}" style="--row-index: {{ loop.index0 }};">
-                                    <td>
-                                        {% if student.Rank == 1 %}
-                                            <span class="medal gold">&#x1F947; 1</span>
-                                        {% elif student.Rank == 2 %}
-                                            <span class="medal silver">&#x1F948; 2</span>
-                                        {% elif student.Rank == 3 %}
-                                            <span class="medal bronze">&#x1F949; 3</span>
-                                        {% else %}
-                                            {{ student.Rank }}
-                                        {% endif %}
-                                    </td>
-                                    <td><a href="/student/{{ student.Name|urlencode }}" class="profile-link">{{ student.Name }}</a></td>
-                                    <td>{{ student.Department }}</td>
-                                    <td>{{ student.Sem6_Total }}</td>
-                                </tr>
-                            {% else %}
-                                <tr>
-                                    <td colspan="4">No leaderboard data available.</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
->>>>>>> 5d2bf76286a1dc814412feffe862aa50a594a22e
