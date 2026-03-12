@@ -97,42 +97,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Count-up animation for numeric badges and cards.
     const counters = document.querySelectorAll("[data-counter]");
-    const counterObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
+    const animateCounter = (targetEl) => {
+        const endValue = parseFloat(targetEl.getAttribute("data-counter") || "0");
+        const suffix = targetEl.getAttribute("data-suffix") || "";
+        const hasDecimal = !Number.isInteger(endValue);
+        const duration = 1200;
+        const start = performance.now();
 
-                const targetEl = entry.target;
-                const endValue = parseFloat(targetEl.getAttribute("data-counter") || "0");
-                const suffix = targetEl.getAttribute("data-suffix") || "";
-                const hasDecimal = !Number.isInteger(endValue);
-                const duration = 1200;
-                const start = performance.now();
+        function animate(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = endValue * eased;
 
-                function animate(now) {
-                    const progress = Math.min((now - start) / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const current = endValue * eased;
+            targetEl.textContent = hasDecimal ? `${current.toFixed(2)}${suffix}` : `${Math.round(current)}${suffix}`;
 
-                    targetEl.textContent = hasDecimal ? `${current.toFixed(2)}${suffix}` : `${Math.round(current)}${suffix}`;
-
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        targetEl.textContent = hasDecimal ? `${endValue.toFixed(2)}${suffix}` : `${Math.round(endValue)}${suffix}`;
-                    }
-                }
-
+            if (progress < 1) {
                 requestAnimationFrame(animate);
-                observer.unobserve(targetEl);
-            });
-        },
-        { threshold: 0.45 }
-    );
+            } else {
+                targetEl.textContent = hasDecimal ? `${endValue.toFixed(2)}${suffix}` : `${Math.round(endValue)}${suffix}`;
+            }
+        }
 
-    counters.forEach((counter) => counterObserver.observe(counter));
+        requestAnimationFrame(animate);
+    };
+
+    if ("IntersectionObserver" in window) {
+        const counterObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                });
+            },
+            { threshold: 0.45 }
+        );
+
+        counters.forEach((counter) => counterObserver.observe(counter));
+    } else {
+        counters.forEach((counter) => animateCounter(counter));
+    }
 
     // Searchable custom department dropdown for Add Student page.
     const picker = document.querySelector("[data-department-picker]");
@@ -144,14 +151,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchInput = picker.querySelector("[data-department-search]");
         const options = Array.from(picker.querySelectorAll("[data-department-option]"));
         const emptyState = picker.querySelector("[data-department-empty]");
+        const placeholder = nativeSelect.querySelector('option[value=""]')?.textContent?.trim() || "Select Department";
 
         function setSelection(value) {
             const target = options.find((option) => option.dataset.value === value);
+            nativeSelect.value = value;
+
             if (!target) {
+                label.textContent = placeholder;
+                options.forEach((option) => {
+                    option.classList.remove("is-selected");
+                    option.setAttribute("aria-selected", "false");
+                });
                 return;
             }
 
-            nativeSelect.value = value;
             label.textContent = value;
 
             options.forEach((option) => {
@@ -176,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Initialize from existing selected option.
-        setSelection(nativeSelect.value || options[0]?.dataset.value || "");
+        setSelection(nativeSelect.value || "");
 
         trigger.addEventListener("click", () => {
             const open = picker.classList.contains("open");
@@ -217,4 +231,34 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    const loadingLinks = document.querySelectorAll("[data-loading-text]:not(form)");
+    loadingLinks.forEach((element) => {
+        element.addEventListener("click", () => {
+            const message = element.getAttribute("data-loading-text") || "Processing request...";
+            window.showLoading(message);
+        });
+    });
+
+    const loadingForms = document.querySelectorAll("form[data-loading-text]");
+    loadingForms.forEach((form) => {
+        form.addEventListener("submit", (event) => {
+            if (event.defaultPrevented) {
+                return;
+            }
+
+            const message = form.getAttribute("data-loading-text") || "Submitting form...";
+            const submitter = event.submitter;
+
+            if (submitter && submitter.dataset && submitter.dataset.loadingText) {
+                window.showLoading(submitter.dataset.loadingText);
+            } else {
+                window.showLoading(message);
+            }
+        });
+    });
+
+    window.addEventListener("pageshow", () => {
+        window.hideLoading();
+    });
 });

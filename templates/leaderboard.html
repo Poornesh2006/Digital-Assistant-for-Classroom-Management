@@ -26,10 +26,33 @@
 
 {% if topper %}
 <section class="card glass topper-card">
-    <h3>Overall Topper</h3>
-    <p>{{ topper.Name }}</p>
-    <p>{{ topper.Department }}</p>
-    <p>{{ topper.Sem6_Total }} marks</p>
+    <div class="topper-animation-container">
+        <div class="flower-container" aria-hidden="true">
+            <span class="flower flower-1">&#10047;</span>
+            <span class="flower flower-2">&#10047;</span>
+            <span class="flower flower-3">&#10047;</span>
+            <span class="flower flower-4">&#10047;</span>
+            <span class="flower flower-5">&#10047;</span>
+            <span class="flower flower-6">&#10047;</span>
+        </div>
+        <div class="topper-particles" aria-hidden="true">
+            <span class="particle particle-1"></span>
+            <span class="particle particle-2"></span>
+            <span class="particle particle-3"></span>
+            <span class="particle particle-4"></span>
+            <span class="particle particle-5"></span>
+            <span class="particle particle-6"></span>
+            <span class="particle particle-7"></span>
+            <span class="particle particle-8"></span>
+            <span class="particle particle-9"></span>
+        </div>
+        <div class="topper-card-content">
+            <h3 class="topper-title"><span class="topper-trophy" aria-hidden="true">&#127942;</span> Overall Topper</h3>
+            <p class="topper-name">{{ topper.Name }}</p>
+            <p>{{ topper.Department }}</p>
+            <p>{{ topper.Sem6_Total }} marks</p>
+        </div>
+    </div>
 </section>
 {% endif %}
 
@@ -59,7 +82,7 @@
                                     {{ student.Rank }}
                                 {% endif %}
                             </td>
-                            <td><a href="{{ url_for('student_profile', student_name=student.Name) }}" class="profile-link">{{ student.Name }}</a></td>
+                            <td><a href="{{ url_for('student_profile', register_number=student.RegisterNumber) }}" class="profile-link">{{ student.Name }}</a></td>
                             <td>{{ student.Department }}</td>
                             <td>{{ student.Sem6_Total }}</td>
                         </tr>

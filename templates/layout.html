@@ -18,16 +18,17 @@
             </a>
         </div>
         <nav class="nav-center" aria-label="Primary navigation">
-            <a class="nav-link {% if request.endpoint in ['dashboard', 'pages.dashboard'] %}active{% endif %}" href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a class="nav-link {% if request.endpoint in ['students_directory', 'pages.students_directory'] %}active{% endif %}" href="{{ url_for('students_directory') }}">Student Profiles</a>
-            <a class="nav-link {% if request.endpoint in ['leaderboard', 'pages.leaderboard'] %}active{% endif %}" href="{{ url_for('leaderboard') }}">Leaderboard</a>
-            <a class="nav-link {% if request.endpoint in ['activity', 'pages.activity'] %}active{% endif %}" href="{{ url_for('activity') }}">Activity</a>
-            <a class="nav-link {% if request.endpoint in ['ai_logs_page', 'pages.ai_logs_page'] %}active{% endif %}" href="{{ url_for('ai_logs_page') }}">AI Logs</a>
-            <a class="nav-link {% if request.endpoint in ['courses', 'pages.courses', 'edit_course', 'pages.edit_course'] %}active{% endif %}" href="{{ url_for('courses') }}">Courses</a>
+            <a class="nav-link {% if request.endpoint in ['dashboard', 'pages.dashboard'] %}active{% endif %}" href="{{ url_for('dashboard') }}"><span class="nav-icon" aria-hidden="true">&#127968;</span><span>Dashboard</span></a>
+            <a class="nav-link {% if request.endpoint in ['students', 'pages.students', 'student_management', 'pages.student_management', 'student_management_add_student', 'pages.student_management_add_student', 'student_management_edit_student', 'pages.student_management_edit_student', 'student_management_delete_student', 'pages.student_management_delete_student'] %}active{% endif %}" href="{{ url_for('student_management') }}"><span class="nav-icon" aria-hidden="true">&#127891;</span><span>Student Management</span></a>
+            <a class="nav-link {% if request.endpoint in ['leaderboard', 'pages.leaderboard'] %}active{% endif %}" href="{{ url_for('leaderboard') }}"><span class="nav-icon" aria-hidden="true">&#127942;</span><span>Leaderboard</span></a>
+            <a class="nav-link {% if request.endpoint in ['activity', 'pages.activity'] %}active{% endif %}" href="{{ url_for('activity') }}"><span class="nav-icon" aria-hidden="true">&#128203;</span><span>Activity</span></a>
+            <a class="nav-link {% if request.endpoint in ['ai_logs_page', 'pages.ai_logs_page'] %}active{% endif %}" href="{{ url_for('ai_logs_page') }}"><span class="nav-icon" aria-hidden="true">&#129302;</span><span>AI Logs</span></a>
+            <a class="nav-link {% if request.endpoint in ['courses', 'pages.courses', 'edit_course', 'pages.edit_course'] %}active{% endif %}" href="{{ url_for('courses') }}"><span class="nav-icon" aria-hidden="true">&#128218;</span><span>Courses</span></a>
+            <a class="nav-link {% if request.endpoint in ['feedback_page', 'pages.feedback_page'] %}active{% endif %}" href="{{ url_for('feedback_page') }}"><span class="nav-icon" aria-hidden="true">&#128172;</span><span>Feedback</span></a>
         </nav>
         <div class="nav-actions">
-            <button type="button" class="nav-link theme-toggle" data-theme-toggle id="darkToggle">Dark Mode</button>
-            <a class="nav-link logout-link" href="{{ url_for('logout') }}" data-confirm-logout="true">Logout</a>
+            <button type="button" class="nav-link theme-toggle" data-theme-toggle id="darkToggle"><span class="nav-icon" aria-hidden="true">&#127769;</span><span>Dark Mode</span></button>
+            <a class="nav-link logout-link" href="{{ url_for('logout') }}" data-confirm-logout="true"><span class="nav-icon" aria-hidden="true">&#8618;</span><span>Logout</span></a>
         </div>
     </header>
 
@@ -35,7 +36,42 @@
         {% block content %}{% endblock %}
     </main>
 
+    <footer class="site-footer">
+        <p>Copyright &copy; 2012 - 2026. All rights reserved.</p>
+    </footer>
+
+    <div id="loadingSpinner" class="loading" aria-live="polite" aria-hidden="true">
+        <div class="loading-card">
+            <div class="spinner" aria-hidden="true"></div>
+            <p id="loadingMessage">Processing request...</p>
+        </div>
+    </div>
+
+    <script>
+        window.showLoading = function(message) {
+            const overlay = document.getElementById("loadingSpinner");
+            const label = document.getElementById("loadingMessage");
+            if (!overlay) {
+                return;
+            }
+            if (label) {
+                label.textContent = message || "Processing request...";
+            }
+            overlay.style.display = "flex";
+            overlay.setAttribute("aria-hidden", "false");
+        };
+
+        window.hideLoading = function() {
+            const overlay = document.getElementById("loadingSpinner");
+            if (!overlay) {
+                return;
+            }
+            overlay.style.display = "none";
+            overlay.setAttribute("aria-hidden", "true");
+        };
+    </script>
     {% block page_scripts %}{% endblock %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
 </body>
 </html>

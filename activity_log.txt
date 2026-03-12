@@ -1,49 +1,70 @@
-2026-02-12 14:56:44 | admin | Faculty logged in | Successful login
-2026-02-12 14:56:44 | admin | Added student | Log Test Student
-2026-02-12 14:56:44 | admin | Exported PDF for student | Vivaan Yadav
-2026-02-12 14:56:44 | admin | Faculty logged out | Session ended
-2026-02-12 14:56:44 | admin | Faculty logged in | Successful login
-2026-02-12 14:58:45 | admin | Exported PDF for student | Vivaan Yadav
-2026-02-12 14:59:12 | admin | Faculty logged in | Successful login
-2026-02-12 14:59:51 | admin | Exported PDF for student | Krish Balaji
-2026-02-12 15:02:19 | admin | Faculty logged out | Session ended
-2026-02-12 15:02:22 | admin | Faculty logged in | Successful login
-2026-02-12 15:04:04 | admin | Exported PDF for student | Krish Balaji
-2026-02-12 15:04:58 | admin | Faculty logged out | Session ended
-2026-02-12 15:37:10 | admin | Faculty logged in | Successful login
-2026-02-12 15:50:42 | admin | Faculty logged in | Successful login
-2026-02-12 16:00:30 | admin | Faculty logged in | Successful login
-2026-02-14 08:59:00 | admin | Faculty logged in | Successful login
-2026-02-14 09:08:12 | admin | Faculty logged in | Successful login
-2026-02-14 09:24:15 | admin | Faculty logged in | Successful login
-2026-02-14 09:24:36 | admin | Faculty logged out | Session ended
-2026-02-14 09:29:46 | admin | Faculty logged in | Successful login
-2026-02-14 09:29:59 | admin | Faculty logged in | Successful login
-2026-02-14 09:31:51 | admin | Faculty logged in | Successful login
-2026-02-14 09:32:36 | admin | Faculty logged out | Session ended
-2026-02-14 10:09:53 | admin | Faculty logged in | Successful login
-2026-02-14 10:09:56 | admin | Faculty logged out | Session ended
-2026-02-14 10:11:34 | admin | Faculty logged in | Successful login
-2026-02-14 10:15:22 | admin | Faculty logged out | Session ended
-2026-02-14 10:15:29 | admin | Faculty logged in | Successful login
-2026-02-14 10:15:46 | admin | Faculty logged out | Session ended
-2026-02-14 14:52:16 | admin | Faculty logged in | Successful login
-2026-02-14 14:58:39 | admin | Exported PDF for student | Lakshmi Anand
-2026-02-14 15:53:46 | admin | Faculty logged in | Successful login
-2026-02-16 14:34:35 | admin | Faculty logged in | Successful login
-2026-02-16 14:35:02 | admin | Faculty logged out | Session ended
-2026-02-16 14:51:40 | admin | Faculty logged in | Successful login
-2026-03-07 09:42:39 | admin | Faculty logged in | Successful login
-2026-03-07 09:57:29 | admin | Faculty logged in | Successful login
-2026-03-07 09:57:29 | admin | Faculty logged in | Successful login
-2026-03-07 09:57:42 | admin | Faculty logged in | Successful login
-2026-03-07 09:57:58 | admin | Faculty logged in | Successful login
-2026-03-07 09:58:13 | admin | Faculty logged in | Successful login
-2026-03-07 10:02:08 | admin | Faculty logged in | Successful login
-2026-03-07 10:03:02 | admin | Faculty logged in | Successful login
-2026-03-07 10:03:02 | admin | Faculty logged in | Successful login
-2026-03-07 10:04:21 | admin | Faculty logged in | Successful login
-2026-03-07 10:05:26 | admin | Faculty logged in | Successful login
-2026-03-07 10:08:20 | admin | Faculty logged in | Successful login
-2026-03-07 10:12:53 | admin | Faculty logged in | Successful login
-2026-03-07 10:54:42 | admin | Faculty logged in | Successful login
+2026-03-07 12:18:16 | admin | Faculty logged in | Successful login
+2026-03-07 12:20:15 | admin | Student added | Poornesh (7376232AD209)
+2026-03-07 13:57:57 | admin | Faculty logged in | Successful login
+2026-03-07 13:59:44 | admin | Bulk student delete | 7376232AD209
+2026-03-07 14:00:41 | admin | Student added | Poornesh (7376232AD209)
+2026-03-07 14:04:01 | admin | Faculty logged out | Session ended
+2026-03-07 14:05:27 | admin | Faculty logged in | Successful login
+2026-03-07 14:05:48 | admin | Faculty logged out | Session ended
+2026-03-07 14:06:44 | admin | Faculty logged in | Successful login
+2026-03-07 14:17:53 | Faculty | Student added | Temp Verify (TEST2026999)
+2026-03-07 14:17:54 | Faculty | Student updated | Temp Verify Updated (TEST2026999)
+2026-03-07 14:17:55 | Faculty | Student deleted | Temp Verify Updated (TEST2026999)
+2026-03-07 14:19:02 | admin | Faculty logged in | Successful login
+2026-03-07 14:24:02 | Faculty | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:24:35 | admin | Faculty logged in | Successful login
+2026-03-07 14:24:51 | admin | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:30:03 | Faculty | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:30:03 | Faculty | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:30:29 | Faculty | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:30:29 | Faculty | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:31:01 | Faculty | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:31:01 | Faculty | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-07 14:32:08 | admin | Faculty logged in | Successful login
+2026-03-07 14:37:06 | admin | Faculty logged in | Successful login
+2026-03-07 14:41:21 | admin | Faculty logged in | Successful login
+2026-03-07 14:45:20 | admin | Faculty logged in | Successful login
+2026-03-07 14:50:52 | admin | Faculty logged in | Successful login
+2026-03-07 14:51:25 | admin | Viewed student profile | Poornesh (7376232AD209)
+2026-03-07 14:51:38 | admin | Faculty logged out | Session ended
+2026-03-07 14:54:22 | admin | Faculty logged in | Successful login
+2026-03-07 14:57:51 | admin | Faculty logged in | Successful login
+2026-03-07 14:58:26 | admin | Viewed student profile | Aditya Patel (COMP2026153)
+2026-03-07 15:02:22 | admin | Faculty logged in | Successful login
+2026-03-12 09:33:49 | admin | Faculty logged in | Successful login
+2026-03-12 09:34:17 | admin | Viewed student profile | Aadhya Iyer (INFO2026073)
+2026-03-12 09:59:24 | admin | Faculty logged in | Successful login
+2026-03-12 10:06:16 | admin | Faculty logged in | Successful login
+2026-03-12 10:11:17 | admin | Faculty logged out | Session ended
+2026-03-12 10:11:20 | admin | Faculty logged in | Successful login
+2026-03-12 10:11:29 | admin | Faculty logged out | Session ended
+2026-03-12 10:11:33 | admin | Faculty logged in | Successful login
+2026-03-12 10:52:12 | admin | Faculty logged in | Successful login
+2026-03-12 10:52:12 | admin | Viewed student profile | Aarav Kumar (BIOM2026001)
+2026-03-12 10:52:37 | admin | Student added | Test Student (TEST2026001)
+2026-03-12 10:52:37 | admin | Viewed student profile | Test Student (TEST2026001)
+2026-03-12 10:52:38 | admin | Student updated | Test Student Updated (TEST2026001)
+2026-03-12 10:52:38 | admin | Student deleted | Test Student Updated (TEST2026001)
+2026-03-12 11:00 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:00 - Viewed Student Profile: Aarav Kumar (BIOM2026001) | User: admin
+2026-03-12 11:00 - Student Added: Test Student (TEST2026001) | User: admin
+2026-03-12 11:00 - Viewed Student Profile: Test Student (TEST2026001) | User: admin
+2026-03-12 11:00 - Student Updated: Test Student Updated (TEST2026001) | User: admin
+2026-03-12 11:00 - Student Deleted: Test Student Updated (TEST2026001) | User: admin
+2026-03-12 11:00 - Feedback Submitted: Tester (5) | User: admin
+2026-03-12 11:06 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:08 - Faculty Logged Out: Session ended | User: admin
+2026-03-12 11:08 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:09 - Feedback Submitted: Tester (5) | User: admin
+2026-03-12 11:10 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:12 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:14 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:15 - Feedback Submitted: POORNESH (5) | User: admin
+2026-03-12 11:18 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:19 - Faculty Logged Out: Session ended | User: admin
+2026-03-12 11:19 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:24 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:38 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:43 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:50 - Faculty Logged In: Successful login | User: admin
+2026-03-12 11:53 - Faculty Logged In: Successful login | User: admin

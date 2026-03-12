@@ -19,7 +19,7 @@
 </section>
 
 <section class="card glass form-card">
-    <form method="POST" class="student-form">
+    <form method="POST" action="{{ url_for('student_management_add_student') }}" class="student-form">
         <label for="name">Student Name</label>
         <input id="name" name="name" type="text" required />
 

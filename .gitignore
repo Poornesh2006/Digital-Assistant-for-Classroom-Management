@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+
+activity_log.txt
+classroom_app/activity_log.txt
+
+exports/
+uploads/
+
+static/images/students/
+static/charts/*.png
+
+.DS_Store

@@ -9,7 +9,7 @@
 </section>
 
 <section class="card glass">
-    <form method="GET" action="{{ url_for('ai_logs_page') }}" class="student-form">
+    <form method="GET" action="{{ url_for('ai_logs_page') }}" class="student-form" data-loading-text="Filtering AI logs...">
         <div class="form-grid">
             <div class="form-group">
                 <label for="student">Student Name</label>
@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="page-actions">
-            <button type="submit" class="btn btn-primary">Apply Filters</button>
-            <a class="btn btn-secondary" href="{{ url_for('api.ai_logs', limit=limit, student=student_name) }}">Open JSON API</a>
+            <button type="submit" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128269;</span><span>Apply Filters</span></button>
+            <a class="btn btn-secondary" href="{{ url_for('api.ai_logs', limit=limit, student=student_name) }}"><span class="btn-icon" aria-hidden="true">&#123; &#125;</span><span>Open JSON API</span></a>
         </div>
     </form>
 </section>

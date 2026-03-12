@@ -1,136 +1,154 @@
 {% extends "layout.html" %}
 
-{% block title %}Student Profiles | Digital Classroom Assistant{% endblock %}
+{% block title %}Student Management | Digital Classroom Assistant{% endblock %}
 
 {% block content %}
 <section class="card glass card-header-gradient">
-    <h1>Student Profiles</h1>
-    <p class="muted">Ranked directory with semester trends, attendance visibility, and quick navigation to each student dashboard.</p>
-</section>
+    <h1>Student Management</h1>
+    <p class="muted">Manage student records from a full page using the existing classroom dashboard style.</p>
 
-<section class="directory-summary-grid">
-    <article class="stat-card">
-        <div class="stat-label">Total Students</div>
-        <div class="stat-value" data-counter="{{ total_students }}">0</div>
-    </article>
-    <article class="stat-card">
-        <div class="stat-label">Weak Students</div>
-        <div class="stat-value" data-counter="{{ weak_students_count }}">0</div>
-    </article>
-    <article class="stat-card">
-        <div class="stat-label">Risk Alerts</div>
-        <div class="stat-value" data-counter="{{ risky_students_count }}">0</div>
-    </article>
-    <article class="stat-card">
-        <div class="stat-label">Topper</div>
-        <div class="stat-value stat-name">{{ topper_name }}</div>
-    </article>
-    <article class="stat-card">
-        <div class="stat-label">Average Attendance</div>
-        <div class="stat-value" data-counter="{{ average_attendance }}" data-suffix="%">0</div>
-    </article>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ 'alert-danger' if category == 'error' else 'alert-success' }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </section>
 
 <section class="card glass">
-    <form method="GET" action="{{ url_for('students_directory') }}" class="directory-toolbar">
+    <form method="GET" action="{{ url_for('student_management') }}" class="directory-toolbar" data-loading-text="Filtering student records...">
         <div class="directory-input-group">
             <label for="search">Search Students</label>
-            <input id="search" name="search" type="text" placeholder="Search by student name or department" value="{{ search }}" />
+            <input id="search" name="search" type="text" placeholder="Search by name or register number" value="{{ search }}" />
+        </div>
+        <div class="directory-input-group">
+            <label for="department">Department</label>
+            <select id="department" name="department">
+                {% for dept in departments %}
+                    <option value="{{ dept }}" {% if selected_department == dept %}selected{% endif %}>{{ dept }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="directory-input-group">
             <label for="sort">Sort By</label>
             <select id="sort" name="sort">
-                <option value="topper" {% if sort == 'topper' %}selected{% endif %}>Topper</option>
-                <option value="weakest" {% if sort == 'weakest' %}selected{% endif %}>Weakest Student</option>
-                <option value="attendance_high" {% if sort == 'attendance_high' %}selected{% endif %}>Attendance High to Low</option>
-                <option value="attendance_low" {% if sort == 'attendance_low' %}selected{% endif %}>Attendance Low to High</option>
-                <option value="name_az" {% if sort == 'name_az' %}selected{% endif %}>Name A-Z</option>
-                <option value="name_za" {% if sort == 'name_za' %}selected{% endif %}>Name Z-A</option>
-                <option value="department" {% if sort == 'department' %}selected{% endif %}>Department Wise</option>
+                <option value="name_asc" {% if sort == 'name_asc' %}selected{% endif %}>Name</option>
+                <option value="marks_desc" {% if sort == 'marks_desc' %}selected{% endif %}>Marks</option>
+                <option value="attendance_desc" {% if sort == 'attendance_desc' %}selected{% endif %}>Attendance</option>
+                <option value="weak_first" {% if sort == 'weak_first' %}selected{% endif %}>Weak Students</option>
             </select>
         </div>
         <div class="directory-actions">
-            <button type="submit" class="btn btn-primary">Apply</button>
-            <a href="{{ url_for('students_directory') }}" class="btn btn-secondary">Reset</a>
+            <button type="submit" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128269;</span><span>Apply</span></button>
+            <a href="{{ url_for('student_management') }}" class="btn btn-secondary">Reset</a>
+            <a href="{{ url_for('student_management_add_student') }}" class="btn btn-secondary"><span class="btn-icon" aria-hidden="true">&#10133;</span><span>Add Student</span></a>
+            <a href="{{ url_for('student_management_export', search=search, department=selected_department, sort=sort) }}" class="btn btn-secondary" data-loading-text="Exporting student data..."><span class="btn-icon" aria-hidden="true">&#11015;</span><span>Export CSV</span></a>
         </div>
     </form>
 </section>
 
-<section class="student-directory-grid">
-    {% for student in students %}
-        <article class="student-card glass {{ 'student-card-weak' if student['AtRisk'] else '' }} {{ 'student-card-topper' if student['IsTopper'] else '' }}" data-profile-url="{{ url_for('student_profile', student_name=student['Name']) }}" role="link" tabindex="0">
-            <span class="rank-badge">Rank #{{ student['Rank'] }}</span>
-            <a href="{{ url_for('student_profile', student_name=student['Name']) }}" class="student-name-link">{{ student['Name'] }}</a>
-            <p class="student-department">{{ student['Department'] }}</p>
-
-            <div class="student-meta">
-                <div>
-                    <span>Current Semester</span>
-                    <strong>{{ student['CurrentSemester'] }}</strong>
-                </div>
-                <div>
-                    <span>Sem6 Total</span>
-                    <strong>{{ student['Sem6_Total'] }}</strong>
-                </div>
-                <div>
-                    <span>Attendance</span>
-                    <strong>{{ student['Sem6_Attendance'] }}%</strong>
-                </div>
-            </div>
-
-            <div class="student-badge-row">
-                <span class="status-badge status-{{ student['TrendStatus']|lower }}">{{ student['TrendStatus'] }}</span>
-                <span class="performance-badge {{ student['PerformanceClass'] }}">{{ student['PerformanceBadge'] }}</span>
-                {% if student['AtRisk'] %}
-                    <span class="risk-badge">At Risk</span>
-                {% endif %}
-            </div>
-            <p class="student-api">Performance Index: {{ '%.1f'|format(student['PerformanceIndex']) }} / 10</p>
-            <p class="student-improvement">{{ student['ImprovementText'] }}</p>
-
-            <a href="{{ url_for('student_profile', student_name=student['Name']) }}" class="btn btn-primary profile-button">View Profile</a>
-        </article>
-    {% else %}
-        <div class="card glass" style="grid-column: 1 / -1;">
-            <p class="muted">No students found for current search or sort selection.</p>
+<section class="card glass">
+    <form method="POST" action="{{ url_for('student_management_bulk_delete') }}" id="bulkDeleteForm" data-loading-text="Deleting selected students...">
+        <div class="page-actions student-management-actions">
+            <button type="submit" class="btn btn-secondary" id="bulkDeleteButton"><span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete Selected</span></button>
         </div>
-    {% endfor %}
+
+        <div class="table-shell">
+            <div class="table-wrap">
+                <table class="student-management-table">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Profile Picture</th>
+                            <th>Student Name</th>
+                            <th>Register Number</th>
+                            <th>Department</th>
+                            <th>Semester</th>
+                            <th>Attendance</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="student_ids" value="{{ student.student_id }}" class="student-select-checkbox" />
+                                </td>
+                                <td>
+                                    <img class="student-table-avatar" src="{{ url_for('static', filename=student.image_path) }}" alt="{{ student.name }}" />
+                                </td>
+                                <td>{{ student.name }}</td>
+                                <td>{{ student.register_number }}</td>
+                                <td>{{ student.department }}</td>
+                                <td>{{ student.semester }}</td>
+                                <td>{{ student.attendance }}%</td>
+                                <td>
+                                    <div class="table-action-row">
+                                        <a class="btn btn-secondary btn-inline" href="{{ url_for('student_profile', register_number=student.register_number) }}" data-loading-text="Opening student profile..."><span class="btn-icon" aria-hidden="true">&#128065;</span><span>View Profile</span></a>
+                                        <a class="btn btn-secondary btn-inline" href="{{ url_for('student_management_edit_student', student_id=student.student_id) }}"><span class="btn-icon" aria-hidden="true">&#9998;</span><span>Edit</span></a>
+                                        <button
+                                            type="submit"
+                                            class="btn btn-secondary btn-inline delete-student-button"
+                                            form="deleteStudent{{ student.student_id }}"
+                                            data-loading-text="Deleting student record..."
+                                        >
+                                            <span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="8">No students found for the current filters.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
 </section>
 
-<section class="card glass directory-pagination-card">
-    <div class="directory-pagination">
-        {% if has_prev %}
-            <a class="btn btn-secondary" href="{{ url_for('students_directory', search=search, sort=sort, page=current_page-1) }}">Previous</a>
-        {% else %}
-            <span class="btn btn-secondary disabled-btn">Previous</span>
-        {% endif %}
-
-        <span class="pagination-label">Page {{ current_page }} of {{ total_pages }}</span>
-
-        {% if has_next %}
-            <a class="btn btn-secondary" href="{{ url_for('students_directory', search=search, sort=sort, page=current_page+1) }}">Next</a>
-        {% else %}
-            <span class="btn btn-secondary disabled-btn">Next</span>
-        {% endif %}
-    </div>
-</section>
+{% for student in students %}
+    <form id="deleteStudent{{ student.student_id }}" method="POST" action="{{ url_for('student_management_delete_student', student_id=student.student_id) }}" hidden></form>
+{% endfor %}
 {% endblock %}
 
 {% block page_scripts %}
 <script>
-document.querySelectorAll(".student-card[data-profile-url]").forEach((card) => {
-    card.addEventListener("click", (event) => {
-        if (event.target.closest("a, button")) {
-            return;
-        }
-        window.location.href = card.dataset.profileUrl;
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    const bulkDeleteForm = document.getElementById("bulkDeleteForm");
+    const bulkDeleteButton = document.getElementById("bulkDeleteButton");
+    const selectedCheckboxes = () => Array.from(document.querySelectorAll(".student-select-checkbox:checked"));
 
-    card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            window.location.href = card.dataset.profileUrl;
-        }
+    if (bulkDeleteForm && bulkDeleteButton) {
+        bulkDeleteForm.addEventListener("submit", (event) => {
+            const submitter = event.submitter;
+            if (submitter && submitter.formAction && submitter.formAction !== bulkDeleteForm.action) {
+                return;
+            }
+
+            if (!selectedCheckboxes().length) {
+                event.preventDefault();
+                window.alert("Select at least one student to delete.");
+                return;
+            }
+
+            if (!window.confirm("Are you sure you want to delete selected students?")) {
+                event.preventDefault();
+            }
+        });
+    }
+
+    document.querySelectorAll(".delete-student-button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+            if (!window.confirm("Are you sure you want to delete this student?")) {
+                event.preventDefault();
+            }
+        });
     });
 });
 </script>

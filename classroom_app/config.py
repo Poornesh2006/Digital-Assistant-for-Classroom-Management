@@ -2,6 +2,8 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "database")
+FEEDBACK_DIR = os.path.join(BASE_DIR, "data")
+FEEDBACK_PATH = os.path.join(FEEDBACK_DIR, "feedback.json")
 
 DATABASE_PATH = "database/students.csv"
 STUDENTS_PATH = os.path.join(BASE_DIR, DATABASE_PATH)

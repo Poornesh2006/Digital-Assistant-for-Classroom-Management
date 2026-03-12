@@ -1,201 +1,212 @@
-Name,Department,CurrentSemester,Sem1_Total,Sem2_Total,Sem3_Total,Sem4_Total,Sem5_Total,Sem6_Total,Sem1_Attendance,Sem2_Attendance,Sem3_Attendance,Sem4_Attendance,Sem5_Attendance,Sem6_Attendance,22AI037,22AI501,22AI502,22AI503,22AI504,Attendance
-Aarav Kumar,Biomedical Engineering,6,427,414,432,446,422,457,67,63,65,67,72,71,41,87,57,55,54,67
-Vivaan Nair,Biomedical Engineering,6,444,419,410,437,415,428,74,70,67,68,67,69,87,46,83,87,74,68
-Aditya Singh,Biomedical Engineering,6,335,307,300,331,320,311,68,65,61,65,60,67,77,67,42,41,45,65
-Arjun Yadav,Biomedical Engineering,6,392,386,396,396,430,461,68,74,70,73,74,81,54,72,78,41,75,73
-Krish Menon,Biomedical Engineering,6,391,411,439,419,444,474,74,69,65,72,69,71,85,81,84,74,66,72
-Ishaan Verma,Biomedical Engineering,6,391,377,386,389,366,364,69,71,72,67,74,73,68,77,57,91,95,74
-Reyansh Kulkarni,Biomedical Engineering,6,390,416,436,444,439,422,60,61,67,69,70,65,88,91,50,84,67,60
-Ayaan Jain,Biomedical Engineering,6,384,383,417,404,437,440,78,75,78,82,87,83,57,49,53,88,61,81
-Rohan Narayanan,Biomedical Engineering,6,394,385,375,348,348,350,69,73,69,66,60,63,45,64,46,62,94,66
-Siddharth Venkatesh,Biomedical Engineering,6,327,349,383,363,399,380,83,90,91,86,91,95,78,56,91,42,86,82
-Diya Kumar,Civil Engineering,6,400,429,401,391,395,369,92,86,85,86,93,91,74,47,64,45,75,89
-Ananya Nair,Civil Engineering,6,352,333,350,366,387,403,82,77,76,80,76,77,93,80,79,95,63,78
-Aadhya Singh,Civil Engineering,6,417,417,424,412,433,464,96,92,98,98,98,98,52,85,44,42,82,96
-Ira Yadav,Civil Engineering,6,394,422,419,448,425,449,81,83,82,79,73,67,89,58,45,94,54,74
-Meera Menon,Civil Engineering,6,385,361,367,379,413,410,64,65,60,60,60,66,64,57,69,80,93,66
-Saanvi Verma,Civil Engineering,6,328,326,340,351,356,337,81,82,76,77,77,74,50,63,62,53,82,83
-Kavya Kulkarni,Civil Engineering,6,418,407,399,423,451,460,79,85,86,93,90,86,84,83,81,44,78,77
-Priya Jain,Civil Engineering,6,361,374,386,415,446,479,70,72,70,73,80,83,74,86,55,50,69,70
-Nithya Narayanan,Civil Engineering,6,338,357,338,342,351,332,84,87,89,95,98,97,57,80,84,75,54,84
-Anika Venkatesh,Civil Engineering,6,341,358,349,371,393,396,74,79,83,88,93,93,93,89,89,43,54,80
-Harsh Kumar,Computer Science & Design,6,377,394,418,394,373,373,60,60,60,62,64,67,91,60,65,57,44,62
-Naveen Nair,Computer Science & Design,6,326,318,336,366,375,382,70,65,67,72,75,77,76,85,60,53,81,73
-Karthik Singh,Computer Science & Design,6,352,335,322,343,341,314,89,95,90,84,86,80,65,81,69,49,56,91
-Varun Yadav,Computer Science & Design,6,442,450,423,452,481,467,69,75,78,76,76,79,55,87,75,74,56,68
-Rahul Menon,Computer Science & Design,6,429,401,405,402,389,361,98,96,98,98,95,98,67,77,65,63,54,97
-Surya Verma,Computer Science & Design,6,374,386,409,386,374,357,69,70,74,70,69,71,72,71,45,88,43,68
-Pranav Kulkarni,Computer Science & Design,6,366,341,358,379,389,376,66,73,79,84,83,86,49,80,50,90,83,67
-Ritvik Jain,Computer Science & Design,6,452,473,488,467,463,469,92,90,87,83,85,81,78,44,64,64,78,87
-Abhinav Narayanan,Computer Science & Design,6,335,367,388,378,409,405,89,85,91,88,94,95,73,56,75,95,40,89
-Dev Venkatesh,Computer Science & Design,6,382,413,399,435,423,411,70,73,80,86,88,95,83,74,88,57,89,67
-Aarav Kumar,Computer Science & Engineering,6,392,401,422,453,458,438,83,81,87,93,95,98,47,58,67,50,69,81
-Vivaan Nair,Computer Science & Engineering,6,303,300,300,300,332,361,60,60,67,67,71,70,86,86,56,72,88,60
-Aditya Singh,Computer Science & Engineering,6,367,375,349,365,345,348,78,84,87,87,82,87,72,46,95,80,59,71
-Arjun Yadav,Computer Science & Engineering,6,421,407,433,465,470,452,86,87,87,94,95,90,78,52,49,63,88,92
-Krish Menon,Computer Science & Engineering,6,371,353,382,416,433,407,65,60,61,60,60,62,74,89,73,40,78,70
-Ishaan Verma,Computer Science & Engineering,6,344,369,365,388,388,408,77,71,75,80,83,88,71,41,47,63,93,80
-Reyansh Kulkarni,Computer Science & Engineering,6,370,389,424,403,406,401,79,79,84,81,81,82,55,43,55,76,45,79
-Ayaan Jain,Computer Science & Engineering,6,406,378,371,375,388,380,72,67,67,74,68,73,86,71,92,44,88,65
-Rohan Narayanan,Computer Science & Engineering,6,439,421,452,477,495,500,92,94,89,92,98,98,89,48,48,82,70,94
-Siddharth Venkatesh,Computer Science & Engineering,6,355,341,318,344,341,332,96,92,93,94,98,98,50,56,73,95,78,95
-Diya Kumar,Electrical & Electronics Engineering,6,397,404,422,438,447,452,82,78,80,79,81,82,53,74,88,86,84,87
-Ananya Nair,Electrical & Electronics Engineering,6,346,379,378,414,435,411,72,76,82,81,77,80,85,59,65,82,81,72
-Aadhya Singh,Electrical & Electronics Engineering,6,422,432,418,412,398,385,85,81,79,73,73,71,68,73,68,47,55,83
-Ira Yadav,Electrical & Electronics Engineering,6,300,300,312,320,313,325,77,78,75,77,76,73,44,61,41,77,75,74
-Meera Menon,Electrical & Electronics Engineering,6,380,380,363,369,385,400,68,69,72,77,81,88,77,54,40,44,85,74
-Saanvi Verma,Electrical & Electronics Engineering,6,441,468,448,436,456,450,63,62,61,67,62,62,54,44,42,95,61,63
-Kavya Kulkarni,Electrical & Electronics Engineering,6,421,396,379,378,413,397,70,71,70,67,66,65,72,55,57,82,71,64
-Priya Jain,Electrical & Electronics Engineering,6,415,418,434,433,406,424,70,75,76,81,80,79,74,48,86,76,76,73
-Nithya Narayanan,Electrical & Electronics Engineering,6,333,358,379,376,367,365,90,96,92,97,98,98,55,90,70,91,66,90
-Anika Venkatesh,Electrical & Electronics Engineering,6,386,391,415,444,458,458,72,75,73,74,73,76,46,46,82,67,62,72
-Harsh Kumar,Electronics & Communication Engineering,6,370,401,397,418,433,414,83,87,82,89,85,88,66,69,95,86,43,87
-Naveen Nair,Electronics & Communication Engineering,6,358,340,334,343,360,396,60,60,60,60,60,60,43,65,86,61,91,66
-Karthik Singh,Electronics & Communication Engineering,6,300,322,324,329,343,319,67,69,76,71,65,61,55,52,52,74,68,66
-Varun Yadav,Electronics & Communication Engineering,6,330,353,367,367,363,337,71,66,70,68,69,69,67,51,57,69,55,68
-Rahul Menon,Electronics & Communication Engineering,6,415,424,454,428,441,465,69,71,75,81,79,75,68,91,95,94,75,64
-Surya Verma,Electronics & Communication Engineering,6,371,390,425,428,453,436,62,63,64,62,60,60,43,81,74,93,40,66
-Pranav Kulkarni,Electronics & Communication Engineering,6,349,324,339,369,362,382,60,60,65,69,67,71,88,94,55,50,66,65
-Ritvik Jain,Electronics & Communication Engineering,6,404,416,433,412,422,409,95,97,93,98,98,95,70,53,95,65,43,91
-Abhinav Narayanan,Electronics & Communication Engineering,6,402,409,398,433,419,420,76,77,82,84,87,83,64,40,64,56,90,70
-Dev Venkatesh,Electronics & Communication Engineering,6,353,357,346,358,383,374,86,85,92,89,89,92,58,67,84,86,90,89
-Aarav Kumar,Electronics & Instrumentation Engineering,6,301,331,317,342,319,331,98,98,92,91,91,95,82,85,71,49,52,95
-Vivaan Nair,Electronics & Instrumentation Engineering,6,368,366,401,431,452,445,77,81,76,79,79,79,53,43,77,87,74,78
-Aditya Singh,Electronics & Instrumentation Engineering,6,323,356,341,326,331,327,66,72,68,73,77,76,87,60,43,43,77,63
-Arjun Yadav,Electronics & Instrumentation Engineering,6,424,402,398,433,432,412,92,93,91,86,91,93,72,94,73,50,43,90
-Krish Menon,Electronics & Instrumentation Engineering,6,418,393,427,461,433,408,97,97,98,97,98,96,45,94,51,44,78,92
-Ishaan Verma,Electronics & Instrumentation Engineering,6,374,406,431,432,445,423,66,72,70,64,60,66,83,95,55,65,47,64
-Reyansh Kulkarni,Electronics & Instrumentation Engineering,6,374,395,421,447,468,500,93,96,98,97,96,94,55,77,78,42,79,96
-Ayaan Jain,Electronics & Instrumentation Engineering,6,364,349,350,343,375,353,69,66,66,70,68,73,66,82,77,76,73,65
-Rohan Narayanan,Electronics & Instrumentation Engineering,6,312,328,341,366,344,374,78,84,79,76,79,84,56,53,82,85,60,80
-Siddharth Venkatesh,Electronics & Instrumentation Engineering,6,399,392,381,389,398,375,76,79,85,79,78,73,56,65,48,82,81,75
-Diya Kumar,Information Science & Engineering,6,391,403,404,423,431,427,80,87,89,96,98,98,69,60,88,44,40,79
-Ananya Nair,Information Science & Engineering,6,399,372,350,342,361,335,94,96,98,98,98,97,79,76,46,44,74,89
-Aadhya Singh,Information Science & Engineering,6,387,380,368,397,381,356,76,75,82,77,80,84,72,56,48,62,44,73
-Ira Yadav,Information Science & Engineering,6,360,370,347,325,354,385,69,72,71,72,79,86,63,58,50,68,93,75
-Meera Menon,Information Science & Engineering,6,342,342,358,346,360,395,94,97,94,88,87,88,85,59,79,91,81,94
-Saanvi Verma,Information Science & Engineering,6,355,378,401,423,455,483,89,86,82,76,72,70,40,82,92,75,59,93
-Kavya Kulkarni,Information Science & Engineering,6,330,325,324,328,364,378,73,78,81,80,75,74,48,56,47,46,87,66
-Priya Jain,Information Science & Engineering,6,343,342,316,326,334,323,98,93,90,88,91,98,49,57,58,78,53,95
-Nithya Narayanan,Information Science & Engineering,6,354,381,388,418,417,450,88,84,80,74,75,73,53,83,80,94,56,81
-Anika Venkatesh,Information Science & Engineering,6,338,335,339,335,344,379,98,96,92,97,97,95,71,56,94,43,45,92
-Harsh Kumar,Mechanical Engineering,6,419,441,420,424,428,442,90,87,81,76,82,76,93,57,42,40,61,87
-Naveen Nair,Mechanical Engineering,6,319,304,313,305,300,300,62,68,73,80,74,74,80,56,50,87,68,68
-Karthik Singh,Mechanical Engineering,6,356,371,396,413,446,421,91,91,90,85,83,82,85,67,75,40,47,95
-Varun Yadav,Mechanical Engineering,6,364,362,352,342,342,326,60,65,70,66,66,67,84,49,74,42,93,64
-Rahul Menon,Mechanical Engineering,6,378,390,397,403,411,419,80,86,90,88,95,98,77,75,49,67,48,83
-Surya Verma,Mechanical Engineering,6,324,350,326,331,303,335,60,60,66,65,67,69,59,63,90,95,42,62
-Pranav Kulkarni,Mechanical Engineering,6,405,398,426,416,388,397,77,75,72,70,76,80,53,83,55,82,46,82
-Ritvik Jain,Mechanical Engineering,6,368,372,380,413,439,461,82,84,78,78,72,68,89,75,95,66,79,82
-Abhinav Narayanan,Mechanical Engineering,6,407,390,397,380,391,363,71,74,75,77,71,66,55,95,50,91,91,69
-Dev Venkatesh,Mechanical Engineering,6,322,300,300,315,347,365,68,63,67,71,78,76,66,41,51,87,61,71
-Aarav Kumar,Mechatronics Engineering,6,366,369,404,432,411,430,88,84,90,87,92,93,91,82,95,87,91,86
-Vivaan Nair,Mechatronics Engineering,6,354,361,383,402,407,411,72,70,68,70,67,72,57,50,90,84,46,75
-Aditya Singh,Mechatronics Engineering,6,361,350,344,362,398,410,80,83,88,90,89,93,95,42,94,70,54,84
-Arjun Yadav,Mechatronics Engineering,6,417,420,411,413,409,393,77,79,86,88,89,96,92,69,62,59,92,72
-Krish Menon,Mechatronics Engineering,6,408,444,429,409,440,419,69,64,71,75,82,80,54,41,82,52,65,74
-Ishaan Verma,Mechatronics Engineering,6,426,417,429,424,451,458,78,80,76,73,69,66,57,95,44,89,57,81
-Reyansh Kulkarni,Mechatronics Engineering,6,348,320,337,338,335,320,81,83,84,85,83,88,81,72,65,83,93,82
-Ayaan Jain,Mechatronics Engineering,6,339,345,345,372,367,368,90,97,93,94,89,86,61,41,47,56,51,94
-Rohan Narayanan,Mechatronics Engineering,6,343,356,383,406,440,446,94,98,98,95,98,98,56,42,46,78,67,97
-Siddharth Venkatesh,Mechatronics Engineering,6,388,375,401,387,412,401,84,82,80,79,83,89,86,90,60,67,78,82
-Diya Kumar,Agricultural Engineering,6,387,415,393,376,411,446,86,84,88,88,82,79,47,64,76,52,56,92
-Ananya Nair,Agricultural Engineering,6,394,429,417,450,486,465,64,65,70,69,71,78,85,67,40,73,91,62
-Aadhya Singh,Agricultural Engineering,6,300,300,321,311,319,311,98,98,98,95,92,87,83,86,87,87,82,94
-Ira Yadav,Agricultural Engineering,6,373,399,398,408,414,447,73,72,74,69,75,69,63,67,44,82,61,72
-Meera Menon,Agricultural Engineering,6,386,389,375,381,379,415,74,80,86,83,85,82,82,94,47,86,59,80
-Saanvi Verma,Agricultural Engineering,6,365,340,365,343,328,333,98,93,94,93,98,98,59,82,66,60,65,92
-Kavya Kulkarni,Agricultural Engineering,6,405,407,440,438,430,462,72,71,70,77,84,90,75,48,52,66,82,78
-Priya Jain,Agricultural Engineering,6,360,389,383,396,369,348,89,90,92,98,96,93,83,87,51,79,76,84
-Nithya Narayanan,Agricultural Engineering,6,314,300,300,331,330,353,83,84,80,86,86,88,65,75,93,40,59,79
-Anika Venkatesh,Agricultural Engineering,6,320,351,376,385,372,375,79,80,76,77,84,79,53,67,90,77,78,78
-Harsh Kumar,Artificial Intelligence and Data Science,6,318,342,352,331,343,366,83,78,78,76,79,86,69,68,68,83,53,80
-Naveen Nair,Artificial Intelligence and Data Science,6,403,389,411,394,407,409,86,80,77,84,87,91,70,90,90,87,50,92
-Karthik Singh,Artificial Intelligence and Data Science,6,341,359,386,414,387,362,60,61,68,71,72,77,58,72,82,80,79,65
-Varun Yadav,Artificial Intelligence and Data Science,6,344,348,336,337,341,352,76,78,76,82,79,85,45,92,88,55,83,81
-Rahul Menon,Artificial Intelligence and Data Science,6,446,470,489,498,500,493,81,86,91,97,98,95,54,91,52,49,41,79
-Surya Verma,Artificial Intelligence and Data Science,6,367,349,362,347,379,398,63,61,60,67,69,67,55,70,79,94,89,62
-Pranav Kulkarni,Artificial Intelligence and Data Science,6,416,445,476,464,469,471,60,60,60,60,62,68,69,66,80,76,52,64
-Ritvik Jain,Artificial Intelligence and Data Science,6,396,420,456,461,467,472,84,78,80,85,87,83,71,65,55,49,81,84
-Abhinav Narayanan,Artificial Intelligence and Data Science,6,384,386,381,407,413,403,63,60,66,72,71,75,88,95,89,46,89,60
-Dev Venkatesh,Artificial Intelligence and Data Science,6,358,342,318,321,317,324,86,80,81,84,80,78,54,51,91,84,73,87
-Aarav Kumar,Artificial Intelligence and Machine Learning,6,352,355,331,316,305,341,83,78,83,86,86,82,43,75,55,94,47,89
-Vivaan Nair,Artificial Intelligence and Machine Learning,6,344,379,389,384,384,406,85,89,90,84,88,92,48,91,69,82,73,89
-Aditya Singh,Artificial Intelligence and Machine Learning,6,408,405,441,427,408,417,91,96,92,96,94,90,78,60,88,68,79,95
-Arjun Yadav,Artificial Intelligence and Machine Learning,6,374,362,362,393,381,416,90,95,98,98,93,98,67,93,75,68,50,92
-Krish Menon,Artificial Intelligence and Machine Learning,6,344,317,300,300,300,319,84,89,83,89,87,93,68,56,88,55,93,90
-Ishaan Verma,Artificial Intelligence and Machine Learning,6,377,408,442,445,433,419,79,80,80,84,91,91,89,89,73,71,80,77
-Reyansh Kulkarni,Artificial Intelligence and Machine Learning,6,407,424,451,436,421,413,81,82,79,74,75,81,57,68,44,85,58,75
-Ayaan Jain,Artificial Intelligence and Machine Learning,6,342,374,399,430,420,447,72,78,83,87,88,91,57,61,60,74,45,75
-Rohan Narayanan,Artificial Intelligence and Machine Learning,6,333,305,300,300,307,341,62,67,71,74,70,65,49,54,64,84,49,68
-Siddharth Venkatesh,Artificial Intelligence and Machine Learning,6,395,424,459,469,487,499,75,69,64,71,78,84,44,66,66,61,74,73
-Diya Kumar,Biotechnology,6,323,312,320,300,300,326,94,98,92,98,95,98,66,43,53,93,66,89
-Ananya Nair,Biotechnology,6,396,403,409,422,405,420,88,95,90,85,81,77,89,77,84,41,94,84
-Aadhya Singh,Biotechnology,6,308,309,300,300,333,329,98,98,94,92,92,87,64,70,40,62,59,96
-Ira Yadav,Biotechnology,6,419,429,419,432,418,438,84,83,88,85,91,98,94,93,66,74,87,84
-Meera Menon,Biotechnology,6,395,416,437,412,415,410,91,94,98,98,94,93,91,78,54,71,54,94
-Saanvi Verma,Biotechnology,6,329,344,372,400,433,405,75,80,79,84,80,85,67,71,41,64,61,77
-Kavya Kulkarni,Biotechnology,6,392,377,397,384,378,369,86,82,87,86,91,97,86,50,93,69,48,85
-Priya Jain,Biotechnology,6,400,411,410,385,408,441,96,98,98,98,92,88,41,65,77,76,82,94
-Nithya Narayanan,Biotechnology,6,424,452,456,479,484,473,60,63,70,64,62,69,45,81,67,48,95,61
-Anika Venkatesh,Biotechnology,6,385,376,389,382,410,409,95,93,95,98,98,98,51,43,56,64,60,89
-Harsh Kumar,Computer Science & Business Systems,6,341,374,367,355,352,327,79,83,86,87,83,80,69,60,61,88,64,73
-Naveen Nair,Computer Science & Business Systems,6,368,385,397,410,390,414,71,70,71,69,75,74,88,93,66,56,93,77
-Karthik Singh,Computer Science & Business Systems,6,400,389,370,390,365,344,72,66,73,77,74,75,70,41,87,74,43,65
-Varun Yadav,Computer Science & Business Systems,6,375,410,438,466,447,457,78,77,76,73,77,82,54,81,44,89,81,82
-Rahul Menon,Computer Science & Business Systems,6,305,311,300,320,355,389,60,64,63,70,75,76,88,41,55,52,93,62
-Surya Verma,Computer Science & Business Systems,6,350,353,379,363,384,382,60,67,72,67,63,70,79,49,55,48,70,61
-Pranav Kulkarni,Computer Science & Business Systems,6,401,408,418,390,419,412,71,76,73,74,72,70,76,53,69,84,56,67
-Ritvik Jain,Computer Science & Business Systems,6,363,388,408,380,352,385,87,81,88,93,92,95,50,78,78,87,85,83
-Abhinav Narayanan,Computer Science & Business Systems,6,432,426,462,460,472,445,68,74,77,78,73,76,89,92,50,59,46,67
-Dev Venkatesh,Computer Science & Business Systems,6,305,300,327,327,361,384,98,98,98,98,98,98,41,59,76,83,64,97
-Aarav Kumar,Computer Technology,6,395,387,412,428,423,416,86,87,92,95,98,98,85,52,44,77,84,85
-Vivaan Nair,Computer Technology,6,356,352,349,361,339,351,72,66,63,67,67,64,46,84,89,59,94,75
-Aditya Singh,Computer Technology,6,439,456,439,472,488,500,98,98,98,98,95,98,91,47,90,76,90,98
-Arjun Yadav,Computer Technology,6,351,334,348,342,351,356,60,64,61,60,60,61,62,74,67,82,63,62
-Krish Menon,Computer Technology,6,401,400,393,379,411,394,66,65,60,61,63,60,72,81,61,40,94,64
-Ishaan Verma,Computer Technology,6,434,450,438,414,443,461,87,87,92,89,93,96,92,71,46,67,63,86
-Reyansh Kulkarni,Computer Technology,6,374,350,384,419,423,396,86,91,88,95,98,98,85,49,67,51,86,89
-Ayaan Jain,Computer Technology,6,402,433,409,389,375,401,93,98,92,98,98,93,81,57,79,91,74,93
-Rohan Narayanan,Computer Technology,6,359,394,424,411,431,435,96,98,98,98,96,94,69,67,92,86,77,90
-Siddharth Venkatesh,Computer Technology,6,378,377,411,439,463,461,78,81,86,90,94,92,60,94,55,93,45,77
-Diya Kumar,Food Technology,6,379,405,426,446,440,469,79,77,74,68,72,67,68,55,88,69,76,77
-Ananya Nair,Food Technology,6,317,303,300,300,323,322,86,91,87,88,85,79,61,41,71,94,60,84
-Aadhya Singh,Food Technology,6,362,360,340,327,336,360,69,71,70,70,75,78,71,53,62,91,56,71
-Ira Yadav,Food Technology,6,348,338,369,356,363,355,75,82,89,83,86,83,57,78,84,57,75,81
-Meera Menon,Food Technology,6,325,321,307,300,308,313,60,65,70,76,75,79,73,52,45,55,86,60
-Saanvi Verma,Food Technology,6,401,378,366,347,357,353,83,79,84,78,83,89,71,75,88,55,84,86
-Kavya Kulkarni,Food Technology,6,379,380,388,360,371,390,94,90,89,88,95,96,81,85,71,68,90,90
-Priya Jain,Food Technology,6,342,345,375,380,355,390,63,64,69,71,66,68,45,58,54,65,84,61
-Nithya Narayanan,Food Technology,6,381,389,392,385,367,390,79,85,84,79,79,80,59,82,77,63,70,75
-Anika Venkatesh,Food Technology,6,378,370,400,373,384,382,94,89,90,92,96,98,73,62,67,87,75,95
-Harsh Kumar,Fashion Technology,6,355,350,341,332,328,321,79,79,75,81,79,84,62,84,69,57,59,81
-Naveen Nair,Fashion Technology,6,356,333,334,360,348,346,73,79,74,79,78,84,54,47,86,52,60,76
-Karthik Singh,Fashion Technology,6,444,416,445,421,439,447,64,64,65,60,67,70,87,74,88,84,51,67
-Varun Yadav,Fashion Technology,6,383,395,410,410,392,368,74,77,75,74,78,72,53,87,70,57,86,72
-Rahul Menon,Fashion Technology,6,346,375,402,406,427,445,96,97,98,98,98,97,88,73,78,58,46,97
-Surya Verma,Fashion Technology,6,328,307,309,325,354,384,76,76,70,68,74,73,58,54,63,51,59,72
-Pranav Kulkarni,Fashion Technology,6,364,371,372,349,351,347,61,60,67,65,63,62,85,74,48,57,42,60
-Ritvik Jain,Fashion Technology,6,365,385,389,362,373,367,62,68,72,75,69,72,75,58,84,48,80,63
-Abhinav Narayanan,Fashion Technology,6,424,449,448,458,449,461,85,86,83,82,76,82,46,95,40,76,58,91
-Dev Venkatesh,Fashion Technology,6,362,356,364,353,350,383,94,90,97,92,92,89,70,68,61,51,43,90
-Aarav Kumar,Information Technology,6,326,312,307,300,335,366,82,77,77,73,78,84,95,70,47,92,44,76
-Vivaan Nair,Information Technology,6,382,409,434,425,434,451,88,95,98,98,95,89,71,44,76,80,83,85
-Aditya Singh,Information Technology,6,447,473,476,468,466,442,66,68,63,60,60,61,49,49,91,76,59,63
-Arjun Yadav,Information Technology,6,349,366,361,375,390,423,70,73,68,72,69,74,55,47,75,88,66,65
-Krish Menon,Information Technology,6,365,347,369,398,376,377,98,98,98,93,96,98,78,90,79,54,89,98
-Ishaan Verma,Information Technology,6,318,328,349,369,345,372,98,97,98,95,92,95,64,68,68,59,95,93
-Reyansh Kulkarni,Information Technology,6,335,314,323,332,316,307,98,98,98,98,94,98,67,59,76,79,43,97
-Ayaan Jain,Information Technology,6,368,353,366,384,366,394,68,75,80,77,76,74,88,53,80,53,56,66
-Rohan Narayanan,Information Technology,6,444,452,452,474,489,478,66,67,66,69,69,75,50,55,51,75,44,65
-Siddharth Venkatesh,Information Technology,6,338,350,330,316,310,300,76,73,76,73,79,74,40,66,68,84,78,70
-Diya Kumar,Textile Technology,6,335,323,325,300,300,300,89,96,92,96,98,98,58,42,54,58,85,90
-Ananya Nair,Textile Technology,6,423,420,398,402,425,424,73,79,86,81,85,91,84,95,69,44,83,78
-Aadhya Singh,Textile Technology,6,414,444,442,466,494,497,68,74,71,78,78,74,56,90,90,80,77,74
-Ira Yadav,Textile Technology,6,442,416,410,418,395,368,77,80,75,72,69,70,67,47,74,54,81,72
-Meera Menon,Textile Technology,6,389,393,410,426,450,465,66,68,62,65,70,71,57,92,49,44,43,69
-Saanvi Verma,Textile Technology,6,426,446,438,466,500,475,68,63,61,60,60,64,90,59,78,87,92,70
-Kavya Kulkarni,Textile Technology,6,400,415,427,402,432,431,93,98,93,98,94,97,58,68,47,69,84,96
-Priya Jain,Textile Technology,6,382,361,333,324,337,322,78,83,77,75,75,73,84,65,57,72,74,79
-Nithya Narayanan,Textile Technology,6,386,362,342,370,379,415,93,95,98,98,98,98,68,45,78,42,67,91
-Anika Venkatesh,Textile Technology,6,349,353,381,393,410,399,77,83,90,96,95,89,78,56,41,45,54,80
+Name,RegisterNumber,Gender,ProfileImage,Department,CurrentSemester,Sem1_Total,Sem2_Total,Sem3_Total,Sem4_Total,Sem5_Total,Sem6_Total,Sem1_Attendance,Sem2_Attendance,Sem3_Attendance,Sem4_Attendance,Sem5_Attendance,Sem6_Attendance,22AI037,22AI501,22AI502,22AI503,22AI504,Attendance
+Aarav Kumar,BIOM2026001,Male,,Biomedical Engineering,6,427,414,432,446,422,457,67,63,65,67,72,71,41,87,57,55,54,67
+Vivaan Kumar,BIOM2026002,Male,,Biomedical Engineering,6,444,419,410,437,415,428,74,70,67,68,67,69,87,46,83,87,74,68
+Aditya Kumar,BIOM2026003,Male,,Biomedical Engineering,6,335,307,300,331,320,311,68,65,61,65,60,67,77,67,42,41,45,65
+Arjun Kumar,BIOM2026004,Male,,Biomedical Engineering,6,392,386,396,396,430,461,68,74,70,73,74,81,54,72,78,41,75,73
+Krish Kumar,BIOM2026005,Male,,Biomedical Engineering,6,391,411,439,419,444,474,74,69,65,72,69,71,85,81,84,74,66,72
+Ishaan Kumar,BIOM2026006,Male,,Biomedical Engineering,6,391,377,386,389,366,364,69,71,72,67,74,73,68,77,57,91,95,74
+Reyansh Kumar,BIOM2026007,Male,,Biomedical Engineering,6,390,416,436,444,439,422,60,61,67,69,70,65,88,91,50,84,67,60
+Ayaan Kumar,BIOM2026008,Male,,Biomedical Engineering,6,384,383,417,404,437,440,78,75,78,82,87,83,57,49,53,88,61,81
+Rohan Kumar,BIOM2026009,Male,,Biomedical Engineering,6,394,385,375,348,348,350,69,73,69,66,60,63,45,64,46,62,94,66
+Siddharth Kumar,BIOM2026010,Male,,Biomedical Engineering,6,327,349,383,363,399,380,83,90,91,86,91,95,78,56,91,42,86,82
+Diya Kumar,CIVI2026011,Male,,Civil Engineering,6,400,429,401,391,395,369,92,86,85,86,93,91,74,47,64,45,75,89
+Ananya Kumar,CIVI2026012,Male,,Civil Engineering,6,352,333,350,366,387,403,82,77,76,80,76,77,93,80,79,95,63,78
+Aadhya Kumar,CIVI2026013,Male,,Civil Engineering,6,417,417,424,412,433,464,96,92,98,98,98,98,52,85,44,42,82,96
+Ira Kumar,CIVI2026014,Male,,Civil Engineering,6,394,422,419,448,425,449,81,83,82,79,73,67,89,58,45,94,54,74
+Meera Kumar,CIVI2026015,Male,,Civil Engineering,6,385,361,367,379,413,410,64,65,60,60,60,66,64,57,69,80,93,66
+Saanvi Kumar,CIVI2026016,Male,,Civil Engineering,6,328,326,340,351,356,337,81,82,76,77,77,74,50,63,62,53,82,83
+Kavya Kumar,CIVI2026017,Male,,Civil Engineering,6,418,407,399,423,451,460,79,85,86,93,90,86,84,83,81,44,78,77
+Priya Kumar,CIVI2026018,Male,,Civil Engineering,6,361,374,386,415,446,479,70,72,70,73,80,83,74,86,55,50,69,70
+Nithya Kumar,CIVI2026019,Male,,Civil Engineering,6,338,357,338,342,351,332,84,87,89,95,98,97,57,80,84,75,54,84
+Anika Kumar,CIVI2026020,Male,,Civil Engineering,6,341,358,349,371,393,396,74,79,83,88,93,93,93,89,89,43,54,80
+Harsh Kumar,COMP2026021,Male,,Computer Science & Design,6,377,394,418,394,373,373,60,60,60,62,64,67,91,60,65,57,44,62
+Naveen Kumar,COMP2026022,Male,,Computer Science & Design,6,326,318,336,366,375,382,70,65,67,72,75,77,76,85,60,53,81,73
+Karthik Kumar,COMP2026023,Male,,Computer Science & Design,6,352,335,322,343,341,314,89,95,90,84,86,80,65,81,69,49,56,91
+Varun Kumar,COMP2026024,Male,,Computer Science & Design,6,442,450,423,452,481,467,69,75,78,76,76,79,55,87,75,74,56,68
+Rahul Kumar,COMP2026025,Male,,Computer Science & Design,6,429,401,405,402,389,361,98,96,98,98,95,98,67,77,65,63,54,97
+Surya Kumar,COMP2026026,Male,,Computer Science & Design,6,374,386,409,386,374,357,69,70,74,70,69,71,72,71,45,88,43,68
+Pranav Kumar,COMP2026027,Male,,Computer Science & Design,6,366,341,358,379,389,376,66,73,79,84,83,86,49,80,50,90,83,67
+Ritvik Kumar,COMP2026028,Male,,Computer Science & Design,6,452,473,488,467,463,469,92,90,87,83,85,81,78,44,64,64,78,87
+Abhinav Kumar,COMP2026029,Male,,Computer Science & Design,6,335,367,388,378,409,405,89,85,91,88,94,95,73,56,75,95,40,89
+Dev Kumar,COMP2026030,Male,,Computer Science & Design,6,382,413,399,435,423,411,70,73,80,86,88,95,83,74,88,57,89,67
+Aarav Sharma,COMP2026031,Male,,Computer Science & Engineering,6,392,401,422,453,458,438,83,81,87,93,95,98,47,58,67,50,69,81
+Vivaan Sharma,COMP2026032,Male,,Computer Science & Engineering,6,303,300,300,300,332,361,60,60,67,67,71,70,86,86,56,72,88,60
+Aditya Sharma,COMP2026033,Male,,Computer Science & Engineering,6,367,375,349,365,345,348,78,84,87,87,82,87,72,46,95,80,59,71
+Arjun Sharma,COMP2026034,Male,,Computer Science & Engineering,6,421,407,433,465,470,452,86,87,87,94,95,90,78,52,49,63,88,92
+Krish Sharma,COMP2026035,Male,,Computer Science & Engineering,6,371,353,382,416,433,407,65,60,61,60,60,62,74,89,73,40,78,70
+Ishaan Sharma,COMP2026036,Male,,Computer Science & Engineering,6,344,369,365,388,388,408,77,71,75,80,83,88,71,41,47,63,93,80
+Reyansh Sharma,COMP2026037,Male,,Computer Science & Engineering,6,370,389,424,403,406,401,79,79,84,81,81,82,55,43,55,76,45,79
+Ayaan Sharma,COMP2026038,Male,,Computer Science & Engineering,6,406,378,371,375,388,380,72,67,67,74,68,73,86,71,92,44,88,65
+Rohan Sharma,COMP2026039,Male,,Computer Science & Engineering,6,439,421,452,477,495,500,92,94,89,92,98,98,89,48,48,82,70,94
+Siddharth Sharma,COMP2026040,Male,,Computer Science & Engineering,6,355,341,318,344,341,332,96,92,93,94,98,98,50,56,73,95,78,95
+Diya Sharma,ELEC2026041,Male,,Electrical & Electronics Engineering,6,397,404,422,438,447,452,82,78,80,79,81,82,53,74,88,86,84,87
+Ananya Sharma,ELEC2026042,Male,,Electrical & Electronics Engineering,6,346,379,378,414,435,411,72,76,82,81,77,80,85,59,65,82,81,72
+Aadhya Sharma,ELEC2026043,Male,,Electrical & Electronics Engineering,6,422,432,418,412,398,385,85,81,79,73,73,71,68,73,68,47,55,83
+Ira Sharma,ELEC2026044,Male,,Electrical & Electronics Engineering,6,300,300,312,320,313,325,77,78,75,77,76,73,44,61,41,77,75,74
+Meera Sharma,ELEC2026045,Male,,Electrical & Electronics Engineering,6,380,380,363,369,385,400,68,69,72,77,81,88,77,54,40,44,85,74
+Saanvi Sharma,ELEC2026046,Male,,Electrical & Electronics Engineering,6,441,468,448,436,456,450,63,62,61,67,62,62,54,44,42,95,61,63
+Kavya Sharma,ELEC2026047,Male,,Electrical & Electronics Engineering,6,421,396,379,378,413,397,70,71,70,67,66,65,72,55,57,82,71,64
+Priya Sharma,ELEC2026048,Male,,Electrical & Electronics Engineering,6,415,418,434,433,406,424,70,75,76,81,80,79,74,48,86,76,76,73
+Nithya Sharma,ELEC2026049,Male,,Electrical & Electronics Engineering,6,333,358,379,376,367,365,90,96,92,97,98,98,55,90,70,91,66,90
+Anika Sharma,ELEC2026050,Male,,Electrical & Electronics Engineering,6,386,391,415,444,458,458,72,75,73,74,73,76,46,46,82,67,62,72
+Harsh Sharma,ELEC2026051,Male,,Electronics & Communication Engineering,6,370,401,397,418,433,414,83,87,82,89,85,88,66,69,95,86,43,87
+Naveen Sharma,ELEC2026052,Male,,Electronics & Communication Engineering,6,358,340,334,343,360,396,60,60,60,60,60,60,43,65,86,61,91,66
+Karthik Sharma,ELEC2026053,Male,,Electronics & Communication Engineering,6,300,322,324,329,343,319,67,69,76,71,65,61,55,52,52,74,68,66
+Varun Sharma,ELEC2026054,Male,,Electronics & Communication Engineering,6,330,353,367,367,363,337,71,66,70,68,69,69,67,51,57,69,55,68
+Rahul Sharma,ELEC2026055,Male,,Electronics & Communication Engineering,6,415,424,454,428,441,465,69,71,75,81,79,75,68,91,95,94,75,64
+Surya Sharma,ELEC2026056,Male,,Electronics & Communication Engineering,6,371,390,425,428,453,436,62,63,64,62,60,60,43,81,74,93,40,66
+Pranav Sharma,ELEC2026057,Male,,Electronics & Communication Engineering,6,349,324,339,369,362,382,60,60,65,69,67,71,88,94,55,50,66,65
+Ritvik Sharma,ELEC2026058,Male,,Electronics & Communication Engineering,6,404,416,433,412,422,409,95,97,93,98,98,95,70,53,95,65,43,91
+Abhinav Sharma,ELEC2026059,Male,,Electronics & Communication Engineering,6,402,409,398,433,419,420,76,77,82,84,87,83,64,40,64,56,90,70
+Dev Sharma,ELEC2026060,Male,,Electronics & Communication Engineering,6,353,357,346,358,383,374,86,85,92,89,89,92,58,67,84,86,90,89
+Aarav Iyer,ELEC2026061,Male,,Electronics & Instrumentation Engineering,6,301,331,317,342,319,331,98,98,92,91,91,95,82,85,71,49,52,95
+Vivaan Iyer,ELEC2026062,Male,,Electronics & Instrumentation Engineering,6,368,366,401,431,452,445,77,81,76,79,79,79,53,43,77,87,74,78
+Aditya Iyer,ELEC2026063,Male,,Electronics & Instrumentation Engineering,6,323,356,341,326,331,327,66,72,68,73,77,76,87,60,43,43,77,63
+Arjun Iyer,ELEC2026064,Male,,Electronics & Instrumentation Engineering,6,424,402,398,433,432,412,92,93,91,86,91,93,72,94,73,50,43,90
+Krish Iyer,ELEC2026065,Male,,Electronics & Instrumentation Engineering,6,418,393,427,461,433,408,97,97,98,97,98,96,45,94,51,44,78,92
+Ishaan Iyer,ELEC2026066,Male,,Electronics & Instrumentation Engineering,6,374,406,431,432,445,423,66,72,70,64,60,66,83,95,55,65,47,64
+Reyansh Iyer,ELEC2026067,Male,,Electronics & Instrumentation Engineering,6,374,395,421,447,468,500,93,96,98,97,96,94,55,77,78,42,79,96
+Ayaan Iyer,ELEC2026068,Male,,Electronics & Instrumentation Engineering,6,364,349,350,343,375,353,69,66,66,70,68,73,66,82,77,76,73,65
+Rohan Iyer,ELEC2026069,Male,,Electronics & Instrumentation Engineering,6,312,328,341,366,344,374,78,84,79,76,79,84,56,53,82,85,60,80
+Siddharth Iyer,ELEC2026070,Male,,Electronics & Instrumentation Engineering,6,399,392,381,389,398,375,76,79,85,79,78,73,56,65,48,82,81,75
+Diya Iyer,INFO2026071,Male,,Information Science & Engineering,6,391,403,404,423,431,427,80,87,89,96,98,98,69,60,88,44,40,79
+Ananya Iyer,INFO2026072,Male,,Information Science & Engineering,6,399,372,350,342,361,335,94,96,98,98,98,97,79,76,46,44,74,89
+Aadhya Iyer,INFO2026073,Male,,Information Science & Engineering,6,387,380,368,397,381,356,76,75,82,77,80,84,72,56,48,62,44,73
+Ira Iyer,INFO2026074,Male,,Information Science & Engineering,6,360,370,347,325,354,385,69,72,71,72,79,86,63,58,50,68,93,75
+Meera Iyer,INFO2026075,Male,,Information Science & Engineering,6,342,342,358,346,360,395,94,97,94,88,87,88,85,59,79,91,81,94
+Saanvi Iyer,INFO2026076,Male,,Information Science & Engineering,6,355,378,401,423,455,483,89,86,82,76,72,70,40,82,92,75,59,93
+Kavya Iyer,INFO2026077,Male,,Information Science & Engineering,6,330,325,324,328,364,378,73,78,81,80,75,74,48,56,47,46,87,66
+Priya Iyer,INFO2026078,Male,,Information Science & Engineering,6,343,342,316,326,334,323,98,93,90,88,91,98,49,57,58,78,53,95
+Nithya Iyer,INFO2026079,Male,,Information Science & Engineering,6,354,381,388,418,417,450,88,84,80,74,75,73,53,83,80,94,56,81
+Anika Iyer,INFO2026080,Male,,Information Science & Engineering,6,338,335,339,335,344,379,98,96,92,97,97,95,71,56,94,43,45,92
+Harsh Iyer,MECH2026081,Male,,Mechanical Engineering,6,419,441,420,424,428,442,90,87,81,76,82,76,93,57,42,40,61,87
+Naveen Iyer,MECH2026082,Male,,Mechanical Engineering,6,319,304,313,305,300,300,62,68,73,80,74,74,80,56,50,87,68,68
+Karthik Iyer,MECH2026083,Male,,Mechanical Engineering,6,356,371,396,413,446,421,91,91,90,85,83,82,85,67,75,40,47,95
+Varun Iyer,MECH2026084,Male,,Mechanical Engineering,6,364,362,352,342,342,326,60,65,70,66,66,67,84,49,74,42,93,64
+Rahul Iyer,MECH2026085,Male,,Mechanical Engineering,6,378,390,397,403,411,419,80,86,90,88,95,98,77,75,49,67,48,83
+Surya Iyer,MECH2026086,Male,,Mechanical Engineering,6,324,350,326,331,303,335,60,60,66,65,67,69,59,63,90,95,42,62
+Pranav Iyer,MECH2026087,Male,,Mechanical Engineering,6,405,398,426,416,388,397,77,75,72,70,76,80,53,83,55,82,46,82
+Ritvik Iyer,MECH2026088,Male,,Mechanical Engineering,6,368,372,380,413,439,461,82,84,78,78,72,68,89,75,95,66,79,82
+Abhinav Iyer,MECH2026089,Male,,Mechanical Engineering,6,407,390,397,380,391,363,71,74,75,77,71,66,55,95,50,91,91,69
+Dev Iyer,MECH2026090,Male,,Mechanical Engineering,6,322,300,300,315,347,365,68,63,67,71,78,76,66,41,51,87,61,71
+Aarav Nair,MECH2026091,Male,,Mechatronics Engineering,6,366,369,404,432,411,430,88,84,90,87,92,93,91,82,95,87,91,86
+Vivaan Nair,MECH2026092,Male,,Mechatronics Engineering,6,354,361,383,402,407,411,72,70,68,70,67,72,57,50,90,84,46,75
+Aditya Nair,MECH2026093,Male,,Mechatronics Engineering,6,361,350,344,362,398,410,80,83,88,90,89,93,95,42,94,70,54,84
+Arjun Nair,MECH2026094,Male,,Mechatronics Engineering,6,417,420,411,413,409,393,77,79,86,88,89,96,92,69,62,59,92,72
+Krish Nair,MECH2026095,Male,,Mechatronics Engineering,6,408,444,429,409,440,419,69,64,71,75,82,80,54,41,82,52,65,74
+Ishaan Nair,MECH2026096,Male,,Mechatronics Engineering,6,426,417,429,424,451,458,78,80,76,73,69,66,57,95,44,89,57,81
+Reyansh Nair,MECH2026097,Male,,Mechatronics Engineering,6,348,320,337,338,335,320,81,83,84,85,83,88,81,72,65,83,93,82
+Ayaan Nair,MECH2026098,Male,,Mechatronics Engineering,6,339,345,345,372,367,368,90,97,93,94,89,86,61,41,47,56,51,94
+Rohan Nair,MECH2026099,Male,,Mechatronics Engineering,6,343,356,383,406,440,446,94,98,98,95,98,98,56,42,46,78,67,97
+Siddharth Nair,MECH2026100,Male,,Mechatronics Engineering,6,388,375,401,387,412,401,84,82,80,79,83,89,86,90,60,67,78,82
+Diya Nair,AGRI2026101,Male,,Agricultural Engineering,6,387,415,393,376,411,446,86,84,88,88,82,79,47,64,76,52,56,92
+Ananya Nair,AGRI2026102,Male,,Agricultural Engineering,6,394,429,417,450,486,465,64,65,70,69,71,78,85,67,40,73,91,62
+Aadhya Nair,AGRI2026103,Male,,Agricultural Engineering,6,300,300,321,311,319,311,98,98,98,95,92,87,83,86,87,87,82,94
+Ira Nair,AGRI2026104,Male,,Agricultural Engineering,6,373,399,398,408,414,447,73,72,74,69,75,69,63,67,44,82,61,72
+Meera Nair,AGRI2026105,Male,,Agricultural Engineering,6,386,389,375,381,379,415,74,80,86,83,85,82,82,94,47,86,59,80
+Saanvi Nair,AGRI2026106,Male,,Agricultural Engineering,6,365,340,365,343,328,333,98,93,94,93,98,98,59,82,66,60,65,92
+Kavya Nair,AGRI2026107,Male,,Agricultural Engineering,6,405,407,440,438,430,462,72,71,70,77,84,90,75,48,52,66,82,78
+Priya Nair,AGRI2026108,Male,,Agricultural Engineering,6,360,389,383,396,369,348,89,90,92,98,96,93,83,87,51,79,76,84
+Nithya Nair,AGRI2026109,Male,,Agricultural Engineering,6,314,300,300,331,330,353,83,84,80,86,86,88,65,75,93,40,59,79
+Anika Nair,AGRI2026110,Male,,Agricultural Engineering,6,320,351,376,385,372,375,79,80,76,77,84,79,53,67,90,77,78,78
+Harsh Nair,ARTI2026111,Male,,Artificial Intelligence and Data Science,6,318,342,352,331,343,366,83,78,78,76,79,86,69,68,68,83,53,80
+Naveen Nair,ARTI2026112,Male,,Artificial Intelligence and Data Science,6,403,389,411,394,407,409,86,80,77,84,87,91,70,90,90,87,50,92
+Karthik Nair,ARTI2026113,Male,,Artificial Intelligence and Data Science,6,341,359,386,414,387,362,60,61,68,71,72,77,58,72,82,80,79,65
+Varun Nair,ARTI2026114,Male,,Artificial Intelligence and Data Science,6,344,348,336,337,341,352,76,78,76,82,79,85,45,92,88,55,83,81
+Rahul Nair,ARTI2026115,Male,,Artificial Intelligence and Data Science,6,446,470,489,498,500,493,81,86,91,97,98,95,54,91,52,49,41,79
+Surya Nair,ARTI2026116,Male,,Artificial Intelligence and Data Science,6,367,349,362,347,379,398,63,61,60,67,69,67,55,70,79,94,89,62
+Pranav Nair,ARTI2026117,Male,,Artificial Intelligence and Data Science,6,416,445,476,464,469,471,60,60,60,60,62,68,69,66,80,76,52,64
+Ritvik Nair,ARTI2026118,Male,,Artificial Intelligence and Data Science,6,396,420,456,461,467,472,84,78,80,85,87,83,71,65,55,49,81,84
+Abhinav Nair,ARTI2026119,Male,,Artificial Intelligence and Data Science,6,384,386,381,407,413,403,63,60,66,72,71,75,88,95,89,46,89,60
+Dev Nair,ARTI2026120,Male,,Artificial Intelligence and Data Science,6,358,342,318,321,317,324,86,80,81,84,80,78,54,51,91,84,73,87
+Aarav Reddy,ARTI2026121,Male,,Artificial Intelligence and Machine Learning,6,352,355,331,316,305,341,83,78,83,86,86,82,43,75,55,94,47,89
+Vivaan Reddy,ARTI2026122,Male,,Artificial Intelligence and Machine Learning,6,344,379,389,384,384,406,85,89,90,84,88,92,48,91,69,82,73,89
+Aditya Reddy,ARTI2026123,Male,,Artificial Intelligence and Machine Learning,6,408,405,441,427,408,417,91,96,92,96,94,90,78,60,88,68,79,95
+Arjun Reddy,ARTI2026124,Male,,Artificial Intelligence and Machine Learning,6,374,362,362,393,381,416,90,95,98,98,93,98,67,93,75,68,50,92
+Krish Reddy,ARTI2026125,Male,,Artificial Intelligence and Machine Learning,6,344,317,300,300,300,319,84,89,83,89,87,93,68,56,88,55,93,90
+Ishaan Reddy,ARTI2026126,Male,,Artificial Intelligence and Machine Learning,6,377,408,442,445,433,419,79,80,80,84,91,91,89,89,73,71,80,77
+Reyansh Reddy,ARTI2026127,Male,,Artificial Intelligence and Machine Learning,6,407,424,451,436,421,413,81,82,79,74,75,81,57,68,44,85,58,75
+Ayaan Reddy,ARTI2026128,Male,,Artificial Intelligence and Machine Learning,6,342,374,399,430,420,447,72,78,83,87,88,91,57,61,60,74,45,75
+Rohan Reddy,ARTI2026129,Male,,Artificial Intelligence and Machine Learning,6,333,305,300,300,307,341,62,67,71,74,70,65,49,54,64,84,49,68
+Siddharth Reddy,ARTI2026130,Male,,Artificial Intelligence and Machine Learning,6,395,424,459,469,487,499,75,69,64,71,78,84,44,66,66,61,74,73
+Diya Reddy,BIOT2026131,Male,,Biotechnology,6,323,312,320,300,300,326,94,98,92,98,95,98,66,43,53,93,66,89
+Ananya Reddy,BIOT2026132,Male,,Biotechnology,6,396,403,409,422,405,420,88,95,90,85,81,77,89,77,84,41,94,84
+Aadhya Reddy,BIOT2026133,Male,,Biotechnology,6,308,309,300,300,333,329,98,98,94,92,92,87,64,70,40,62,59,96
+Ira Reddy,BIOT2026134,Male,,Biotechnology,6,419,429,419,432,418,438,84,83,88,85,91,98,94,93,66,74,87,84
+Meera Reddy,BIOT2026135,Male,,Biotechnology,6,395,416,437,412,415,410,91,94,98,98,94,93,91,78,54,71,54,94
+Saanvi Reddy,BIOT2026136,Male,,Biotechnology,6,329,344,372,400,433,405,75,80,79,84,80,85,67,71,41,64,61,77
+Kavya Reddy,BIOT2026137,Male,,Biotechnology,6,392,377,397,384,378,369,86,82,87,86,91,97,86,50,93,69,48,85
+Priya Reddy,BIOT2026138,Male,,Biotechnology,6,400,411,410,385,408,441,96,98,98,98,92,88,41,65,77,76,82,94
+Nithya Reddy,BIOT2026139,Male,,Biotechnology,6,424,452,456,479,484,473,60,63,70,64,62,69,45,81,67,48,95,61
+Anika Reddy,BIOT2026140,Male,,Biotechnology,6,385,376,389,382,410,409,95,93,95,98,98,98,51,43,56,64,60,89
+Harsh Reddy,COMP2026141,Male,,Computer Science & Business Systems,6,341,374,367,355,352,327,79,83,86,87,83,80,69,60,61,88,64,73
+Naveen Reddy,COMP2026142,Male,,Computer Science & Business Systems,6,368,385,397,410,390,414,71,70,71,69,75,74,88,93,66,56,93,77
+Karthik Reddy,COMP2026143,Male,,Computer Science & Business Systems,6,400,389,370,390,365,344,72,66,73,77,74,75,70,41,87,74,43,65
+Varun Reddy,COMP2026144,Male,,Computer Science & Business Systems,6,375,410,438,466,447,457,78,77,76,73,77,82,54,81,44,89,81,82
+Rahul Reddy,COMP2026145,Male,,Computer Science & Business Systems,6,305,311,300,320,355,389,60,64,63,70,75,76,88,41,55,52,93,62
+Surya Reddy,COMP2026146,Male,,Computer Science & Business Systems,6,350,353,379,363,384,382,60,67,72,67,63,70,79,49,55,48,70,61
+Pranav Reddy,COMP2026147,Male,,Computer Science & Business Systems,6,401,408,418,390,419,412,71,76,73,74,72,70,76,53,69,84,56,67
+Ritvik Reddy,COMP2026148,Male,,Computer Science & Business Systems,6,363,388,408,380,352,385,87,81,88,93,92,95,50,78,78,87,85,83
+Abhinav Reddy,COMP2026149,Male,,Computer Science & Business Systems,6,432,426,462,460,472,445,68,74,77,78,73,76,89,92,50,59,46,67
+Dev Reddy,COMP2026150,Male,,Computer Science & Business Systems,6,305,300,327,327,361,384,98,98,98,98,98,98,41,59,76,83,64,97
+Aarav Patel,COMP2026151,Male,,Computer Technology,6,395,387,412,428,423,416,86,87,92,95,98,98,85,52,44,77,84,85
+Vivaan Patel,COMP2026152,Male,,Computer Technology,6,356,352,349,361,339,351,72,66,63,67,67,64,46,84,89,59,94,75
+Aditya Patel,COMP2026153,Male,,Computer Technology,6,439,456,439,472,488,500,98,98,98,98,95,98,91,47,90,76,90,98
+Arjun Patel,COMP2026154,Male,,Computer Technology,6,351,334,348,342,351,356,60,64,61,60,60,61,62,74,67,82,63,62
+Krish Patel,COMP2026155,Male,,Computer Technology,6,401,400,393,379,411,394,66,65,60,61,63,60,72,81,61,40,94,64
+Ishaan Patel,COMP2026156,Male,,Computer Technology,6,434,450,438,414,443,461,87,87,92,89,93,96,92,71,46,67,63,86
+Reyansh Patel,COMP2026157,Male,,Computer Technology,6,374,350,384,419,423,396,86,91,88,95,98,98,85,49,67,51,86,89
+Ayaan Patel,COMP2026158,Male,,Computer Technology,6,402,433,409,389,375,401,93,98,92,98,98,93,81,57,79,91,74,93
+Rohan Patel,COMP2026159,Male,,Computer Technology,6,359,394,424,411,431,435,96,98,98,98,96,94,69,67,92,86,77,90
+Siddharth Patel,COMP2026160,Male,,Computer Technology,6,378,377,411,439,463,461,78,81,86,90,94,92,60,94,55,93,45,77
+Diya Patel,FOOD2026161,Male,,Food Technology,6,379,405,426,446,440,469,79,77,74,68,72,67,68,55,88,69,76,77
+Ananya Patel,FOOD2026162,Male,,Food Technology,6,317,303,300,300,323,322,86,91,87,88,85,79,61,41,71,94,60,84
+Aadhya Patel,FOOD2026163,Male,,Food Technology,6,362,360,340,327,336,360,69,71,70,70,75,78,71,53,62,91,56,71
+Ira Patel,FOOD2026164,Male,,Food Technology,6,348,338,369,356,363,355,75,82,89,83,86,83,57,78,84,57,75,81
+Meera Patel,FOOD2026165,Male,,Food Technology,6,325,321,307,300,308,313,60,65,70,76,75,79,73,52,45,55,86,60
+Saanvi Patel,FOOD2026166,Male,,Food Technology,6,401,378,366,347,357,353,83,79,84,78,83,89,71,75,88,55,84,86
+Kavya Patel,FOOD2026167,Male,,Food Technology,6,379,380,388,360,371,390,94,90,89,88,95,96,81,85,71,68,90,90
+Priya Patel,FOOD2026168,Male,,Food Technology,6,342,345,375,380,355,390,63,64,69,71,66,68,45,58,54,65,84,61
+Nithya Patel,FOOD2026169,Male,,Food Technology,6,381,389,392,385,367,390,79,85,84,79,79,80,59,82,77,63,70,75
+Anika Patel,FOOD2026170,Male,,Food Technology,6,378,370,400,373,384,382,94,89,90,92,96,98,73,62,67,87,75,95
+Harsh Patel,FASH2026171,Male,,Fashion Technology,6,355,350,341,332,328,321,79,79,75,81,79,84,62,84,69,57,59,81
+Naveen Patel,FASH2026172,Male,,Fashion Technology,6,356,333,334,360,348,346,73,79,74,79,78,84,54,47,86,52,60,76
+Karthik Patel,FASH2026173,Male,,Fashion Technology,6,444,416,445,421,439,447,64,64,65,60,67,70,87,74,88,84,51,67
+Varun Patel,FASH2026174,Male,,Fashion Technology,6,383,395,410,410,392,368,74,77,75,74,78,72,53,87,70,57,86,72
+Rahul Patel,FASH2026175,Male,,Fashion Technology,6,346,375,402,406,427,445,96,97,98,98,98,97,88,73,78,58,46,97
+Surya Patel,FASH2026176,Male,,Fashion Technology,6,328,307,309,325,354,384,76,76,70,68,74,73,58,54,63,51,59,72
+Pranav Patel,FASH2026177,Male,,Fashion Technology,6,364,371,372,349,351,347,61,60,67,65,63,62,85,74,48,57,42,60
+Ritvik Patel,FASH2026178,Male,,Fashion Technology,6,365,385,389,362,373,367,62,68,72,75,69,72,75,58,84,48,80,63
+Abhinav Patel,FASH2026179,Male,,Fashion Technology,6,424,449,448,458,449,461,85,86,83,82,76,82,46,95,40,76,58,91
+Dev Patel,FASH2026180,Male,,Fashion Technology,6,362,356,364,353,350,383,94,90,97,92,92,89,70,68,61,51,43,90
+Aarav Singh,INFO2026181,Male,,Information Technology,6,326,312,307,300,335,366,82,77,77,73,78,84,95,70,47,92,44,76
+Vivaan Singh,INFO2026182,Male,,Information Technology,6,382,409,434,425,434,451,88,95,98,98,95,89,71,44,76,80,83,85
+Aditya Singh,INFO2026183,Male,,Information Technology,6,447,473,476,468,466,442,66,68,63,60,60,61,49,49,91,76,59,63
+Arjun Singh,INFO2026184,Male,,Information Technology,6,349,366,361,375,390,423,70,73,68,72,69,74,55,47,75,88,66,65
+Krish Singh,INFO2026185,Male,,Information Technology,6,365,347,369,398,376,377,98,98,98,93,96,98,78,90,79,54,89,98
+Ishaan Singh,INFO2026186,Male,,Information Technology,6,318,328,349,369,345,372,98,97,98,95,92,95,64,68,68,59,95,93
+Reyansh Singh,INFO2026187,Male,,Information Technology,6,335,314,323,332,316,307,98,98,98,98,94,98,67,59,76,79,43,97
+Ayaan Singh,INFO2026188,Male,,Information Technology,6,368,353,366,384,366,394,68,75,80,77,76,74,88,53,80,53,56,66
+Rohan Singh,INFO2026189,Male,,Information Technology,6,444,452,452,474,489,478,66,67,66,69,69,75,50,55,51,75,44,65
+Siddharth Singh,INFO2026190,Male,,Information Technology,6,338,350,330,316,310,300,76,73,76,73,79,74,40,66,68,84,78,70
+Diya Singh,TEXT2026191,Male,,Textile Technology,6,335,323,325,300,300,300,89,96,92,96,98,98,58,42,54,58,85,90
+Ananya Singh,TEXT2026192,Male,,Textile Technology,6,423,420,398,402,425,424,73,79,86,81,85,91,84,95,69,44,83,78
+Aadhya Singh,TEXT2026193,Male,,Textile Technology,6,414,444,442,466,494,497,68,74,71,78,78,74,56,90,90,80,77,74
+Ira Singh,TEXT2026194,Male,,Textile Technology,6,442,416,410,418,395,368,77,80,75,72,69,70,67,47,74,54,81,72
+Meera Singh,TEXT2026195,Male,,Textile Technology,6,389,393,410,426,450,465,66,68,62,65,70,71,57,92,49,44,43,69
+Saanvi Singh,TEXT2026196,Male,,Textile Technology,6,426,446,438,466,500,475,68,63,61,60,60,64,90,59,78,87,92,70
+Kavya Singh,TEXT2026197,Male,,Textile Technology,6,400,415,427,402,432,431,93,98,93,98,94,97,58,68,47,69,84,96
+Priya Singh,TEXT2026198,Male,,Textile Technology,6,382,361,333,324,337,322,78,83,77,75,75,73,84,65,57,72,74,79
+Nithya Singh,TEXT2026199,Male,,Textile Technology,6,386,362,342,370,379,415,93,95,98,98,98,98,68,45,78,42,67,91
+Anika Singh,TEXT2026200,Male,,Textile Technology,6,349,353,381,393,410,399,77,83,90,96,95,89,78,56,41,45,54,80
+Poornesh,7376232AD209,Male,7376232ad209_ce56421a.jpg,Artificial Intelligence and Data Science,6,440,452,464,476,488,500,82,85,88,91,94,97,100,100,100,100,100,97
+Rahul Verma,COMP2026201,Male,,Computer Science & Engineering,6,300,300,300,300,300,300,74,71,69,67,64,62,32,41,38,29,36,62
+Priya Sharma,INFO2026202,Female,,Information Technology,6,300,300,300,300,300,300,72,69,66,63,61,60,44,39,42,35,37,58
+Arjun Singh,ELEC2026203,Male,,Electronics & Communication Engineering,6,300,300,300,300,300,300,73,71,70,69,68,67,40,36,34,31,38,67
+Meera Nair,MECH2026204,Female,,Mechanical Engineering,6,300,300,300,300,300,300,75,73,71,68,66,64,37,42,35,33,39,64
+Karthik Raj,CIVI2026205,Male,,Civil Engineering,6,300,300,300,300,300,300,71,69,67,65,63,60,34,40,37,32,35,60
+Ananya Das,BIOT2026206,Female,,Biotechnology,6,300,300,300,300,300,300,74,72,69,66,64,61,39,43,36,31,39,61
+Vignesh Kumar,AIMA2026207,Male,,Artificial Intelligence and Machine Learning,6,300,300,300,300,300,300,73,71,69,66,63,60,35,38,41,33,39,59
+Lakshmi Iyer,COMP2026208,Female,,Computer Science & Business Systems,6,300,300,300,300,300,300,74,72,70,68,65,63,41,37,35,34,40,63
+Surya Prakash,AGRI2026209,Male,,Agricultural Engineering,6,300,300,300,300,300,300,72,70,68,65,62,60,33,39,36,31,44,57
+Tanvi Mishra,TEXT2026210,Female,,Textile Technology,6,300,300,300,300,300,300,74,73,71,69,66,64,42,38,40,34,42,64

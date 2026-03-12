@@ -7,8 +7,7 @@
     <h1>Welcome, {{ username }}</h1>
     <p class="muted">Classroom performance workspace with aligned metrics, responsive navigation, and AI-assisted analysis.</p>
     <div class="page-actions">
-        <a class="btn btn-primary" href="{{ url_for('students_directory') }}">Open Student Profiles</a>
-        <a class="btn btn-secondary" href="{{ url_for('add_student') }}">Add Student</a>
+        <a class="btn btn-primary" href="{{ url_for('student_management') }}">Open Student Management</a>
     </div>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -86,7 +85,7 @@
                     {% for row in students %}
                         <tr class="{{ 'weak-row' if row['Weak Student'] else '' }}">
                             <td>{{ row['Name'] }}</td>
-                            <td><a class="btn btn-secondary btn-inline" href="{{ url_for('student_profile', student_name=row['Name']) }}">View Profile</a></td>
+                            <td><a class="btn btn-secondary btn-inline" href="{{ url_for('student_profile', register_number=row['RegisterNumber']) }}">View Profile</a></td>
                             {% for code, _ in course_info %}
                                 <td>{{ row[code] }}</td>
                             {% endfor %}

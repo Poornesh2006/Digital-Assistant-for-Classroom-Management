@@ -9,6 +9,13 @@
 <body id="body" class="login-page">
     <main class="login-split-wrap">
         <section class="login-visual-panel">
+            <div class="particles" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="visual-gradient-layer"></div>
             <div class="visual-shape shape-one"></div>
             <div class="visual-shape shape-two"></div>
@@ -18,9 +25,21 @@
             <div class="visual-grid-overlay"></div>
             <div class="tech-icon icon-ai" aria-hidden="true">AI</div>
             <div class="tech-icon icon-cloud" aria-hidden="true">CLD</div>
+            <div class="floating-cards" aria-hidden="true">
+                <div class="analytics-float-card analytics-card1">
+                    <div class="analytics-line analytics-line-blue"></div>
+                    <div class="analytics-line analytics-line-purple"></div>
+                    <div class="analytics-line analytics-line-green"></div>
+                </div>
+
+                <div class="analytics-float-card analytics-card2">
+                    <div class="analytics-line analytics-line-purple"></div>
+                    <div class="analytics-line analytics-line-blue"></div>
+                </div>
+            </div>
 
             <div class="visual-content">
-                <h1>Empowering Digital Learning</h1>
+                <h1 class="empower-text">Empowering Digital Learning</h1>
                 <p>Smart classroom management for modern institutions</p>
 
                 <div class="academic-illustration" aria-hidden="true">
@@ -69,18 +88,65 @@
                     {% endif %}
                 {% endwith %}
 
-                <form method="POST" class="login-form">
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+
+                <form method="POST" action="{{ url_for('auth.login') }}" id="loginForm" class="login-form">
                     <label for="username">Username</label>
                     <input id="username" name="username" type="text" placeholder="Enter username" class="login-input" required />
 
                     <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Enter password" class="login-input" required />
+                    <input id="password" name="password" type="password" placeholder="Enter password" class="login-input" autocomplete="off" required />
 
-                    <button type="submit" class="btn btn-primary login-button">Login</button>
+                    <button type="submit" class="btn btn-primary login-button"><span class="btn-icon" aria-hidden="true">&#128274;</span><span>Login</span></button>
                 </form>
             </div>
         </section>
     </main>
+
+    <div id="loadingSpinner" class="loading" aria-live="polite" aria-hidden="true">
+        <div class="loading-card">
+            <div class="spinner" aria-hidden="true"></div>
+            <p id="loadingMessage">Processing request...</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>Copyright &copy; 2012 - 2026. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.showLoading = function(message) {
+            const overlay = document.getElementById("loadingSpinner");
+            const label = document.getElementById("loadingMessage");
+            if (label) {
+                label.textContent = message || "Processing request...";
+            }
+            if (overlay) {
+                overlay.style.display = "flex";
+            }
+        };
+        window.hideLoading = function() {
+            const overlay = document.getElementById("loadingSpinner");
+            if (overlay) {
+                overlay.style.display = "none";
+            }
+        };
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginForm = document.getElementById("loginForm");
+            if (!loginForm) {
+                return;
+            }
+
+            loginForm.addEventListener("submit", function() {
+                window.showLoading("Signing in and preparing dashboard...");
+            });
+        });
+    </script>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Tester",
+    "email": "test@example.com",
+    "message": "Looks good",
+    "rating": "5"
+  },
+  {
+    "name": "Tester",
+    "email": "test@example.com",
+    "message": "Valid feedback",
+    "rating": "5"
+  },
+  {
+    "name": "POORNESH",
+    "email": "poornesh.ad23@bitsathy.ac.in",
+    "message": "Good Website for Faculty use",
+    "rating": "5"
+  }
+]

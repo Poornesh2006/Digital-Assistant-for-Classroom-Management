@@ -7,7 +7,7 @@
     <h1>Student Profile Dashboard</h1>
     <p class="muted">Semester-wise academic, attendance, and AI insight view.</p>
     <div class="page-actions">
-        <a href="{{ url_for('export_student', student_name=student.Name) }}" class="btn btn-primary">Export PDF</a>
+        <a href="{{ url_for('export_student', register_number=register_number) }}" class="btn btn-primary" data-loading-text="Exporting student PDF report..."><span class="btn-icon" aria-hidden="true">&#128196;</span><span>Export PDF</span></a>
         {% if is_at_risk %}
             <span class="risk-badge">At Risk</span>
         {% endif %}
@@ -33,7 +33,14 @@
 
 <section class="card glass insight-card">
     <h3 class="section-title">AI Insights</h3>
-    <p>{{ insight_text }}</p>
+    <p id="aiInsightText">{{ insight_text }}</p>
+    <div class="student-profile-ai-meta">
+        <span class="ai-stat-pill {% if is_at_risk %}risk-pill-high{% else %}risk-pill-low{% endif %}" id="aiRiskBadge">{{ 'High' if is_at_risk else 'Low' }} Risk</span>
+        <span class="ai-stat-pill" id="aiScoreBadge">Performance Index {{ '%.1f'|format(performance_index) }}/10</span>
+        <button type="button" class="btn btn-secondary" id="runAiAnalysisButton"><span class="btn-icon" aria-hidden="true">&#129302;</span><span>Run AI Analysis</span></button>
+    </div>
+    <div id="aiErrorMessage" class="error-message student-profile-ai-output" hidden>Warning: AI processing failed. Please try again.</div>
+    <div id="aiSuccessMessage" class="success-message student-profile-ai-output" hidden>AI analysis completed successfully.</div>
 </section>
 
 {% if is_at_risk %}
@@ -110,4 +117,66 @@
         </div>
     </section>
 </section>
+{% endblock %}
+
+{% block page_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const runButton = document.getElementById("runAiAnalysisButton");
+    const insightText = document.getElementById("aiInsightText");
+    const riskBadge = document.getElementById("aiRiskBadge");
+    const scoreBadge = document.getElementById("aiScoreBadge");
+    const errorBox = document.getElementById("aiErrorMessage");
+    const successBox = document.getElementById("aiSuccessMessage");
+
+    if (!runButton || !insightText || !riskBadge || !scoreBadge || !errorBox || !successBox) {
+        return;
+    }
+
+    runButton.addEventListener("click", async () => {
+        errorBox.hidden = true;
+        successBox.hidden = true;
+        runButton.disabled = true;
+        window.showLoading("Processing AI analysis...");
+
+        try {
+            const response = await fetch("{{ url_for('api.analyze_async') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    Name: {{ student["Name"]|tojson }},
+                    RegisterNumber: {{ register_number|tojson }},
+                    Sem6_Total: {{ student.get("Sem6_Total", student.get("Marks", 0))|tojson }},
+                    Attendance: {{ student.get("Attendance", 0)|tojson }},
+                    Average: {{ student.get("Average", 0)|tojson }}
+                })
+            });
+
+            const payload = await response.json();
+            if (!response.ok) {
+                throw new Error(payload.error || "AI processing failed.");
+            }
+
+            const riskLevel = String(payload.risk_level || "Unknown");
+            const averageMarks = payload.average_marks ?? 0;
+            const attendance = payload.attendance ?? 0;
+            const performanceScore = payload.performance_score ?? 0;
+
+            insightText.textContent = `AI analysis indicates ${riskLevel.toLowerCase()} risk with average marks ${averageMarks} and attendance ${attendance}%.`;
+            riskBadge.textContent = `${riskLevel} Risk`;
+            riskBadge.className = `ai-stat-pill ${riskLevel === "High" ? "risk-pill-high" : riskLevel === "Medium" ? "risk-pill-medium" : "risk-pill-low"}`;
+            scoreBadge.textContent = `Performance Score ${performanceScore}/10`;
+            successBox.hidden = false;
+        } catch (error) {
+            errorBox.textContent = `Warning: ${error.message || "AI processing failed. Please try again."}`;
+            errorBox.hidden = false;
+        } finally {
+            runButton.disabled = false;
+            window.hideLoading();
+        }
+    });
+});
+</script>
 {% endblock %}

@@ -1,4 +1,5 @@
 Flask
+Flask-Compress
 pandas
 matplotlib
 scikit-learn

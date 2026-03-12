@@ -21,7 +21,6 @@ def login_required(route_func):
     return wrapper
 
 
-@bp.route("/", methods=["GET", "POST"])
 @bp.route("/login", methods=["GET", "POST"])
 def login():
     """Faculty login page."""
@@ -32,7 +31,7 @@ def login():
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
 
-        is_default_admin = username == "admin" and password == "admin"
+        is_default_admin = username == "admin" and password == "admin123"
         is_faculty_user = username in FACULTY_USERS and FACULTY_USERS[username] == password
 
         if is_default_admin or is_faculty_user:
@@ -40,12 +39,11 @@ def login():
             session["logged_in"] = True
             session["username"] = username
             log_activity("Faculty logged in", username=username, details="Successful login")
-            flash("Login successful.", "success")
-            return redirect(url_for("pages.dashboard"))
+            return redirect(url_for("pages.intro_animation"))
 
-        flash("Invalid login credentials", "error")
+        return render_template("login.html", error="Invalid credentials")
 
-    return render_template("login.html")
+    return render_template("login.html", error=None)
 
 
 @bp.route("/logout")

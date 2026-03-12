@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ai_intro.css') }}" />
+</head>
+<body>
+    <div class="particles" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="intro-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Digital Classroom Assistant Logo" class="intro-logo" />
+        <h1 class="intro-title">Digital Classroom Assistant</h1>
+        <p class="intro-text">AI Powered Academic Performance Monitoring</p>
+        <div class="loader" aria-hidden="true"></div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "/login";
+        }, 3000);
+    </script>
+</body>
+</html>

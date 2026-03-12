@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ page_title }} | Digital Classroom Assistant{% endblock %}
+
+{% block content %}
+<section class="card glass card-header-gradient">
+    <h1>{{ page_title }}</h1>
+    <p class="muted">Use the existing classroom form style to maintain student records.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {{ 'alert-danger' if category == 'error' else 'alert-success' }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</section>
+
+<section class="card glass form-card">
+    <form method="POST" action="{{ action_url }}" class="student-form" enctype="multipart/form-data" data-loading-text="Saving student record...">
+        {% set selected_department = student.get('department', student.get('Department', '')) if student else '' %}
+        {% set gender_value = student.get('gender', student.get('Gender', 'Male')) if student else 'Male' %}
+
+        <div class="form-section">
+            <div class="form-section-heading">
+                <h2 class="section-title">Student Information</h2>
+                <p class="muted">Basic profile and enrollment details.</p>
+            </div>
+
+            <div class="form-grid form-grid-two">
+                <div class="form-field form-field-full">
+                    <label for="profile_image">Profile Image</label>
+                    <input id="profile_image" name="profile_image" type="file" accept="image/*" />
+                    <small class="muted">Accepted formats: PNG, JPG, JPEG, GIF, WEBP.</small>
+                </div>
+
+                <div class="form-field">
+                    <label for="name">Student Name</label>
+                    <input id="name" name="name" type="text" value="{{ student.get('name', student.get('Name', '')) if student else '' }}" required placeholder="Enter student name" />
+                </div>
+
+                <div class="form-field">
+                    <label for="register_number">Register Number</label>
+                    <input id="register_number" name="register_number" type="text" value="{{ student.get('register_number', student.get('RegisterNumber', '')) if student else '' }}" required placeholder="Enter register number" />
+                </div>
+
+                <div class="form-field form-field-full">
+                    <label for="department">Department</label>
+                    <div class="department-select" data-department-picker>
+                        <select id="department" name="department" required class="native-department-select">
+                            <option value="">Select Department</option>
+                            {% for dept in departments %}
+                                <option value="{{ dept }}" {% if selected_department == dept %}selected{% endif %}>{{ dept }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <div class="custom-department-select" aria-hidden="true">
+                            <button type="button" class="department-trigger" data-department-trigger aria-haspopup="listbox" aria-expanded="false">
+                                <span data-department-label>Select Department</span>
+                            </button>
+
+                            <div class="department-panel" data-department-panel>
+                                <input type="text" class="department-search" placeholder="Search department..." data-department-search autocomplete="off" />
+                                <div class="department-options" role="listbox" data-department-options>
+                                    {% for dept in departments %}
+                                        <button type="button" class="department-option" data-department-option data-value="{{ dept }}">{{ dept }}</button>
+                                    {% endfor %}
+                                </div>
+                                <p class="department-empty" data-department-empty hidden>No matching departments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="semester">Semester</label>
+                    <input id="semester" name="semester" type="number" min="1" max="8" value="{{ student.get('semester', student.get('CurrentSemester', 6)) if student else 6 }}" required placeholder="1 to 8" />
+                </div>
+
+                <div class="form-field">
+                    <label for="gender">Default Avatar</label>
+                    <select id="gender" name="gender">
+                        <option value="Male" {% if gender_value == 'Male' %}selected{% endif %}>Male</option>
+                        <option value="Female" {% if gender_value == 'Female' %}selected{% endif %}>Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-heading">
+                <h2 class="section-title">Academic Data</h2>
+                <p class="muted">Enter marks for all subjects and attendance.</p>
+            </div>
+
+            <div class="form-field">
+                <label>Subject Marks</label>
+                <small class="muted">Enter marks between 0 and 100 for each subject.</small>
+                <div class="subject-marks-group">
+                    {% for code, name in course_info %}
+                        {% set field_value = student.get(code, '') if student else '' %}
+                        <div class="subject-mark-row">
+                            <label for="{{ code }}" class="subject-mark-label">{{ name.title() }}</label>
+                            <div class="subject-mark-input-wrap">
+                                <input
+                                    id="{{ code }}"
+                                    name="{{ code }}"
+                                    type="number"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    value="{{ field_value }}"
+                                    required
+                                />
+                                <span class="subject-mark-code">{{ code }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-grid form-grid-two">
+                <div class="form-field">
+                    <label for="attendance">Attendance (%)</label>
+                    <input id="attendance" name="attendance" type="number" min="0" max="100" value="{{ student.get('attendance', student.get('AttendanceDisplay', student.get('Attendance', ''))) if student else '' }}" required placeholder="0 to 100" />
+                </div>
+            </div>
+        </div>
+
+        <div class="page-actions">
+            <button type="submit" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128190;</span><span>{{ submit_label }}</span></button>
+            <a href="{{ url_for('student_management') }}" class="btn btn-secondary"><span class="btn-icon" aria-hidden="true">&#8617;</span><span>Back to Students</span></a>
+        </div>
+    </form>
+</section>
+{% endblock %}

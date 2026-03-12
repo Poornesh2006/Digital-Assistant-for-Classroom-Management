@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}Feedback | Digital Classroom Assistant{% endblock %}
+
+{% block content %}
+<section class="card glass card-header-gradient">
+    <h1>Feedback</h1>
+    <p class="muted">Share your experience to help improve the Digital Classroom Assistant.</p>
+
+    {% if success %}
+        <p class="success-message">{{ success }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+</section>
+
+<section class="card glass form-card">
+    <form method="POST" action="{{ url_for('feedback_page') }}" id="feedbackForm" class="student-form feedback-form">
+        <div class="form-grid form-grid-two">
+            <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your Name" value="{{ form_data.name if form_data else '' }}" required />
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Email" value="{{ form_data.email if form_data else '' }}" required />
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="message">Feedback</label>
+            <textarea id="message" name="message" placeholder="Write your feedback" rows="6" required>{{ form_data.message if form_data else '' }}</textarea>
+        </div>
+
+        <div class="form-field">
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" required>
+                <option value="">Select Rating</option>
+                <option value="5" {% if form_data and form_data.rating == '5' %}selected{% endif %}>⭐⭐⭐⭐⭐ Excellent</option>
+                <option value="4" {% if form_data and form_data.rating == '4' %}selected{% endif %}>⭐⭐⭐⭐ Good</option>
+                <option value="3" {% if form_data and form_data.rating == '3' %}selected{% endif %}>⭐⭐⭐ Average</option>
+                <option value="2" {% if form_data and form_data.rating == '2' %}selected{% endif %}>⭐⭐ Poor</option>
+                <option value="1" {% if form_data and form_data.rating == '1' %}selected{% endif %}>⭐ Very Poor</option>
+            </select>
+        </div>
+
+        <div class="page-actions">
+            <button type="submit" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128172;</span><span>Submit Feedback</span></button>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary"><span class="btn-icon" aria-hidden="true">&#8617;</span><span>Back to Dashboard</span></a>
+        </div>
+    </form>
+</section>
+{% endblock %}
+
+{% block page_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const feedbackForm = document.getElementById("feedbackForm");
+    if (!feedbackForm) {
+        return;
+    }
+
+    feedbackForm.addEventListener("submit", function(e) {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const rating = document.getElementById("rating").value.trim();
+
+        if (name === "" || email === "" || message === "" || rating === "") {
+            e.preventDefault();
+            alert("Please fill all fields before submitting feedback.");
+            return;
+        }
+
+        if (window.showLoading) {
+            window.showLoading("Submitting your feedback...");
+        }
+    });
+});
+</script>
+{% endblock %}

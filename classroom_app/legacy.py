@@ -15,6 +15,15 @@ from flask import Flask, flash, jsonify, redirect, render_template, request, sen
 from sklearn.linear_model import LogisticRegression
 
 from database.db import get_db_path, init_db
+from classroom_app.services.data import (
+    _ensure_activity_log_file as canonical_ensure_activity_log_file,
+    get_processed_students_df as canonical_get_processed_students_df,
+    load_students as canonical_load_students,
+    log_activity as canonical_log_activity,
+    read_activity_logs as canonical_read_activity_logs,
+    save_students as canonical_save_students,
+    sync_students_with_courses as canonical_sync_students_with_courses,
+)
 from utils.ai_engine import analyze_student
 from utils.graph_generator import generate_student_charts
 
@@ -302,127 +311,32 @@ def _apply_semester_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 def sync_students_with_courses() -> pd.DataFrame:
     """Align student CSV with current active courses and department column."""
-    _ensure_data_dir()
-    course_codes = get_course_codes()
-    required_cols = student_columns(course_codes)
-
-    df = _safe_read_csv(STUDENTS_PATH)
-    if df is None or df.empty:
-        df = generate_sample_students_df(course_codes)
-        df.to_csv(STUDENTS_PATH, index=False)
-        return df
-
-    df = _apply_semester_columns(df)
-
-    for col in required_cols:
-        if col not in df.columns:
-            if col == "Department":
-                df[col] = DEPARTMENTS[0]
-            else:
-                df[col] = None
-
-    # Keep only supported columns.
-    df = df[required_cols].copy()
-
-    # Ensure department values are valid and not blank.
-    df["Department"] = df["Department"].apply(_normalize_department)
-
-    df.to_csv(STUDENTS_PATH, index=False)
-    return df
+    return canonical_sync_students_with_courses()
 
 
 def load_students() -> pd.DataFrame:
     """Load students from CSV using dynamic course columns."""
-    return sync_students_with_courses()
+    return canonical_load_students()
 
 
 def save_students(df: pd.DataFrame) -> None:
     """Persist students to CSV with dynamic columns."""
-    _ensure_data_dir()
-    df = _apply_semester_columns(df)
-    required_cols = student_columns(get_course_codes())
-    for col in required_cols:
-        if col not in df.columns:
-            if col == "Department":
-                df[col] = DEPARTMENTS[0]
-            else:
-                df[col] = None
-    df[required_cols].to_csv(STUDENTS_PATH, index=False)
+    canonical_save_students(df)
 
 
 def _ensure_activity_log_file() -> None:
     """Create activity log file if it does not exist."""
-    if not os.path.exists(ACTIVITY_LOG_PATH):
-        with open(ACTIVITY_LOG_PATH, "w", encoding="utf-8"):
-            pass
+    canonical_ensure_activity_log_file()
 
 
 def log_activity(action: str, username: str | None = None, details: str | None = None) -> None:
-    """
-    Append timestamped activity event.
-    Supports both simple and detailed logging.
-    """
-    _ensure_activity_log_file()
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    if username or details:
-        user_part = username or "System"
-        details_part = details or ""
-        line = f"{timestamp} | {user_part} | {action} | {details_part}\n"
-    else:
-        line = f"{timestamp} | {action}\n"
-
-    with open(ACTIVITY_LOG_PATH, "a", encoding="utf-8") as log_file:
-        log_file.write(line)
+    """Append timestamped activity event to the canonical project log file."""
+    canonical_log_activity(action, username=username, details=details)
 
 
 def read_activity_logs() -> list[dict[str, str]]:
     """Read activity log file into structured rows."""
-    _ensure_activity_log_file()
-
-    rows: list[dict[str, str]] = []
-    with open(ACTIVITY_LOG_PATH, "r", encoding="utf-8") as log_file:
-        for line in log_file:
-            entry = line.rstrip("\n").strip()
-            if not entry:
-                continue
-
-            # New format: timestamp | username | action | details
-            parts = [p.strip() for p in entry.split("|")]
-            if len(parts) >= 4:
-                rows.append(
-                    {
-                        "timestamp": parts[0],
-                        "username": parts[1],
-                        "action": parts[2],
-                        "details": " | ".join(parts[3:]),
-                    }
-                )
-                continue
-
-            # Simple format: timestamp | action
-            if len(parts) == 2:
-                rows.append(
-                    {
-                        "timestamp": parts[0],
-                        "username": "System",
-                        "action": parts[1],
-                        "details": "",
-                    }
-                )
-                continue
-
-            # Legacy tab-separated format.
-            tab_parts = entry.split("\t")
-            if len(tab_parts) == 4:
-                rows.append(
-                    {
-                        "timestamp": tab_parts[0],
-                        "username": tab_parts[1],
-                        "action": tab_parts[2],
-                        "details": tab_parts[3],
-                    }
-                )
-    return list(reversed(rows))
+    return canonical_read_activity_logs()
 
 
 def _student_analytics_df() -> pd.DataFrame:
@@ -597,6 +511,22 @@ def _create_profile_charts(student_name: str, semester_totals: list[int], semest
     return generate_student_charts(student_name, semester_totals, semester_attendance)
 
 
+def find_student_by_register_number(register_number: str, students_df: pd.DataFrame | None = None) -> pd.Series | None:
+    """Return a student row by register number using case-insensitive matching."""
+    target = str(register_number or "").strip().upper()
+    if not target:
+        return None
+
+    working_df = load_students() if students_df is None else students_df
+    if "RegisterNumber" not in working_df.columns:
+        return None
+
+    selected = working_df[working_df["RegisterNumber"].astype(str).str.strip().str.upper() == target]
+    if selected.empty:
+        return None
+    return selected.iloc[0].copy()
+
+
 @app.route("/", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -647,14 +577,31 @@ def dashboard():
     if "user" not in session and not session.get("logged_in"):
         return redirect(url_for("login"))
     course_info = get_course_info()
-    course_codes = [code for code, _ in course_info]
-
-    students_df = load_students()
-    processed_df = add_prediction(prepare_data(students_df, course_codes))
+    processed_df = canonical_get_processed_students_df()
     analytics_df = _student_analytics_df()
     risky_students_count = int(analytics_df["AtRisk"].sum()) if not analytics_df.empty else 0
 
     weak_students = processed_df[processed_df["Weak Student"]].to_dict(orient="records")
+    podium_labels = [("1st Place", "🥇"), ("2nd Place", "🥈"), ("3rd Place", "🥉")]
+    podium_df = processed_df.sort_values(["Total", "Name"], ascending=[False, True], kind="mergesort").head(3).reset_index(drop=True)
+    top3: list[dict[str, object]] = []
+    for index, (_, row) in enumerate(podium_df.iterrows()):
+        profile_image = str(row.get("ProfileImage", "")).strip()
+        gender = str(row.get("Gender", "Male")).strip().lower()
+        image_path = f"images/students/{profile_image}" if profile_image else f"images/default_female.png" if gender == "female" else "images/default_male.png"
+        rank_label, medal = podium_labels[index]
+        top3.append(
+            {
+                "rank": index + 1,
+                "rank_label": rank_label,
+                "medal": medal,
+                "name": str(row["Name"]),
+                "department": str(row["Department"]),
+                "total_marks": int(row["Total"]),
+                "image_path": image_path,
+                "register_number": str(row.get("RegisterNumber", "")).strip().upper(),
+            }
+        )
 
     department_cards = []
     for dept in DEPARTMENTS:
@@ -672,6 +619,7 @@ def dashboard():
         username=session.get("username", "Faculty"),
         students=processed_df.to_dict(orient="records"),
         weak_students=weak_students,
+        top3=top3,
         risky_students_count=risky_students_count,
         course_info=course_info,
         department_cards=department_cards,
@@ -688,10 +636,7 @@ def department_view(department_name):
         return redirect(url_for("dashboard"))
 
     course_info = get_course_info()
-    course_codes = [code for code, _ in course_info]
-
-    students_df = load_students()
-    processed_df = add_prediction(prepare_data(students_df, course_codes))
+    processed_df = canonical_get_processed_students_df()
     dept_df = processed_df[processed_df["Department"] == selected_department].copy()
 
     query = request.args.get("q", "").strip().lower()
@@ -776,31 +721,40 @@ def add_student():
     )
 
 
-@app.route("/student/<path:student_name>", endpoint="student_profile")
+@app.route("/student/<path:register_number>", endpoint="student_profile")
 @login_required
-def student_profile(student_name):
+def student_profile(register_number):
     """Student profile dashboard with semester-wise performance analysis."""
-    students_df = load_students()
-    analytics_df = _student_analytics_df()
+    try:
+        students_df = load_students()
+        analytics_df = _student_analytics_df()
 
-    # Use exact match first; fallback to case-insensitive match.
-    selected = students_df[students_df["Name"] == student_name]
-    if selected.empty:
-        selected = students_df[students_df["Name"].astype(str).str.lower() == student_name.lower()]
+        student = find_student_by_register_number(register_number, students_df)
+        if student is None:
+            return render_template("error.html", message="Student profile was not found."), 404
+    except Exception:
+        log_activity("Student profile load failed", username=session.get("username", "Faculty"), details=str(register_number))
+        return render_template("error.html", message="Unable to open the student profile right now."), 500
 
-    if selected.empty:
-        return "Student not found", 404
+    log_activity(
+        "Viewed student profile",
+        username=session.get("username", "Faculty"),
+        details=f"{str(student.get('Name', '')).strip()} ({str(student.get('RegisterNumber', '')).strip().upper()})",
+    )
 
-    student = selected.iloc[0].copy()
     student_name_value = str(student["Name"]).strip()
-    analytic_row = analytics_df[analytics_df["Name"].astype(str).str.lower() == student_name_value.lower()]
+    register_number_value = str(student.get("RegisterNumber", "")).strip().upper()
+    analytic_row = analytics_df[analytics_df["RegisterNumber"].astype(str).str.strip().str.upper() == register_number_value]
     analytics = analytic_row.iloc[0] if not analytic_row.empty else None
 
     gender = str(student.get("Gender", "Male")).strip().lower()
-    image_filename = f"{student_name_value.replace(' ', '_')}.jpg"
-    image_fs_path = os.path.join(BASE_DIR, UPLOAD_FOLDER, image_filename)
-    if os.path.exists(image_fs_path):
-        image_url = url_for("static", filename=f"images/students/{image_filename}")
+    profile_image = str(student.get("ProfileImage", "")).strip()
+    if profile_image:
+        profile_image_path = os.path.join(BASE_DIR, UPLOAD_FOLDER, profile_image)
+        if os.path.exists(profile_image_path):
+            image_url = url_for("static", filename=f"images/students/{profile_image}")
+        else:
+            image_url = url_for("static", filename="images/default_female.png" if gender == "female" else "images/default_male.png")
     else:
         image_url = url_for("static", filename="images/default_female.png" if gender == "female" else "images/default_male.png")
 
@@ -858,6 +812,7 @@ def student_profile(student_name):
         username=session.get("username", "Faculty"),
         student=student.to_dict(),
         student_name=student["Name"],
+        register_number=str(student.get("RegisterNumber", "")).strip().upper(),
         department=department_value,
         semester=semester_value,
         current_semester=semester_value,
@@ -879,9 +834,9 @@ def student_profile(student_name):
     )
 
 
-@app.route("/export/<path:student_name>", endpoint="export_student")
+@app.route("/export/<path:register_number>", endpoint="export_student")
 @login_required
-def export_student_pdf(student_name):
+def export_student_pdf(register_number):
     """Generate a professional student academic report PDF and force download."""
     try:
         from reportlab.lib import colors
@@ -890,20 +845,18 @@ def export_student_pdf(student_name):
         from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
     except ModuleNotFoundError:
         flash("PDF export dependency missing. Install requirements and retry.", "error")
-        return redirect(url_for("student_profile", student_name=student_name))
+        return redirect(url_for("student_profile", register_number=register_number))
 
-    students_df = load_students()
+    try:
+        students_df = load_students()
+        student = find_student_by_register_number(register_number, students_df)
+    except Exception:
+        log_activity("Student PDF export failed", username=session.get("username", "Faculty"), details=str(register_number))
+        return render_template("error.html", message="Unable to prepare the student PDF report."), 500
 
-    # Keep matching behavior aligned with student profile route.
-    selected = students_df[students_df["Name"] == student_name]
-    if selected.empty:
-        selected = students_df[students_df["Name"].astype(str).str.lower() == student_name.lower()]
-
-    if selected.empty:
+    if student is None:
         flash("Student profile not found.", "error")
         return redirect(url_for("dashboard"))
-
-    student = selected.iloc[0].copy()
 
     semester_totals = [int(student[col]) for col in SEMESTER_TOTAL_COLS]
     semester_attendance = [int(student[col]) for col in SEMESTER_ATT_COLS]
@@ -1041,8 +994,12 @@ def export_student_pdf(student_name):
     story.append(Paragraph("5. Footer", styles["Heading3"]))
     story.append(Paragraph(footer_text, styles["Normal"]))
 
-    doc.build(story)
-    buffer.seek(0)
+    try:
+        doc.build(story)
+        buffer.seek(0)
+    except Exception:
+        log_activity("Student PDF generation failed", username=session.get("username", "Faculty"), details=str(student["Name"]))
+        return render_template("error.html", message="PDF generation failed for this student report."), 500
 
     # Keep download filename consistent with requested format.
     filename = f"{str(student['Name']).strip().replace(' ', '_')}_Academic_Report.pdf"
@@ -1055,12 +1012,12 @@ def export_student_pdf(student_name):
     )
 
 
-@app.route("/student_profile/<path:student_name>")
-@app.route("/student-profile/<path:student_name>")
+@app.route("/student_profile/<path:register_number>")
+@app.route("/student-profile/<path:register_number>")
 @login_required
-def student_profile_alias(student_name):
+def student_profile_alias(register_number):
     """Backward-compatible aliases for profile URLs."""
-    return redirect(url_for("student_profile", student_name=student_name))
+    return redirect(url_for("student_profile", register_number=register_number))
 
 
 @app.route("/students", endpoint="students_directory")
@@ -1159,6 +1116,7 @@ def leaderboard():
         topper = (
             {
                 "Name": str(ranking_df.iloc[0]["Name"]),
+                "RegisterNumber": str(ranking_df.iloc[0].get("RegisterNumber", "")).strip().upper(),
                 "Department": str(ranking_df.iloc[0]["Department"]),
                 "Sem6_Total": int(ranking_df.iloc[0]["Sem6_Total"]),
                 "Rank": int(ranking_df.iloc[0]["Rank"]),
@@ -1176,8 +1134,15 @@ def leaderboard():
 
         leaderboard_rows = [
             {
-                "Rank": int(ranking_df[ranking_df["Name"] == row["Name"]]["Rank"].iloc[0]) if not ranking_df.empty else 0,
+                "Rank": (
+                    int(
+                        ranking_df[ranking_df["RegisterNumber"].astype(str).str.strip().str.upper() == str(row.get("RegisterNumber", "")).strip().upper()]["Rank"].iloc[0]
+                    )
+                    if not ranking_df.empty
+                    else 0
+                ),
                 "Name": str(row["Name"]),
+                "RegisterNumber": str(row.get("RegisterNumber", "")).strip().upper(),
                 "Department": str(row["Department"]),
                 "Sem6_Total": int(row["Sem6_Total"]),
             }
@@ -1271,10 +1236,15 @@ def export_department_report(department_name):
     )
     story.append(weak_table)
 
-    doc.build(story)
-    buffer.seek(0)
+    try:
+        doc.build(story)
+        buffer.seek(0)
+    except Exception:
+        log_activity("Department PDF generation failed", username=session.get("username", "Faculty"), details=dept)
+        return render_template("error.html", message="Unable to generate the department PDF report."), 500
 
     safe_name = dept.replace(" ", "_")
+    log_activity("Department PDF export", username=session.get("username", "Faculty"), details=dept)
     return send_file(
         buffer,
         as_attachment=True,
@@ -1318,7 +1288,8 @@ def edit_student(student_name):
     save_students(students_df)
     log_activity("Edited student", username=session.get("username", "Faculty"), details=student_name)
     flash("Student updated successfully.", "success")
-    return redirect(url_for("student_profile", student_name=student_name))
+    register_number = str(students_df.at[idx[0], "RegisterNumber"]).strip().upper()
+    return redirect(url_for("student_profile", register_number=register_number))
 
 
 @app.route("/delete-student/<path:student_name>", methods=["POST"])

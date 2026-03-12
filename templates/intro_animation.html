@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome | Digital Classroom Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/intro.css') }}" />
+</head>
+<body class="intro-page">
+    <div class="particles" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <main class="intro-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="BIT Logo" class="intro-logo" />
+        <h1 class="project-title">Digital Classroom Assistant</h1>
+    </main>
+
+    <footer class="site-footer">
+        <p>Copyright © 2012 - 2026 TermsFeed®. All rights reserved.</p>
+    </footer>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ url_for('dashboard') }}";
+        }, 4000);
+    </script>
+</body>
+</html>
