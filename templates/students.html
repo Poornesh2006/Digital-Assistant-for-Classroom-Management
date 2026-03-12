@@ -51,65 +51,64 @@
 </section>
 
 <section class="card glass">
-    <form method="POST" action="{{ url_for('student_management_bulk_delete') }}" id="bulkDeleteForm" data-loading-text="Deleting selected students...">
-        <div class="page-actions student-management-actions">
-            <button type="submit" class="btn btn-secondary" id="bulkDeleteButton"><span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete Selected</span></button>
-        </div>
+    <form method="POST" action="{{ url_for('student_management_bulk_delete') }}" id="bulkDeleteForm" hidden></form>
 
-        <div class="table-shell">
-            <div class="table-wrap">
-                <table class="student-management-table">
-                    <thead>
+    <div class="page-actions student-management-actions">
+        <button type="button" class="btn btn-secondary" id="bulkDeleteButton"><span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete Selected</span></button>
+    </div>
+
+    <div class="table-shell">
+        <div class="table-wrap">
+            <table class="student-management-table">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Profile Picture</th>
+                        <th>Student Name</th>
+                        <th>Register Number</th>
+                        <th>Department</th>
+                        <th>Semester</th>
+                        <th>Attendance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
                         <tr>
-                            <th>Select</th>
-                            <th>Profile Picture</th>
-                            <th>Student Name</th>
-                            <th>Register Number</th>
-                            <th>Department</th>
-                            <th>Semester</th>
-                            <th>Attendance</th>
-                            <th>Actions</th>
+                            <td>
+                                <input type="checkbox" name="student_ids" value="{{ student.student_id }}" class="student-select-checkbox" form="bulkDeleteForm" />
+                            </td>
+                            <td>
+                                <img class="student-table-avatar" src="{{ url_for('static', filename=student.image_path) }}" alt="{{ student.name }}" />
+                            </td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.register_number }}</td>
+                            <td>{{ student.department }}</td>
+                            <td>{{ student.semester }}</td>
+                            <td>{{ student.attendance }}%</td>
+                            <td>
+                                <div class="table-action-row">
+                                    <a class="btn btn-secondary btn-inline" href="{{ url_for('student_profile', register_number=student.register_number) }}" data-loading-text="Opening student profile..."><span class="btn-icon" aria-hidden="true">&#128065;</span><span>View Profile</span></a>
+                                    <a class="btn btn-secondary btn-inline" href="{{ url_for('student_management_edit_student', student_id=student.student_id) }}"><span class="btn-icon" aria-hidden="true">&#9998;</span><span>Edit</span></a>
+                                    <button
+                                        type="button"
+                                        class="btn btn-secondary btn-inline delete-student-button"
+                                        data-delete-form="deleteStudent{{ student.student_id }}"
+                                    >
+                                        <span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete</span>
+                                    </button>
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for student in students %}
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="student_ids" value="{{ student.student_id }}" class="student-select-checkbox" />
-                                </td>
-                                <td>
-                                    <img class="student-table-avatar" src="{{ url_for('static', filename=student.image_path) }}" alt="{{ student.name }}" />
-                                </td>
-                                <td>{{ student.name }}</td>
-                                <td>{{ student.register_number }}</td>
-                                <td>{{ student.department }}</td>
-                                <td>{{ student.semester }}</td>
-                                <td>{{ student.attendance }}%</td>
-                                <td>
-                                    <div class="table-action-row">
-                                        <a class="btn btn-secondary btn-inline" href="{{ url_for('student_profile', register_number=student.register_number) }}" data-loading-text="Opening student profile..."><span class="btn-icon" aria-hidden="true">&#128065;</span><span>View Profile</span></a>
-                                        <a class="btn btn-secondary btn-inline" href="{{ url_for('student_management_edit_student', student_id=student.student_id) }}"><span class="btn-icon" aria-hidden="true">&#9998;</span><span>Edit</span></a>
-                                        <button
-                                            type="submit"
-                                            class="btn btn-secondary btn-inline delete-student-button"
-                                            form="deleteStudent{{ student.student_id }}"
-                                            data-loading-text="Deleting student record..."
-                                        >
-                                            <span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete</span>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="8">No students found for the current filters.</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">No students found for the current filters.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-    </form>
+    </div>
 </section>
 
 {% for student in students %}
@@ -125,29 +124,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedCheckboxes = () => Array.from(document.querySelectorAll(".student-select-checkbox:checked"));
 
     if (bulkDeleteForm && bulkDeleteButton) {
-        bulkDeleteForm.addEventListener("submit", (event) => {
-            const submitter = event.submitter;
-            if (submitter && submitter.formAction && submitter.formAction !== bulkDeleteForm.action) {
-                return;
-            }
-
+        bulkDeleteButton.addEventListener("click", (event) => {
             if (!selectedCheckboxes().length) {
-                event.preventDefault();
                 window.alert("Select at least one student to delete.");
                 return;
             }
 
             if (!window.confirm("Are you sure you want to delete selected students?")) {
-                event.preventDefault();
+                return;
             }
+
+            if (window.showLoading) {
+                window.showLoading("Deleting selected students...");
+            }
+
+            bulkDeleteForm.submit();
         });
     }
 
     document.querySelectorAll(".delete-student-button").forEach((button) => {
         button.addEventListener("click", (event) => {
+            event.preventDefault();
+
             if (!window.confirm("Are you sure you want to delete this student?")) {
-                event.preventDefault();
+                return;
             }
+
+            const formId = button.getAttribute("data-delete-form");
+            const targetForm = formId ? document.getElementById(formId) : null;
+            if (!targetForm) {
+                return;
+            }
+
+            if (window.showLoading) {
+                window.showLoading("Deleting student record...");
+            }
+
+            targetForm.submit();
         });
     });
 });

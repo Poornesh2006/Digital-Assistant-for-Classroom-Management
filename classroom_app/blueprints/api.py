@@ -1,4 +1,4 @@
-import asyncio
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
 
 from flask import Blueprint, jsonify, request
 
@@ -9,6 +9,7 @@ from utils.ai_engine import analyze_student
 bp = Blueprint("api", __name__, url_prefix="/api")
 
 AI_TIMEOUT_SECONDS = 5
+_ANALYSIS_EXECUTOR = ThreadPoolExecutor(max_workers=2)
 
 
 def _safe_student_label(data: dict) -> str:
@@ -17,44 +18,32 @@ def _safe_student_label(data: dict) -> str:
     return f"{name} ({register_number})"
 
 
-async def _run_analysis_with_timeout(data: dict) -> dict:
-    return await asyncio.wait_for(asyncio.to_thread(analyze_student, data), timeout=AI_TIMEOUT_SECONDS)
+def _run_analysis_with_timeout(data: dict) -> dict:
+    future = _ANALYSIS_EXECUTOR.submit(analyze_student, data)
+    return future.result(timeout=AI_TIMEOUT_SECONDS)
 
 
 @bp.route("/analyze", methods=["POST"])
-async def analyze():
+def analyze():
     data = request.get_json(silent=True) or {}
     try:
-        result = await _run_analysis_with_timeout(data)
-        await asyncio.to_thread(log_ai_result, data, result)
-        await asyncio.to_thread(log_activity, "AI analysis", details=_safe_student_label(data))
+        result = _run_analysis_with_timeout(data)
+        log_ai_result(data, result)
+        log_activity("AI analysis", details=_safe_student_label(data))
         return jsonify(result)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
-    except (TimeoutError, asyncio.TimeoutError):
-        await asyncio.to_thread(log_activity, "AI analysis timeout", details=_safe_student_label(data))
+    except FutureTimeoutError:
+        log_activity("AI analysis timeout", details=_safe_student_label(data))
         return jsonify({"error": f"AI processing timed out after {AI_TIMEOUT_SECONDS} seconds."}), 504
     except Exception:
-        await asyncio.to_thread(log_activity, "AI analysis failed", details=_safe_student_label(data))
+        log_activity("AI analysis failed", details=_safe_student_label(data))
         return jsonify({"error": "AI processing failed. Please try again."}), 500
 
 
 @bp.route("/analyze_async", methods=["POST"])
-async def analyze_async():
-    data = request.get_json(silent=True) or {}
-    try:
-        result = await _run_analysis_with_timeout(data)
-        await asyncio.to_thread(log_ai_result, data, result)
-        await asyncio.to_thread(log_activity, "AI analysis", details=_safe_student_label(data))
-        return jsonify(result)
-    except ValueError as exc:
-        return jsonify({"error": str(exc)}), 400
-    except (TimeoutError, asyncio.TimeoutError):
-        await asyncio.to_thread(log_activity, "AI analysis timeout", details=_safe_student_label(data))
-        return jsonify({"error": f"AI processing timed out after {AI_TIMEOUT_SECONDS} seconds."}), 504
-    except Exception:
-        await asyncio.to_thread(log_activity, "AI analysis failed", details=_safe_student_label(data))
-        return jsonify({"error": "AI processing failed. Please try again."}), 500
+def analyze_async():
+    return analyze()
 
 
 @bp.route("/ai-logs", methods=["GET"])
