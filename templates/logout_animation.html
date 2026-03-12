@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logging Out</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/logout_anim.css') }}" />
+</head>
+<body>
+    <div class="scene">
+        <div class="horizon"></div>
+        <div class="rain"></div>
+
+        <div class="cloud cloud-left"></div>
+        <div class="cloud cloud-right"></div>
+
+        <div class="sun"></div>
+
+        <div class="message">
+            <h1>Thank You for Visiting</h1>
+            <p>Visit Again</p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const rain = document.querySelector(".rain");
+            if (rain) {
+                rain.classList.add("rain-stop");
+            }
+        }, 2000);
+
+        setTimeout(() => {
+            window.location.href = "{{ url_for('auth.login') }}";
+        }, 5000);
+    </script>
+</body>
+</html>

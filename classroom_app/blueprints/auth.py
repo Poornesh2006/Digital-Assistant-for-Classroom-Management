@@ -52,5 +52,4 @@ def logout():
         details="Session ended",
     )
     session.clear()
-    flash("You have been logged out.", "success")
-    return redirect(url_for("auth.login"))
+    return render_template("logout_animation.html")
