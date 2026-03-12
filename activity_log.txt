@@ -78,3 +78,5 @@
 2026-03-12 13:19 - Faculty Logged In: Successful login | User: admin
 2026-03-12 13:19 - Viewed Student Profile: Aadhya Iyer (INFO2026073) | User: admin
 2026-03-12 13:23 - Faculty Logged Out: Session ended | User: admin
+2026-03-12 14:32 - Faculty Logged In: Successful login | User: Poornesh
+2026-03-12 14:32 - Faculty Logged In: Successful login | User: Poornesh

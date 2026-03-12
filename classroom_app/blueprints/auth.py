@@ -1,8 +1,7 @@
 from functools import wraps
 
-from flask import Blueprint, flash, redirect, render_template, request, session, url_for
+from flask import Blueprint, current_app, flash, redirect, render_template, request, session, url_for
 
-from classroom_app.config import FACULTY_USERS
 from classroom_app.services.data import log_activity
 
 bp = Blueprint("auth", __name__)
@@ -30,18 +29,16 @@ def login():
     if request.method == "POST":
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
+        users = current_app.config.get("LOGIN_USERS", {})
 
-        is_default_admin = username == "admin" and password == "admin123"
-        is_faculty_user = username in FACULTY_USERS and FACULTY_USERS[username] == password
-
-        if is_default_admin or is_faculty_user:
+        if username in users and users[username] == password:
             session["user"] = username
             session["logged_in"] = True
             session["username"] = username
             log_activity("Faculty logged in", username=username, details="Successful login")
-            return redirect(url_for("pages.intro_animation"))
+            return redirect(url_for("pages.dashboard"))
 
-        return render_template("login.html", error="Invalid credentials")
+        return render_template("login.html", error="Invalid username or password")
 
     return render_template("login.html", error=None)
 

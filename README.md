@@ -2,6 +2,14 @@
 
 A Flask-based classroom management system for faculty teams to monitor student performance, manage academic records, generate reports, and review AI-assisted student risk insights.
 
+## Submission Details
+
+- Student Name: Poornesh S
+- Roll Number: 7376232AD209
+- Department: Artificial Intelligence and Data Science
+- College: Bannari Amman Institute of Technology, Sathyamangalam
+- Guide Name: Ms Saveetha R
+
 ## Project Overview
 
 This project helps faculty manage classroom operations from one dashboard without changing the existing visual theme. It combines student management, course management, department analytics, PDF export, AI risk analysis, and activity tracking in a single web application.
@@ -124,26 +132,48 @@ Password: admin
 
 ## Screenshots
 
-Add screenshots to this section before final submission.
+### Before Login
 
-- Login page
-- Dashboard page
-- Student management page
-- Student profile page
-- AI logs page
+![Before Login](docs/screenshots/Before%20Login.png)
 
-Example markdown:
+### Login Page
 
-```md
-![Dashboard](docs/screenshots/dashboard.png)
-```
+![Login Page](docs/screenshots/Login%20page.png)
+
+### After Login
+
+![After Login](docs/screenshots/After%20Login.png)
+
+### Leader Board
+
+![Leader Board](docs/screenshots/Leader%20board.png)
+
+### AI Logs
+
+![AI Logs](docs/screenshots/AI%20Logs.png)
+
+### Student Management
+
+![Student Management](docs/screenshots/Student%20Management.png)
+
+### Activities
+
+![Activities](docs/screenshots/Activities.png)
+
+### Courses
+
+![Courses](docs/screenshots/Courses.png)
+
+### Feedback
+
+![Feedback](docs/screenshots/Feedback.png)
 
 ## Deployment Link
 
-Add your live deployment URL here before evaluation.
+Add your live Render URL here before evaluation.
 
 ```text
-https://your-deployment-link-here
+https://your-render-service-url-here
 ```
 
 ## Logs and Generated Files
@@ -169,4 +199,3 @@ The application now includes:
 - Email notifications for at-risk students
 - Searchable academic history reports by semester
 - Deployment with environment-based configuration
-
