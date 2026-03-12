@@ -6,3 +6,4 @@ scikit-learn
 reportlab
 requests
 streamlit
+gunicorn
