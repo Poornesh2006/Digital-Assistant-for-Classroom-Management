@@ -36,7 +36,7 @@ def login():
             session["logged_in"] = True
             session["username"] = username
             log_activity("Faculty logged in", username=username, details="Successful login")
-            return redirect(url_for("pages.dashboard"))
+            return redirect(url_for("pages.intro_animation"))
 
         return render_template("login.html", error="Invalid username or password")
 
