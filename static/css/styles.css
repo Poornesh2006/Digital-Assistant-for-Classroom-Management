@@ -53,6 +53,8 @@ html,
 body {
     margin: 0;
     padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -4046,14 +4048,26 @@ body.dark-mode .site-footer {
     .brand-wrap {
         width: 100%;
         align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-logo {
+        height: 40px;
+    }
+
+    .brand-text {
+        min-width: 0;
     }
 
     .brand-text h2 {
         font-size: 1rem;
+        line-height: 1.25;
+        overflow-wrap: anywhere;
     }
 
     .brand-text p {
         font-size: 0.83rem;
+        overflow-wrap: anywhere;
     }
 
     .nav-center,
@@ -4069,6 +4083,7 @@ body.dark-mode .site-footer {
         width: 100%;
         justify-content: flex-start;
         white-space: normal;
+        font-size: 0.95rem;
     }
 
     .stats-grid,
@@ -4124,6 +4139,13 @@ body.dark-mode .site-footer {
         gap: 16px;
     }
 
+    .card,
+    .stat-card,
+    .metric-item {
+        padding: 16px !important;
+        margin-bottom: 16px !important;
+    }
+
     .profile-photo {
         width: 100%;
         display: flex;
@@ -4147,16 +4169,18 @@ body.dark-mode .site-footer {
     }
 
     .table-responsive table {
-        min-width: 720px;
+        min-width: 640px;
     }
 
     .student-management-table {
-        min-width: 860px;
+        min-width: 760px;
     }
 
     .table-responsive th,
     .table-responsive td {
         white-space: nowrap;
+        padding: 10px 12px !important;
+        font-size: 0.92rem !important;
     }
 
     .table-action-row {
@@ -4180,5 +4204,40 @@ body.dark-mode .site-footer {
     .site-footer {
         position: static;
         margin-top: 18px;
+        font-size: 11px;
+    }
+
+    .loading-card {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .login-split-wrap {
+        min-height: auto;
+    }
+
+    .login-visual-panel {
+        min-height: auto;
+    }
+
+    .visual-content {
+        padding: 24px 16px;
+    }
+
+    .academic-illustration,
+    .mini-illustration {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .login-form-panel {
+        min-height: auto;
+        padding: 16px 0 24px;
+    }
+
+    .login-panel-inner {
+        width: auto;
+        max-width: none;
+        margin: 0 12px;
     }
 }
