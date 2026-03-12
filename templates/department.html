@@ -8,7 +8,7 @@
     <p class="muted">Department-wise student management view.</p>
     <div class="page-actions">
         <a class="btn btn-primary" href="{{ url_for('export_department_report', department_name=department_name) }}" data-loading-text="Exporting department PDF report..."><span class="btn-icon" aria-hidden="true">📄</span><span>Export Department Report PDF</span></a>
-        <a class="btn btn-secondary" href="{{ url_for('dashboard') }}"><span class="btn-icon" aria-hidden="true">↩</span><span>Back to Dashboard</span></a>
+        <a class="btn btn-secondary" href="{{ url_for('pages.dashboard') }}"><span class="btn-icon" aria-hidden="true">↩</span><span>Back to Dashboard</span></a>
     </div>
 
     <div class="metrics-grid metrics-grid-wide">

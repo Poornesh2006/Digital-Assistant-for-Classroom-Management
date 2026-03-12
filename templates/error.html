@@ -11,8 +11,8 @@
 <section class="card glass">
     <div class="error-message">&#9888; {{ message or 'An unexpected error occurred. Please try again.' }}</div>
     <div class="page-actions">
-        <a href="{{ url_for('dashboard') }}" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#127968;</span><span>Back to Dashboard</span></a>
-        <a href="{{ request.referrer or url_for('dashboard') }}" class="btn btn-secondary"><span class="btn-icon" aria-hidden="true">&#8617;</span><span>Go Back</span></a>
+        <a href="{{ url_for('pages.dashboard') }}" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#127968;</span><span>Back to Dashboard</span></a>
+        <a href="{{ request.referrer or url_for('pages.dashboard') }}" class="btn btn-secondary"><span class="btn-icon" aria-hidden="true">&#8617;</span><span>Go Back</span></a>
     </div>
 </section>
 {% endblock %}
