@@ -3995,3 +3995,190 @@ body[data-theme="dark"] .site-footer,
 body.dark-mode .site-footer {
     background: rgba(0, 0, 0, 0.6);
 }
+
+/* ========================================
+   Responsive Stabilization
+======================================== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+    min-width: 100%;
+}
+
+.chart-container,
+.chart-shell,
+.chart-image,
+.profile-photo img {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    body:not(.login-page) {
+        padding: 10px;
+    }
+
+    .page-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 14px;
+    }
+
+    .nav-brand,
+    .nav-center,
+    .nav-actions {
+        width: 100%;
+        flex: 1 1 100%;
+        justify-content: flex-start;
+    }
+
+    .brand-wrap {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .brand-text h2 {
+        font-size: 1rem;
+    }
+
+    .brand-text p {
+        font-size: 0.83rem;
+    }
+
+    .nav-center,
+    .nav-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .nav-link,
+    .theme-toggle,
+    .logout-link {
+        width: 100%;
+        justify-content: flex-start;
+        white-space: normal;
+    }
+
+    .stats-grid,
+    .dashboard-stats,
+    .directory-summary-grid,
+    .metrics-grid,
+    .responsive-two-column,
+    .chart-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-actions,
+    .directory-toolbar,
+    .directory-actions,
+    .sort-container form,
+    .student-profile-ai-meta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-actions .btn,
+    .page-actions button,
+    .directory-actions .btn,
+    .directory-actions button,
+    .student-profile-ai-meta .btn,
+    .sort-container form .btn,
+    .sort-container form button {
+        width: 100%;
+    }
+
+    .student-form,
+    .course-form,
+    .login-form,
+    .feedback-form,
+    form.form-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    input,
+    select,
+    textarea,
+    button,
+    .btn {
+        max-width: 100%;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .profile-photo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-photo img {
+        width: min(220px, 100%);
+        height: auto;
+    }
+
+    .chart-shell {
+        min-height: 220px;
+        padding: 10px;
+    }
+
+    .chart-image,
+    .card img {
+        max-height: none !important;
+        height: auto !important;
+    }
+
+    .table-responsive table {
+        min-width: 720px;
+    }
+
+    .student-management-table {
+        min-width: 860px;
+    }
+
+    .table-responsive th,
+    .table-responsive td {
+        white-space: nowrap;
+    }
+
+    .table-action-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .table-action-row .btn,
+    .table-actions .btn {
+        width: 100%;
+    }
+
+    .student-management-actions {
+        justify-content: stretch;
+    }
+
+    .student-management-actions .btn {
+        width: 100%;
+    }
+
+    .site-footer {
+        position: static;
+        margin-top: 18px;
+    }
+}
