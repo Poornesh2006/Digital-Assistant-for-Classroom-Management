@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="page-actions">
-            <button type="submit" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128269;</span><span>Apply Filters</span></button>
-            <a class="btn btn-secondary" href="{{ url_for('api.ai_logs', limit=limit, student=student_name) }}"><span class="btn-icon" aria-hidden="true">&#123; &#125;</span><span>Open JSON API</span></a>
+            <button type="submit" class="btn modern-btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128269;</span><span>Apply Filters</span></button>
+            <a class="btn modern-btn btn-export" href="{{ url_for('api.ai_logs', limit=limit, student=student_name) }}"><span class="btn-icon" aria-hidden="true">&#123; &#125;</span><span>Open JSON API</span></a>
         </div>
     </form>
 </section>

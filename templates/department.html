@@ -7,8 +7,8 @@
     <h1>{{ department_name }}</h1>
     <p class="muted">Department-wise student management view.</p>
     <div class="page-actions">
-        <a class="btn btn-primary" href="{{ url_for('export_department_report', department_name=department_name) }}" data-loading-text="Exporting department PDF report..."><span class="btn-icon" aria-hidden="true">📄</span><span>Export Department Report PDF</span></a>
-        <a class="btn btn-secondary" href="{{ url_for('pages.dashboard') }}"><span class="btn-icon" aria-hidden="true">↩</span><span>Back to Dashboard</span></a>
+        <a class="btn modern-btn btn-export" href="{{ url_for('export_department_report', department_name=department_name) }}" data-loading-text="Exporting department PDF report..."><span class="btn-icon" aria-hidden="true">📄</span><span>Export Department Report PDF</span></a>
+        <a class="btn modern-btn btn-reset" href="{{ url_for('pages.dashboard') }}"><span class="btn-icon" aria-hidden="true">↩</span><span>Back to Dashboard</span></a>
     </div>
 
     <div class="metrics-grid metrics-grid-wide">
@@ -39,7 +39,7 @@
     <form method="GET" action="{{ url_for('department_view', department_name=department_name) }}" class="student-form" data-loading-text="Filtering department data...">
         <label for="q">Search Students in Department</label>
         <input id="q" name="q" type="text" placeholder="Search by student name" value="{{ query }}" />
-        <button type="submit" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">🔎</span><span>Search</span></button>
+        <button type="submit" class="btn modern-btn btn-primary"><span class="btn-icon" aria-hidden="true">🔎</span><span>Search</span></button>
     </form>
 </section>
 
@@ -67,7 +67,7 @@
                 <tbody>
                     {% for row in students %}
                         <tr class="{{ 'weak-row' if row['Weak Student'] else '' }}">
-                            <td><a class="btn btn-secondary btn-inline" href="{{ url_for('student_profile', register_number=row['RegisterNumber']) }}">{{ row['Name'] }}</a></td>
+                            <td><a class="btn btn-inline modern-btn btn-view" href="{{ url_for('student_profile', register_number=row['RegisterNumber']) }}">{{ row['Name'] }}</a></td>
                             {% for code, _ in course_info %}
                                 <td>{{ row[code] }}</td>
                             {% endfor %}

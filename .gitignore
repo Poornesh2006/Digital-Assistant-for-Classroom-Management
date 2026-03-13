@@ -9,5 +9,6 @@ uploads/
 
 static/images/students/
 static/charts/*.png
+static/charts/*.meta
 
 .DS_Store

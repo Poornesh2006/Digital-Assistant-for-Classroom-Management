@@ -1,1 +1,0 @@
-// Charts script placeholder

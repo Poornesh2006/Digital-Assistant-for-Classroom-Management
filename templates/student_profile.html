@@ -7,7 +7,7 @@
     <h1>Student Profile Dashboard</h1>
     <p class="muted">Semester-wise academic, attendance, and AI insight view.</p>
     <div class="page-actions">
-        <a href="{{ url_for('export_student', register_number=register_number) }}" class="btn btn-primary" data-loading-text="Exporting student PDF report..."><span class="btn-icon" aria-hidden="true">&#128196;</span><span>Export PDF</span></a>
+        <a href="{{ url_for('export_student', register_number=register_number) }}" class="btn modern-btn btn-export" data-loading-text="Exporting student PDF report..."><span class="btn-icon" aria-hidden="true">&#128196;</span><span>Export PDF</span></a>
         {% if is_at_risk %}
             <span class="risk-badge">At Risk</span>
         {% endif %}
@@ -37,7 +37,7 @@
     <div class="student-profile-ai-meta">
         <span class="ai-stat-pill {% if is_at_risk %}risk-pill-high{% else %}risk-pill-low{% endif %}" id="aiRiskBadge">{{ 'High' if is_at_risk else 'Low' }} Risk</span>
         <span class="ai-stat-pill" id="aiScoreBadge">Performance Index {{ '%.1f'|format(performance_index) }}/10</span>
-        <button type="button" class="btn btn-secondary" id="runAiAnalysisButton"><span class="btn-icon" aria-hidden="true">&#129302;</span><span>Run AI Analysis</span></button>
+        <button type="button" class="btn modern-btn btn-primary pulse-btn" id="runAiAnalysisButton"><span class="btn-icon" aria-hidden="true">&#129302;</span><span>Run AI Analysis</span></button>
     </div>
     <div id="aiErrorMessage" class="error-message student-profile-ai-output" hidden>Warning: AI processing failed. Please try again.</div>
     <div id="aiSuccessMessage" class="success-message student-profile-ai-output" hidden>AI analysis completed successfully.</div>

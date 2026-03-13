@@ -84,3 +84,17 @@
 2026-03-12 16:07 - Faculty Logged Out: Session ended | User: Poornesh
 2026-03-12 16:07 - Faculty Logged In: Successful login | User: Poornesh
 2026-03-12 16:07 - Faculty Logged Out: Session ended | User: Poornesh
+2026-03-12 16:10 - Faculty Logged In: Successful login | User: Poornesh
+2026-03-12 16:10 - Faculty Logged Out: Session ended | User: Poornesh
+2026-03-13 09:34 - Faculty Logged In: Successful login | User: Poornesh
+2026-03-13 09:39 - Faculty Logged In: Successful login | User: Poornesh
+2026-03-13 09:41 - Faculty Logged In: Successful login | User: Poornesh
+2026-03-13 09:45 - Faculty Logged In: Successful login | User: Poornesh
+2026-03-13 09:48 - Viewed Student Profile: Aadhya Iyer (INFO2026073) | User: Poornesh
+2026-03-13 09:48 - AI Analysis: Aadhya Iyer (INFO2026073)
+2026-03-13 09:48 - AI Analysis: Aadhya Iyer (INFO2026073)
+2026-03-13 09:48 - AI Analysis: Aadhya Iyer (INFO2026073)
+2026-03-13 09:49 - Viewed Student Profile: Aadhya Kumar (CIVI2026013) | User: Poornesh
+2026-03-13 09:49 - AI Analysis: Aadhya Kumar (CIVI2026013)
+2026-03-13 09:49 - Faculty Logged In: Successful login | User: Poornesh
+2026-03-13 10:05 - Viewed Student Profile: Aarav Kumar (BIOM2026001) | User: Poornesh

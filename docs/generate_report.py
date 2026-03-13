@@ -5,7 +5,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.utils import ImageReader
-from reportlab.platypus import Image, Paragraph, SimpleDocTemplate, Spacer
+from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -75,6 +75,22 @@ def add_logo(story):
     image.hAlign = "CENTER"
     story.append(image)
     story.append(Spacer(1, 10))
+
+
+def add_title_page(story, styles):
+    add_logo(story)
+    story.append(Spacer(1, 24))
+    story.append(Paragraph("Digital Assistant for Classroom Management", styles["TitleCenter"]))
+    story.append(Spacer(1, 16))
+    story.append(Paragraph("Project Documentation", styles["Heading2"]))
+    story.append(Spacer(1, 26))
+    story.append(Paragraph("Developer: Poornesh S", styles["BodyTight"]))
+    story.append(Paragraph("Department: Artificial Intelligence and Data Science", styles["BodyTight"]))
+    story.append(Paragraph("Institution: Bannari Amman Institute of Technology", styles["BodyTight"]))
+    story.append(Paragraph("Academic Year: 2025 - 2026", styles["BodyTight"]))
+    story.append(Spacer(1, 32))
+    story.append(Paragraph("Generated from the current final implementation of the web application.", styles["Caption"]))
+    story.append(PageBreak())
 
 
 def safe_text(line: str) -> str:
@@ -150,7 +166,7 @@ def main():
         bottomMargin=48,
     )
     story = []
-    add_logo(story)
+    add_title_page(story, styles)
     add_markdown_body(story, styles)
     add_screenshots(story, styles)
     doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)

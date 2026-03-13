@@ -42,10 +42,10 @@
             </select>
         </div>
         <div class="directory-actions">
-            <button type="submit" class="btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128269;</span><span>Apply</span></button>
-            <a href="{{ url_for('student_management') }}" class="btn btn-secondary">Reset</a>
-            <a href="{{ url_for('student_management_add_student') }}" class="btn btn-secondary"><span class="btn-icon" aria-hidden="true">&#10133;</span><span>Add Student</span></a>
-            <a href="{{ url_for('student_management_export', search=search, department=selected_department, sort=sort) }}" class="btn btn-secondary" data-loading-text="Exporting student data..."><span class="btn-icon" aria-hidden="true">&#11015;</span><span>Export CSV</span></a>
+            <button type="submit" class="btn modern-btn btn-primary"><span class="btn-icon" aria-hidden="true">&#128269;</span><span>Apply</span></button>
+            <a href="{{ url_for('student_management') }}" class="btn modern-btn btn-reset">Reset</a>
+            <a href="{{ url_for('student_management_add_student') }}" class="btn modern-btn btn-primary pulse-btn" data-loading-text="Opening add student form..."><span class="btn-icon" aria-hidden="true">&#10133;</span><span>Add Student</span></a>
+            <a href="{{ url_for('student_management_export', search=search, department=selected_department, sort=sort) }}" class="btn modern-btn btn-export" data-loading-text="Exporting student data..."><span class="btn-icon" aria-hidden="true">&#11015;</span><span>Export CSV</span></a>
         </div>
     </form>
 </section>
@@ -54,7 +54,7 @@
     <form method="POST" action="{{ url_for('student_management_bulk_delete') }}" id="bulkDeleteForm" hidden></form>
 
     <div class="page-actions student-management-actions">
-        <button type="button" class="btn btn-secondary" id="bulkDeleteButton"><span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete Selected</span></button>
+        <button type="button" class="btn modern-btn btn-delete" id="bulkDeleteButton"><span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete Selected</span></button>
     </div>
 
     <div class="table-shell">
@@ -88,11 +88,11 @@
                             <td>{{ student.attendance }}%</td>
                             <td>
                                 <div class="table-action-row">
-                                    <a class="btn btn-secondary btn-inline" href="{{ url_for('student_profile', register_number=student.register_number) }}" data-loading-text="Opening student profile..."><span class="btn-icon" aria-hidden="true">&#128065;</span><span>View Profile</span></a>
-                                    <a class="btn btn-secondary btn-inline" href="{{ url_for('student_management_edit_student', student_id=student.student_id) }}"><span class="btn-icon" aria-hidden="true">&#9998;</span><span>Edit</span></a>
+                                    <a class="btn btn-inline modern-btn btn-view" href="{{ url_for('student_profile', register_number=student.register_number) }}" data-loading-text="Opening student profile..."><span class="btn-icon" aria-hidden="true">&#128065;</span><span>View Profile</span></a>
+                                    <a class="btn btn-inline modern-btn btn-edit" href="{{ url_for('student_management_edit_student', student_id=student.student_id) }}"><span class="btn-icon" aria-hidden="true">&#9998;</span><span>Edit</span></a>
                                     <button
                                         type="button"
-                                        class="btn btn-secondary btn-inline delete-student-button"
+                                        class="btn btn-inline delete-student-button modern-btn btn-delete"
                                         data-delete-form="deleteStudent{{ student.student_id }}"
                                     >
                                         <span class="btn-icon" aria-hidden="true">&#128465;</span><span>Delete</span>

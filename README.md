@@ -1,47 +1,67 @@
 # Digital Assistant for Classroom Management
 
-A Flask-based classroom management system for faculty teams to monitor student performance, manage academic records, generate reports, and review AI-assisted student risk insights.
+## Project Description
 
-## Submission Details
+Digital Assistant for Classroom Management is a faculty-focused academic monitoring system built with Flask. It centralizes student records, attendance, semester-wise performance, department analytics, leaderboard views, AI-assisted risk analysis, activity tracking, and report export workflows in one web application.
 
-- Student Name: Poornesh S
-- Roll Number: 7376232AD209
-- Department: Artificial Intelligence and Data Science
-- College: Bannari Amman Institute of Technology, Sathyamangalam
-- Guide Name: Ms Saveetha R
-
-## Project Overview
-
-This project helps faculty manage classroom operations from one dashboard without changing the existing visual theme. It combines student management, course management, department analytics, PDF export, AI risk analysis, and activity tracking in a single web application.
+The current version is designed for day-to-day classroom administration. Faculty can log in securely, review overall dashboard metrics, manage student records, inspect detailed student profiles with generated charts, identify weak students quickly, and export academic information for reporting.
 
 ## Features
 
-- Faculty login with protected dashboard routes
-- Student management with add, edit, delete, bulk delete, and CSV export
-- Student profile dashboard with semester-wise marks, attendance, charts, and AI insights
-- Department-level academic view with PDF report export
-- Course management for active subjects
-- AI analysis API with timeout protection and error-safe responses
-- Loading spinner for profile opening, AI analysis, filtering, and export actions
-- Activity logging for student operations, exports, logins, and AI analysis
-- Graceful validation for invalid inputs and file upload issues
+- Secure session-based login system for faculty users
+- Interactive dashboard with total students, weak students, attendance, and risk alert metrics
+- Department-wise navigation cards with quick access to grouped student views
+- Student management module with add, edit, delete, bulk delete, filter, sort, and CSV export
+- Student profile dashboard with semester performance table, attendance summary, performance index, department rank, and trend indicators
+- Weak student identification from attendance and semester performance thresholds
+- AI-based student analysis with live API requests from the profile page
+- AI analysis log viewer with filtering and JSON API access
+- Leaderboard page with overall topper highlight and department filter
+- Activity log page for audit-style tracking of faculty actions
+- Course management for add, search, edit, and delete operations
+- Feedback form with validation and JSON storage
+- PDF export for student reports and department reports
+- Generated charts for performance trend, attendance trend, and semester contribution
+- Dark mode with saved theme preference in local storage
+- Responsive layout, mobile-friendly tables, and loading states for long-running actions
+- Friendly error handling for invalid input, missing data, and failed AI/API operations
 
-## Phase 3 Improvements
+## Technology Stack
 
-- Refined shared buttons, inputs, and forms for consistent spacing and hover behavior
-- Added visual action icons without changing the design theme
-- Added frontend loading states for long-running operations
-- Added safer route-level exception handling for student and export workflows
-- Added API timeout handling for AI analysis requests
-- Improved logging coverage for key classroom management actions
+### Frontend
 
-## Tech Stack
+- HTML
+- CSS
+- JavaScript
+- Jinja2 templates
 
-- Backend: Python, Flask
-- Frontend: HTML, Jinja2, CSS, JavaScript
-- Data Storage: CSV files, SQLite
-- Charts/Reports: Matplotlib-generated charts, ReportLab PDF export
-- Data Processing: Pandas, scikit-learn
+### Backend
+
+- Python
+- Flask
+- Flask-Compress
+
+### Data Processing
+
+- Pandas
+- NumPy
+- scikit-learn
+
+### Visualization
+
+- Matplotlib
+
+### Reporting and Storage
+
+- ReportLab
+- SQLite
+- CSV
+- JSON
+
+### Deployment
+
+- Render Cloud Platform
+- Gunicorn
 
 ## Project Structure
 
@@ -50,6 +70,7 @@ classroom_assistant/
 ├── app.py
 ├── requirements.txt
 ├── README.md
+├── activity_log.txt
 ├── classroom_app/
 │   ├── __init__.py
 │   ├── config.py
@@ -60,16 +81,22 @@ classroom_assistant/
 │   │   └── pages.py
 │   └── services/
 │       ├── ai_logs.py
-│       ├── charts.py
 │       ├── data.py
 │       └── student_management.py
+├── data/
+│   └── feedback.json
 ├── database/
 │   ├── app.db
 │   ├── courses.csv
 │   ├── db.py
-│   ├── semesters.csv
 │   └── students.csv
+├── docs/
+│   ├── final_technical_report.md
+│   ├── final_technical_report.pdf
+│   ├── generate_report.py
+│   └── screenshots/
 ├── static/
+│   ├── charts/
 │   ├── css/
 │   ├── images/
 │   └── js/
@@ -77,125 +104,91 @@ classroom_assistant/
 └── utils/
 ```
 
+### Folder Notes
+
+- `app.py` starts the Flask application and configures faculty login users.
+- `classroom_app/blueprints/` contains page, auth, and API route logic.
+- `classroom_app/services/` contains data preparation, AI log handling, and student management services.
+- `database/` stores student records, course data, and SQLite AI logs.
+- `data/feedback.json` stores submitted user feedback.
+- `static/` contains CSS, JavaScript, images, and generated chart assets.
+- `templates/` contains all rendered HTML pages.
+- `docs/` contains the project report source, generated PDF, and screenshots.
+
 ## Installation
 
-1. Clone or download the project.
-2. Open a terminal in the project root.
-3. Create and activate a virtual environment.
-4. Install dependencies.
+### Local Setup
+
+```bash
+git clone <your-repository-url>
+cd classroom_assistant
+pip install -r requirements.txt
+python app.py
+```
+
+Open the app in your browser:
+
+```text
+http://127.0.0.1:10000
+```
+
+## Deployment Instructions
+
+This project is ready for deployment on Render.
+
+### Build Command
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## How to Run Locally
+### Start Command
 
 ```bash
-python app.py
+gunicorn app:app
 ```
 
-Then open:
+### Recommended Environment Variable
 
 ```text
-http://127.0.0.1:5000
+SECRET_KEY=your-secure-random-secret
 ```
 
-## Default Login
-
-Use one of the configured faculty accounts, or the default admin credentials if enabled in the app:
-
-```text
-Username: admin
-Password: admin
-```
-
-## Key Workflows
-
-### Student Management
-
-- Open `Student Management`
-- Filter by name, department, or sort order
-- Add a new student or update an existing record
-- Export the filtered list as CSV
-
-### AI Analysis
-
-- Open a student profile
-- Click `Run AI Analysis`
-- Review updated risk level and performance score
-- Check stored entries in `AI Logs`
-
-### Reports
-
-- Export individual student PDF reports from the student profile page
-- Export department PDF reports from the department page
+Note: the application uses SQLite, CSV, JSON, and generated local files. On cloud platforms with ephemeral storage, persistent data should be planned separately for production usage.
 
 ## Screenshots
-
-### Before Login
-
-![Before Login](docs/screenshots/Before%20Login.png)
 
 ### Login Page
 
 ![Login Page](docs/screenshots/Login%20page.png)
 
-### After Login
+### Dashboard
 
-![After Login](docs/screenshots/After%20Login.png)
-
-### Leader Board
-
-![Leader Board](docs/screenshots/Leader%20board.png)
-
-### AI Logs
-
-![AI Logs](docs/screenshots/AI%20Logs.png)
+![Dashboard](docs/screenshots/After%20Login.png)
 
 ### Student Management
 
 ![Student Management](docs/screenshots/Student%20Management.png)
 
-### Activities
+### Student Profile
 
-![Activities](docs/screenshots/Activities.png)
+The repository currently includes screenshots for the main dashboard flows, but a dedicated student profile screenshot is not committed in `docs/screenshots/`. The live student profile page includes semester analytics, AI insights, charts, and PDF export actions.
 
-### Courses
+### Leaderboard
 
-![Courses](docs/screenshots/Courses.png)
-
-### Feedback
-
-![Feedback](docs/screenshots/Feedback.png)
-
-## Deployment Link
-
-Add your live Render URL here before evaluation.
-
-```text
-https://your-render-service-url-here
-```
-
-## Logs and Generated Files
-
-- Activity log file: `activity_log.txt`
-- AI analysis log table: `database/app.db`
-- Generated charts: `static/charts/`
-- Uploaded student images: `static/images/students/`
-
-## Validation Notes
-
-The application now includes:
-
-- Invalid input handling for student forms and AI requests
-- File upload validation for profile images
-- Timeout-safe AI API responses
-- Loading feedback for long-running user actions
-- Expanded activity logging for audit visibility
+![Leaderboard](docs/screenshots/Leader%20board.png)
 
 ## Future Enhancements
 
-- Role-based access for faculty and admin users
-- Email notifications for at-risk students
-- Searchable academic history reports by semester
-- Deployment with environment-based configuration
+- Mobile app version for faculty access on the go
+- Advanced AI prediction models using richer academic history
+- Parent and student access portal with role-based permissions
+- Cloud database integration for stronger deployment persistence
+- Notification workflows for at-risk students
+- Expanded analytics dashboards and downloadable summary reports
+
+## Author
+
+Poornesh S  
+Artificial Intelligence and Data Science  
+Bannari Amman Institute of Technology

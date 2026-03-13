@@ -18,8 +18,8 @@
                     <option value="{{ dept }}" {% if dept == selected_department %}selected{% endif %}>{{ dept }}</option>
                 {% endfor %}
             </select>
-            <button type="submit" name="sort_by" value="top_marks" class="btn btn-secondary sort-btn {% if selected_sort == 'top_marks' %}sort-btn-active{% endif %}">Top 5 Marks</button>
-            <button type="submit" name="sort_by" value="lowest_marks" class="btn btn-secondary sort-btn {% if selected_sort == 'lowest_marks' %}sort-btn-active{% endif %}">Lower 5 Marks</button>
+            <button type="submit" name="sort_by" value="top_marks" class="btn sort-btn modern-btn btn-view {% if selected_sort == 'top_marks' %}sort-btn-active{% endif %}">Top 5 Marks</button>
+            <button type="submit" name="sort_by" value="lowest_marks" class="btn sort-btn modern-btn btn-edit {% if selected_sort == 'lowest_marks' %}sort-btn-active{% endif %}">Lower 5 Marks</button>
         </form>
     </div>
 </section>

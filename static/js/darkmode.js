@@ -1,1 +1,0 @@
-// Dark mode script placeholder

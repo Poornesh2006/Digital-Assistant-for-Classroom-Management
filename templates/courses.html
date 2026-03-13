@@ -28,7 +28,7 @@
             <label for="course_name">Course Name</label>
             <input id="course_name" name="course_name" type="text" placeholder="Enter course name" required />
 
-            <button type="submit" class="btn btn-primary">Add Course</button>
+            <button type="submit" class="btn modern-btn btn-primary pulse-btn">Add Course</button>
         </form>
     </section>
 
@@ -37,7 +37,7 @@
         <form method="GET" action="{{ url_for('courses') }}" class="student-form">
             <label for="q">Search by code or name</label>
             <input id="q" name="q" type="text" value="{{ query }}" placeholder="e.g. 22AI501 or AI" />
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn modern-btn btn-primary">Search</button>
         </form>
     </section>
 </section>
@@ -60,8 +60,8 @@
                             <td>{{ row['CourseCode'] }}</td>
                             <td>{{ row['CourseName'] }}</td>
                             <td class="table-actions">
-                                <a class="btn btn-secondary btn-inline" href="{{ url_for('edit_course', code=row['CourseCode']) }}">Edit</a>
-                                <a class="btn btn-secondary btn-inline" href="{{ url_for('delete_course', code=row['CourseCode']) }}" onclick="return confirm('Are you sure you want to delete this course?');">Delete</a>
+                                <a class="btn btn-inline modern-btn btn-edit" href="{{ url_for('edit_course', code=row['CourseCode']) }}">Edit</a>
+                                <a class="btn btn-inline modern-btn btn-delete" href="{{ url_for('delete_course', code=row['CourseCode']) }}" onclick="return confirm('Are you sure you want to delete this course?');">Delete</a>
                             </td>
                         </tr>
                     {% else %}

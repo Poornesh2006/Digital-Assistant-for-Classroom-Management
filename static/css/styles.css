@@ -1672,6 +1672,164 @@ th {
     background: rgba(255, 255, 255, 0.98);
 }
 
+.modern-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    line-height: 1.1;
+    text-decoration: none;
+    cursor: pointer;
+    color: #ffffff;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, filter 0.3s ease;
+    will-change: transform, box-shadow;
+}
+
+.modern-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: #ffffff;
+}
+
+.modern-btn:active {
+    transform: scale(0.95);
+}
+
+.modern-btn:focus-visible {
+    outline: 3px solid rgba(99, 102, 241, 0.28);
+    outline-offset: 3px;
+}
+
+.modern-btn.btn-primary {
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.modern-btn.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+}
+
+.modern-btn.btn-view {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+}
+
+.modern-btn.btn-view:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(34, 197, 94, 0.4);
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.modern-btn.btn-edit {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+}
+
+.modern-btn.btn-edit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.modern-btn.btn-delete {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+}
+
+.modern-btn.btn-delete:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(239, 68, 68, 0.4);
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.modern-btn.btn-reset {
+    background: linear-gradient(135deg, #64748b, #475569);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+}
+
+.modern-btn.btn-reset:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(100, 116, 139, 0.35);
+    background: linear-gradient(135deg, #64748b, #475569);
+}
+
+.modern-btn.btn-export {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+}
+
+.modern-btn.btn-export:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(6, 182, 212, 0.4);
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.modern-btn.btn-secondary {
+    color: white;
+    border: none;
+    background: linear-gradient(135deg, #64748b, #475569);
+}
+
+.modern-btn.btn-secondary:hover {
+    background: linear-gradient(135deg, #64748b, #475569);
+}
+
+.modern-btn.sort-btn-active {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.24), 0 12px 24px rgba(79, 70, 229, 0.22);
+}
+
+.dark-mode .modern-btn,
+body.dark-mode .modern-btn {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.pulse-btn {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+}
+
 .disabled-btn {
     opacity: 0.6;
     cursor: not-allowed;
@@ -2656,6 +2814,30 @@ body.dark-mode .topper-card {
 
 body.dark-mode .profile-link {
     color: #93c5fd;
+}
+
+body.dark-mode .weak-students-title,
+.dark-mode .weak-students-title {
+    color: #f9fafb;
+    font-weight: 600;
+}
+
+body.dark-mode .weak-students li,
+.dark-mode .weak-students li {
+    color: #e5e7eb;
+    font-weight: 500;
+    background: rgba(239, 68, 68, 0.08);
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    border-left: 4px solid #ef4444;
+}
+
+body.dark-mode .weak-students li:hover,
+.dark-mode .weak-students li:hover {
+    background: rgba(239, 68, 68, 0.18);
+    transform: translateX(4px);
+    transition: all 0.2s ease;
 }
 
 /* ========================================
@@ -3697,7 +3879,8 @@ table tbody tr:hover,
     .topper-name,
     .flower-container::before,
     .flower-container::after,
-    .particle {
+    .particle,
+    .pulse-btn {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
@@ -3729,6 +3912,77 @@ button {
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+}
+
+.btn.modern-btn:hover,
+a.modern-btn:hover,
+button.modern-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn.modern-btn:active,
+a.modern-btn:active,
+button.modern-btn:active {
+    transform: scale(0.95);
+}
+
+.btn.modern-btn.btn-primary,
+.btn.modern-btn.btn-view,
+.btn.modern-btn.btn-edit,
+.btn.modern-btn.btn-delete,
+.btn.modern-btn.btn-reset,
+.btn.modern-btn.btn-export,
+a.modern-btn.btn-primary,
+a.modern-btn.btn-view,
+a.modern-btn.btn-edit,
+a.modern-btn.btn-delete,
+a.modern-btn.btn-reset,
+a.modern-btn.btn-export,
+button.modern-btn.btn-primary,
+button.modern-btn.btn-view,
+button.modern-btn.btn-edit,
+button.modern-btn.btn-delete,
+button.modern-btn.btn-reset,
+button.modern-btn.btn-export {
+    color: #ffffff !important;
+    border: none;
+}
+
+.btn.modern-btn.btn-primary,
+a.modern-btn.btn-primary,
+button.modern-btn.btn-primary {
+    background: linear-gradient(135deg, #6366f1, #3b82f6) !important;
+}
+
+.btn.modern-btn.btn-view,
+a.modern-btn.btn-view,
+button.modern-btn.btn-view {
+    background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+}
+
+.btn.modern-btn.btn-edit,
+a.modern-btn.btn-edit,
+button.modern-btn.btn-edit {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+}
+
+.btn.modern-btn.btn-delete,
+a.modern-btn.btn-delete,
+button.modern-btn.btn-delete {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+}
+
+.btn.modern-btn.btn-reset,
+a.modern-btn.btn-reset,
+button.modern-btn.btn-reset {
+    background: linear-gradient(135deg, #64748b, #475569) !important;
+}
+
+.btn.modern-btn.btn-export,
+a.modern-btn.btn-export,
+button.modern-btn.btn-export {
+    background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
 }
 
 .btn:focus-visible,

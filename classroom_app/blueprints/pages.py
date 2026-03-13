@@ -343,6 +343,7 @@ def student_chart(chart_type: str, student_name: str):
 
 ALIAS_ROUTES = [
     {"rule": "/", "endpoint": "home", "target": "pages.home", "methods": ["GET"]},
+    {"rule": "/login", "endpoint": "login", "target": "auth.login", "methods": ["GET", "POST"]},
     {"rule": "/login", "endpoint": "login_form", "target": "auth.login", "methods": ["GET", "POST"]},
     {"rule": "/logout", "endpoint": "logout", "target": "auth.logout", "methods": ["GET"]},
     {"rule": "/dashboard", "endpoint": "dashboard", "target": "pages.dashboard", "methods": ["GET"]},
@@ -351,6 +352,7 @@ ALIAS_ROUTES = [
     {"rule": "/student/<path:register_number>", "endpoint": "student_profile", "target": "pages.student_profile", "methods": ["GET"]},
     {"rule": "/export/<path:register_number>", "endpoint": "export_student", "target": "pages.export_student", "methods": ["GET"]},
     {"rule": "/students", "endpoint": "students", "target": "pages.students", "methods": ["GET"]},
+    {"rule": "/students", "endpoint": "students_directory", "target": "pages.students", "methods": ["GET"]},
     {"rule": "/student-management", "endpoint": "student_management", "target": "pages.student_management", "methods": ["GET"]},
     {"rule": "/leaderboard", "endpoint": "leaderboard", "target": "pages.leaderboard", "methods": ["GET"]},
     {"rule": "/export_department/<path:department_name>", "endpoint": "export_department_report", "target": "pages.export_department_report", "methods": ["GET"]},
@@ -361,6 +363,7 @@ ALIAS_ROUTES = [
     {"rule": "/delete_course/<code>", "endpoint": "delete_course", "target": "pages.delete_course", "methods": ["GET"]},
     {"rule": "/ai-logs", "endpoint": "ai_logs_page", "target": "pages.ai_logs_page", "methods": ["GET"]},
     {"rule": "/feedback", "endpoint": "feedback_page", "target": "pages.feedback_page", "methods": ["GET", "POST"]},
+    {"rule": "/add_student", "endpoint": "add_student", "target": "pages.student_management_add_student", "methods": ["GET", "POST"]},
     {"rule": "/add_student", "endpoint": "student_management_add_student", "target": "pages.student_management_add_student", "methods": ["GET", "POST"]},
     {"rule": "/edit_student/<int:student_id>", "endpoint": "student_management_edit_student", "target": "pages.student_management_edit_student", "methods": ["GET", "POST"]},
     {"rule": "/delete_student/<int:student_id>", "endpoint": "student_management_delete_student", "target": "pages.student_management_delete_student", "methods": ["POST"]},

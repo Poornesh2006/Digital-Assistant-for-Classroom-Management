@@ -1,6 +1,7 @@
 Flask
 Flask-Compress
 pandas
+numpy
 matplotlib
 scikit-learn
 reportlab
