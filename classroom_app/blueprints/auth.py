@@ -31,6 +31,9 @@ def login():
         password = request.form.get("password", "")
         users = current_app.config.get("LOGIN_USERS", {})
 
+        if not username or not password:
+            return render_template("login.html", error="Username and password are required.")
+
         if username in users and users[username] == password:
             session["user"] = username
             session["logged_in"] = True

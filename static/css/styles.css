@@ -4216,21 +4216,12 @@ body.dark-mode .success-message {
     line-height: 1;
 }
 
-.site-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.simple-footer {
     text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 20px;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 12px;
-    z-index: 30;
-}
-
-.site-footer p {
-    margin: 0;
 }
 
 .feedback-form textarea {
@@ -4247,9 +4238,9 @@ body.dark-mode .success-message {
     box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
 }
 
-body[data-theme="dark"] .site-footer,
-body.dark-mode .site-footer {
-    background: rgba(0, 0, 0, 0.6);
+body[data-theme="dark"] .simple-footer,
+body.dark-mode .simple-footer {
+    color: #9ca3af;
 }
 
 /* ========================================
@@ -4455,10 +4446,9 @@ body.dark-mode .site-footer {
         width: 100%;
     }
 
-    .site-footer {
-        position: static;
-        margin-top: 18px;
-        font-size: 11px;
+    .simple-footer {
+        margin-top: 16px;
+        padding: 10px 8px;
     }
 
     .loading-card {
@@ -4489,9 +4479,161 @@ body.dark-mode .site-footer {
         padding: 16px 0 24px;
     }
 
-    .login-panel-inner {
+.login-panel-inner {
         width: auto;
         max-width: none;
         margin: 0 12px;
     }
+}
+
+/* ========================================
+   UI Polish Layer
+======================================== */
+.card,
+.stat-card,
+.metric-item,
+.table-shell,
+.chart-shell,
+.login-panel-inner {
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease,
+        background-color 0.28s ease;
+}
+
+.card:hover,
+.stat-card:hover,
+.metric-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12) !important;
+}
+
+.dashboard-stats .stat-card {
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.dashboard-stats .stat-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14) !important;
+}
+
+.metrics-grid .metric-item,
+.student-management-table,
+.table-shell,
+.chart-shell {
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.table-shell {
+    border-color: rgba(148, 163, 184, 0.22);
+}
+
+.table-shell:hover {
+    box-shadow: 0 16px 30px rgba(79, 70, 229, 0.12);
+    border-color: rgba(99, 102, 241, 0.26);
+}
+
+.table-wrap tbody tr,
+table tbody tr {
+    transition: background-color 0.24s ease, transform 0.2s ease;
+}
+
+table tbody tr:hover,
+.table-wrap tbody tr:hover {
+    background: #f1f5f9;
+}
+
+body[data-theme="dark"] table tbody tr:hover,
+.dark-mode table tbody tr:hover,
+body.dark-mode table tbody tr:hover {
+    background: #1e293b !important;
+}
+
+button,
+.btn,
+.modern-btn,
+a.modern-btn {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease,
+        border-color 0.25s ease;
+}
+
+button:hover,
+.btn:hover,
+.modern-btn:hover,
+a.modern-btn:hover {
+    transform: translateY(-2px);
+}
+
+button:active,
+.btn:active,
+.modern-btn:active,
+a.modern-btn:active {
+    transform: translateY(0);
+}
+
+.modern-btn {
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
+}
+
+.modern-btn:hover {
+    box-shadow: 0 14px 24px rgba(15, 23, 42, 0.2);
+    filter: saturate(1.04);
+}
+
+.login-panel-inner {
+    box-shadow: 0 20px 44px rgba(15, 23, 42, 0.14);
+}
+
+.login-panel-inner:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 52px rgba(15, 23, 42, 0.18);
+}
+
+.chart-shell {
+    border-color: rgba(148, 163, 184, 0.24);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.92)) !important;
+}
+
+.chart-shell:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 30px rgba(6, 182, 212, 0.1);
+}
+
+.chart-image {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.chart-shell:hover .chart-image {
+    transform: scale(1.01);
+    filter: saturate(1.05);
+}
+
+.card-header-gradient {
+    box-shadow: 0 10px 26px rgba(79, 70, 229, 0.08);
+}
+
+body[data-theme="dark"] .card:hover,
+body[data-theme="dark"] .stat-card:hover,
+body[data-theme="dark"] .metric-item:hover,
+body.dark-mode .card:hover,
+body.dark-mode .stat-card:hover,
+body.dark-mode .metric-item:hover {
+    box-shadow: 0 16px 32px rgba(2, 6, 23, 0.4) !important;
+}
+
+body[data-theme="dark"] .table-shell,
+body[data-theme="dark"] .chart-shell,
+body.dark-mode .table-shell,
+body.dark-mode .chart-shell {
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.28);
+}
+
+body[data-theme="dark"] .chart-shell,
+body.dark-mode .chart-shell {
+    background: linear-gradient(180deg, rgba(17, 28, 49, 0.98), rgba(15, 23, 42, 0.94)) !important;
 }
