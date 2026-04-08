@@ -67,41 +67,36 @@ The current version is designed for day-to-day classroom administration. Faculty
 
 ```text
 classroom_assistant/
-├── app.py
-├── requirements.txt
-├── README.md
-├── activity_log.txt
-├── classroom_app/
-│   ├── __init__.py
-│   ├── config.py
-│   ├── legacy.py
-│   ├── blueprints/
-│   │   ├── api.py
-│   │   ├── auth.py
-│   │   └── pages.py
-│   └── services/
-│       ├── ai_logs.py
-│       ├── data.py
-│       └── student_management.py
-├── data/
-│   └── feedback.json
-├── database/
-│   ├── app.db
-│   ├── courses.csv
-│   ├── db.py
-│   └── students.csv
-├── docs/
-│   ├── final_technical_report.md
-│   ├── final_technical_report.pdf
-│   ├── generate_report.py
-│   └── screenshots/
-├── static/
-│   ├── charts/
-│   ├── css/
-│   ├── images/
-│   └── js/
-├── templates/
-└── utils/
+|-- app.py
+|-- requirements.txt
+|-- README.md
+|-- activity_log.txt
+|-- classroom_app/
+|   |-- __init__.py
+|   |-- config.py
+|   |-- legacy.py
+|   |-- blueprints/
+|   |   |-- api.py
+|   |   |-- auth.py
+|   |   `-- pages.py
+|   `-- services/
+|       |-- ai_logs.py
+|       |-- data.py
+|       `-- student_management.py
+|-- data/
+|   `-- feedback.json
+|-- database/
+|   |-- app.db
+|   |-- courses.csv
+|   |-- db.py
+|   `-- students.csv
+|-- static/
+|   |-- charts/
+|   |-- css/
+|   |-- images/
+|   `-- js/
+|-- templates/
+`-- utils/
 ```
 
 ### Folder Notes
@@ -113,7 +108,6 @@ classroom_assistant/
 - `data/feedback.json` stores submitted user feedback.
 - `static/` contains CSS, JavaScript, images, and generated chart assets.
 - `templates/` contains all rendered HTML pages.
-- `docs/` contains the project report source, generated PDF, and screenshots.
 
 ## Installation
 
@@ -156,28 +150,6 @@ SECRET_KEY=your-secure-random-secret
 
 Note: the application uses SQLite, CSV, JSON, and generated local files. On cloud platforms with ephemeral storage, persistent data should be planned separately for production usage.
 
-## Screenshots
-
-### Login Page
-
-![Login Page](docs/screenshots/Login%20page.png)
-
-### Dashboard
-
-![Dashboard](docs/screenshots/After%20Login.png)
-
-### Student Management
-
-![Student Management](docs/screenshots/Student%20Management.png)
-
-### Student Profile
-
-The repository currently includes screenshots for the main dashboard flows, but a dedicated student profile screenshot is not committed in `docs/screenshots/`. The live student profile page includes semester analytics, AI insights, charts, and PDF export actions.
-
-### Leaderboard
-
-![Leaderboard](docs/screenshots/Leader%20board.png)
-
 ## Future Enhancements
 
 - Mobile app version for faculty access on the go
@@ -189,6 +161,6 @@ The repository currently includes screenshots for the main dashboard flows, but 
 
 ## Author
 
-Poornesh S  
-Artificial Intelligence and Data Science  
+Poornesh S
+Artificial Intelligence and Data Science
 Bannari Amman Institute of Technology
